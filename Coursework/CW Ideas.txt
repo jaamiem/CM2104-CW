@@ -1,0 +1,7 @@
+Parking tracker: Mark your parking spot on the UI
+
+Parking Toll Timer: Displays time until toll ticket expires
+
+User reviews/Stars: Rated used parking spots
+
+User-Submitted Parking spots: 
