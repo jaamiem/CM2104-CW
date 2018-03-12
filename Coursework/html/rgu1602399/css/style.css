@@ -1,8 +1,19 @@
 /* The whole page */
+html {
+  height:100%;
+}
+
 body {
   font-family:sans-serif;
   margin:0;
   padding:0;
+  
+  position:fixed;
+  
+  display:flex;
+  flex-flow:column;
+  
+  height:100%;
 }
 
 main {
@@ -14,7 +25,6 @@ main {
 nav {
   width:100%;
   display:flex;
-  position:fixed;
   flex-flow:row;
   background-color:lightgrey;
 }
@@ -47,9 +57,29 @@ nav #searchtext {
   flex:1;
 }
 
-/* For the app icon */
-nav img {
+nav img { /* For the app icon */
   height:1cm;
+}
+
+/* Filters */
+#filters {
+  display:flex;
+  flex-flow:row;
+}
+
+#filters p {
+  margin-left:2mm;
+  margin-right:2mm;
+}
+
+.filter {
+  flex:1;
+  display:flex;
+  flex-flow:row;
+}
+
+.filter .slider {
+  flex:1;
 }
 
 /* The options area */
@@ -58,25 +88,6 @@ nav img {
   
   display:flex;
   flex-flow:column;
-}
-
-.filter {
-  display:flex;
-  flex-flow:row;
-}
-
-.filter .nametext {
-  flex:3;
-}
-
-.filter .filterbutton a {
-  font-size:24pt;
-  color:grey;
-  text-decoration:none;
-}
-
-.filter .filterbutton a:hover {
-  color:blue;
 }
 
 #options .button {

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>FindSpot</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
 	  <meta charset="UTF-8">
   </head>
@@ -21,29 +22,48 @@
       <a href="#">Help</a>
     </nav>
 	
+    <section id="filters">
+      <div class="filter">
+        <p>Distance</p>
+        <span id="distanceslider" class="slider"></span>
+        <p id="distancedisplay">xxx</p>
+      </div>
+      
+      <div class="filter">
+        <p>Price</p>
+        <span id="priceslider" class="slider"></span>
+        <p id="pricedisplay">xxx</p>
+      </div>
+    </section>
+  
+    <!-- Results:
+    
+    <div class="filter">
+        <p class="nametext">Nothern Territory Retail Park</p>
+        <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
+        <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
+        <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
+      </div>
+      
+      <div class="filter">
+        <p class="nametext">Warner Brothers Studios, London</p>
+        <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
+        <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
+        <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
+      </div>
+          
+      <div class="filter">
+        <p class="nametext">NCP Perth</p>
+        <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
+        <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
+        <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
+      </div>
+      -->
+  
     <main>
       <section id="options">
         <div id="filterlist">
-          <div class="filter">
-            <p class="nametext">Nothern Territory Retail Park</p>
-            <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
-            <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
-            <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
-          </div>
           
-          <div class="filter">
-            <p class="nametext">Warner Brothers Studios, London</p>
-            <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
-            <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
-            <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
-          </div>
-          
-          <div class="filter">
-            <p class="nametext">NCP Perth</p>
-            <p class="thumbsup filterbutton"><a href="#">&#x2191;</a></p>
-            <p class="thumbsdown filterbutton"><a href="#">&#x2193;</a></p>
-            <p class="flag filterbutton"><a href="#">&#x2691;</a></p>
-          </div>
         </div>
         
         <a href="#" class="button" id="bt_addlocation">Add Location</a>
@@ -89,5 +109,17 @@
     <footer>
       Copyright © 2018 CM2104 Web Development Group 17
     </footer>
+    
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+    
+    <script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
+        
+    <script src="js/findspot.js"></script>
   </body>
 </html>
