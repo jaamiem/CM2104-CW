@@ -29,6 +29,12 @@ nav * {
 nav a {
   color:gray;
   text-decoration:none;
+  
+  transition:.25s;
+}
+
+nav a:hover {
+  color:black;
 }
 
 nav form {
