@@ -1,11 +1,8 @@
 /* The whole page */
-#mainlogo {
-  display:block;
-  margin:auto;
-}
-
 body {
   font-family:sans-serif;
+  margin:0;
+  padding:0;
 }
 
 main {
@@ -16,32 +13,37 @@ main {
 /* Navigation */
 nav {
   width:100%;
+  display:flex;
+  position:fixed;
+  flex-flow:row;
+  background-color:lightgrey;
 }
 
-nav ul {
-  list-style:none;
-  padding:0;
+/* Spacing between navbar elements */
+nav * {
+  margin-left:1mm;
+  margin-right:1mm;
+}
+
+/* Link styling */
+nav a {
+  color:gray;
+  text-decoration:none;
+}
+
+nav form {
+  flex:1;
   display:flex;
   flex-flow:row;
-  justify-content:space-around;
 }
 
-nav ul li {
+nav #searchtext {
   flex:1;
 }
 
-nav ul li a {
-  display:block;
-  width:100%;
-  
-  text-decoration:none;
-  text-align:center;
-  
-  background-color:lightblue;
-  color:blue;
-  
-  line-height:2cm;
-  border:0.75mm blue solid;
+/* For the app icon */
+nav img {
+  height:1cm;
 }
 
 /* The options area */
