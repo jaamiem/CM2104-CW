@@ -61,10 +61,6 @@ nav ul li a {
   flex:3;
 }
 
-.filter .icon {
-  flex:1;
-}
-
 .filter .filterbutton a {
   font-size:24pt;
   color:grey;
