@@ -54,7 +54,12 @@ nav a:hover {
 nav form {
   flex:1;
   display:flex;
+  justify-content:flex-end;
   flex-flow:row;
+}
+
+nav form input {
+  max-width:480px;
 }
 
 nav #searchtext {
@@ -62,7 +67,7 @@ nav #searchtext {
 }
 
 nav img { /* For the app icon */
-  height:1cm;
+  height:1.25cm;
 }
 
 /* Filters */
@@ -80,19 +85,26 @@ nav img { /* For the app icon */
 .filter {
   flex:1;
   display:flex;
+  flex-flow:column;
+  margin:3mm;
+}
+
+.filterlabels {
+  display:flex;
+  justify-content:space-between;
   flex-flow:row;
 }
 
-.filter .slider {
-  flex:1;
-}
-
 /* The search results area */
-#results {
+#resultpanel {
   flex:1;
   
   display:flex;
   flex-flow:column;
+}
+
+#results {
+  flex:1;
 }
 
 .result {

@@ -4,7 +4,7 @@ $(function() {
   });
   
   $('#distanceslider').on('slide', function(event, ui) {
-    $('#distancedisplay').html("£" + ui.value);
+    updateDistanceLabel(ui.value);
   });
   
   $('#priceslider').slider({
@@ -12,6 +12,17 @@ $(function() {
   });
   
   $('#priceslider').on('slide', function(event, ui) {
-    $('#pricedisplay').html("£" + ui.value);
+    updatePriceLabel(ui.value);
   });
+  
+  updateDistanceLabel(0);
+  updatePriceLabel(0);
 });
+
+function updateDistanceLabel(newValue) {
+  $('#distancedisplay').html(newValue + " km");
+}
+
+function updatePriceLabel(newValue) {
+  $('#pricedisplay').html("£" + newValue);
+}
