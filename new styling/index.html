@@ -6,25 +6,25 @@
     <link rel="stylesheet" href="css/style.css">
 	  <meta charset="UTF-8">
   </head>
-  
+
   <body>
-    
-    
+
+
     <nav>
       <a href="#"><img alt="FindSpot logo" src="img/findspot.svg" id="mainlogo"></a>
-        
+
       <form>
         <input id="searchtext" type="text" name="q">
         <input id="searchbutton" type="button" name="searchbutton" value="Search">
       </form>
-        
+
       <a id="navabout" href="#">About</a>
       <a id="navhelp" href="#">Help</a>
     </nav>
-	  
+
     <main>
-      
-      
+
+
       <section id="resultpanel">
         <div id="filters">
           <div class="filter">
@@ -34,7 +34,7 @@
             </div>
             <div id="distanceslider" class="slider"></div>
           </div>
-          
+
           <div class="filter">
             <div class="filterlabels">
               <p>Price</p>
@@ -43,7 +43,7 @@
             <div id="priceslider" class="slider"></div>
           </div>
         </div>
-        
+
         <div id="results">
           <div class="result">
             <p class="nametext">Nothern Territory Retail Park</p>
@@ -51,14 +51,14 @@
             <p class="thumbsdown resultbutton"><a href="#">&#x2193;</a></p>
             <p class="flag resultbutton"><a href="#">&#x2691;</a></p>
           </div>
-        
+
           <div class="result">
             <p class="nametext">Warner Brothers Studios, London</p>
             <p class="thumbsup resultbutton"><a href="#">&#x2191;</a></p>
             <p class="thumbsdown resultbutton"><a href="#">&#x2193;</a></p>
             <p class="flag resultbutton"><a href="#">&#x2691;</a></p>
           </div>
-            
+
           <div class="result">
             <p class="nametext">NCP Perth</p>
             <p class="thumbsup resultbutton"><a href="#">&#x2191;</a></p>
@@ -66,29 +66,29 @@
             <p class="flag resultbutton"><a href="#">&#x2691;</a></p>
           </div>
         </div>
-        
+
         <button id="locationbutton">Add location</button>
       </section>
-      
+
       <section id="mappanel">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2166.085257560743!2d-2.1429439833835677!3d57.1185060809407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488410483d2f0941%3A0x5d8969688e77366a!2sRobert+Gordon+University!5e0!3m2!1sen!2suk!4v1521243861327" width="2000" height="1300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2166.085257560743!2d-2.1429439833835677!3d57.1185060809407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488410483d2f0941%3A0x5d8969688e77366a!2sRobert+Gordon+University!5e0!3m2!1sen!2suk!4v1521243861327" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
       </section>
     </main>
-	
+
     <footer>
       Copyright © 2018 CM2104 Web Development Group 17
     </footer>
-    
+
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
-    
+
     <script
 			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
 			  crossorigin="anonymous"></script>
-        
+
     <script src="js/findspot.js"></script>
   </body>
 </html>
