@@ -171,3 +171,39 @@ nav img { /* For the app icon */
 	border:1px solid grey;
 
 }
+
+/* New page styling */
+
+.pageh3{
+	
+	font-size:35px;
+	padding:50px;
+	text-decoration:underline;
+	
+	
+}
+
+.pagep{
+	
+	font-size:20px;
+	line-height: 2em;
+	margin-bottom: 20px;
+	padding:70px;
+	
+}
+
+#pagefooter{
+	
+   position:absolute;
+   bottom:0;
+   width:100%;
+   	
+}
+
+.pageol{
+	
+	font-size:20px;
+	margin:50px;
+	
+}
+
