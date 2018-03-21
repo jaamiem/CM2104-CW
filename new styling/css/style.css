@@ -152,9 +152,7 @@ nav img { /* For the app icon */
 
 /* The map panel area (the right-side panel) */
 #mappanel {
-	height:93vh;
-	width:80vw;
-
+	flex:2;
 }
 
 #mappanel img {
