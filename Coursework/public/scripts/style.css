@@ -51,17 +51,6 @@ nav a:hover {
   color:black;
 }
 
-nav form {
-  flex:1;
-  display:flex;
-  justify-content:flex-end;
-  flex-flow:row;
-}
-
-nav form input {
-  max-width:480px;
-}
-
 nav #searchtext {
   flex:1;
   margin:10px;
@@ -195,7 +184,8 @@ footer{
    /*position:absolute;*/
    bottom:0;
    width:100%;
-   	
+   text-align:center;
+   
 }
 
 .pageol{
