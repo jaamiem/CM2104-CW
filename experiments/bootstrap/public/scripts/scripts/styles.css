@@ -1,0 +1,51 @@
+html, body{
+	background-color: #4d94ff;
+	height: 100vh;
+}
+
+.wrap {
+	width:80%;
+	height: 80%;
+	border-radius: 10px;
+	background-color: #e6e6e6;
+	margin: 0 auto;
+	padding: 1em 2em 1em 2em;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.btn-group>.dropdown-menu{
+	padding: 10 10 10 10px;
+}
+
+.space {
+	margin-bottom: 1em;
+}
+
+.caret {
+	margin-right: 25px;
+}
+
+#map {
+	height: 92vh;
+	width: 100vw;
+	overflow:auto;
+}
+
+.linkbar {
+	padding: 1.3em 4em 0em 4em;
+}
+
+.linkbar a{
+	color: #99c2ff;
+	margin: 1em 2em 0px 2em;
+	text-decoration: none;
+	font-size: 1.3em;
+	color: white;
+}
+
+.centerNav {
+	margin-top: 0.7em;
+}
