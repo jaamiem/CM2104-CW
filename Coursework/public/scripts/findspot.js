@@ -1,3 +1,6 @@
+var parkingMap;
+var searchBox;
+
 $(function() {
   $('#distanceslider').slider({
     value:0
@@ -25,4 +28,13 @@ function updateDistanceLabel(newValue) {
 
 function updatePriceLabel(newValue) {
   $('#pricedisplay').html("£" + newValue);
+}
+
+function initMap() {
+  parkingMap = new google.maps.Map(document.getElementById('mappanel'), {
+    center: {lat: 55.0, lng: 0},
+    zoom: 5
+  });
+  
+  searchBox = new google.maps.places.SearchBox(document.getElementById('searchtext'));
 }
