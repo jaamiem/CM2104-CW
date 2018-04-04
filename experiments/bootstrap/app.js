@@ -41,6 +41,10 @@ app.get('/', (req, res) => {
 	res.render('home', { title: 'Home', spots: spots });
 });
 
+app.post('/', (req, res) => {
+	res.render('home', { title: 'Home', spots: spots });
+});
+
 //  About Page
 app.get('/about', (req,res) => {
 	res.render('about', { title: 'About' });
