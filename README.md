@@ -1,5 +1,8 @@
 # CM2104-CW
 
+# DeadLines Document
+https://docs.google.com/document/d/17crN29vP91UqJ3RcyfgRz0Bf8P8KH_-w51CIAIipcjg/edit?usp=sharing
+
 ## how to run the application
 go to the coursework folder in CM2104-CW (cd) in codio and type the following commands:
 
