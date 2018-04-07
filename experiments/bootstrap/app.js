@@ -45,14 +45,26 @@ app.get('/', (req, res) => {
 	res.render('home', { title: 'Home', spots: spots });
 });
 
+app.post('/', (req, res) => {
+	res.render('home', { title: 'Home', spots: spots });
+});
+
 //  About Page
 app.get('/about', (req,res) => {
 	res.render('about', { title: 'About' });
-})
+});
+
+app.post('/about', (req,res) => {
+	res.render('about', { title: 'About' });
+});
 
 //  Help Page
 app.get('/help', (req,res) => {
 	res.render('help', { title: 'Help' });
-})
+});
+
+app.post('/help', (req,res) => {
+	res.render('help', { title: 'Help' });
+});
 
 app.listen(8080);
