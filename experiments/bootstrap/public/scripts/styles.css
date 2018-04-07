@@ -1,8 +1,12 @@
-html, body {
+html {
+	height:100%;
+}
+
+body {
 	background-color: #4d94ff;
-	height: 100%;
-	width: 100%;
-	font-size: 90%;
+	min-height:100%;
+	display:flex;
+	flex-flow:column;
 }
 
 /* _____Nav Bar_____ */
@@ -70,6 +74,9 @@ html, body {
 }
 
 /* _____Content_____ */
+#content {
+	flex:1;
+}
 
 .wrap {
 	width:80%;
@@ -88,11 +95,10 @@ html, body {
 
 #map {
 	background-color: #4d94ff !important;
-	position: absolute;
-	top: 15%;
-	height: 85%;
 	width: 100%;
+	height: 100%;
 }
+
 #sidebar {
 	min-width: 15%;
 	max-width: 15%;
