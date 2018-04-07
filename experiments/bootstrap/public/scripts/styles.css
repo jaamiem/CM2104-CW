@@ -6,20 +6,6 @@ html, body {
 }
 
 /* _____Nav Bar_____ */
-.navbar {
-	min-height: 0px !important;
-	position: absolute;
-	height: 7.5%;
-}
-
-.navbar .navbar-collapse {
-	text-align: center;
-}
-
-.btn-group>.dropdown-menu {
-	padding: 10 10 10 10px;
-}
-
 .searchbar {
 	box-shadow: 0 .2em 0.7em #0066ff;
 }
@@ -37,18 +23,9 @@ html, body {
 }
 
 /* _____Link Bar_____ */
-.dropdown-menu {
-	position: absolute;
-	z-index: 3;
-}
-
-.linkbar {
-	list-style-type: none;
-	margin: 0;
-}
-
 .linkbar > li, .linkbar div a {
-	display: inline-block; padding-right: 1em;
+	display: inline-block;
+	padding-right: 1em;
 }
 
 .linkbar li > a, .linkbar div a {
@@ -67,7 +44,7 @@ html, body {
 	border-radius: 7px;
 }
 
-.linkbar a:hover, .linkbar div a:hover {
+.linkbar a:hover {
 	color: #f7f7f7;
 	transition: all 0.14s ease-in-out; 
 }
@@ -93,13 +70,6 @@ html, body {
 }
 
 /* _____Content_____ */
-.content {
-	position: absolute;
-	top: 7.5%;
-	height: 92.5%;
-	width: 100%;
-	display: flex;
-}
 
 .wrap {
 	display:flex;
