@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 
 //  Initial page
 app.get('/', (req, res) => {
-	res.render('home', { title: 'Home', spots: spots });
+	res.render('home', { title: 'Home', query: req.query.q, spots: spots });
 });
 
 app.post('/', (req, res) => {

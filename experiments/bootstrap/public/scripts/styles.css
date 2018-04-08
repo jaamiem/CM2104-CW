@@ -76,6 +76,8 @@ body {
 /* _____Content_____ */
 #content {
 	flex:1;
+	display:flex;
+	flex-flow:row;
 }
 
 .wrap {
@@ -103,4 +105,9 @@ body {
 	min-width: 15%;
 	max-width: 15%;
 	height: 100%;
+}
+
+/* _____Results_____ */
+#resultsPane {
+	padding:2em;
 }
