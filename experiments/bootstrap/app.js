@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-	res.render('home', { title: 'Home', spots: spots });
+	res.render('home', { title: 'Home', query: null, spots: spots });
 });
 
 //  About Page

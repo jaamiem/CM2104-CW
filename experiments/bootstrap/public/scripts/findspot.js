@@ -6,4 +6,8 @@ $(function() {
 			$('#login').css('display', 'none');
 		}
 	});
+	
+	$('#closeSearch').click(function() {
+		$('#resultsPane').css('display', 'none');
+	});
 });

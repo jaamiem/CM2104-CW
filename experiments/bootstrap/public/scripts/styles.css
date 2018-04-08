@@ -27,12 +27,12 @@ body {
 }
 
 /* _____Link Bar_____ */
-.linkbar > li, .linkbar div a {
+.linkbar > li, .linkbar div a, #closeSearch {
 	display: inline-block;
 	padding-right: 1em;
 }
 
-.linkbar li > a, .linkbar div a {
+.linkbar li > a, .linkbar div a, #closeSearch {
 	text-decoration: none;
 	text-align: center;
 	font-size: large;
@@ -41,19 +41,19 @@ body {
 	display: inline-block;
 }
 
-.linkbar .active > a {
+.linkbar .active > a, #closeSearch {
 	color: #0047b3;
 	background-color: #f7f7f7;
 	box-shadow: inset 0 -0.3em 0.5em #e6e6e6;
 	border-radius: 7px;
 }
 
-.linkbar a:hover {
+.linkbar a:hover, #closeSearch:hover {
 	color: #f7f7f7;
 	transition: all 0.14s ease-in-out; 
 }
 
-.active > a:hover {
+.active > a:hover, #closeSearch:hover {
 	color: white;
 	background-color: #1a75ff;
 	box-shadow: inset 0 -0.3em 0.5em #005ce6;
@@ -99,19 +99,20 @@ body {
 	background-color: #4d94ff !important;
 	width: 100%;
 	height: 100%;
-}
-
-#sidebar {
-	min-width: 15%;
-	max-width: 15%;
-	height: 100%;
+	flex:4;
 }
 
 #login {
 	display:none;
+	flex:1;
 }
 
 /* _____Results_____ */
 #resultsPane {
 	padding:2em;
+	flex:1;
+}
+
+#closeSearch {
+	float:right;
 }

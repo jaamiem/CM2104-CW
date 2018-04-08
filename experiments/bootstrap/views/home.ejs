@@ -10,9 +10,9 @@
 </script>
 
 <div id="content">
-	<%# if (query !== undefined && query !== null && query !== "") { %>
-		<%# include('partials/sidebar'); %>
-	<%# } %>
+	<% if (query !== undefined && query !== null && query !== "") { %>
+		<%- include('partials/sidebar'); %>
+	<% } %>
 	<div id="map"></div>
 	<%- include('partials/login') %>
 </div>
