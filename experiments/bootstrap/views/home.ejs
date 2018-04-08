@@ -5,8 +5,34 @@
 <%- include('partials/navbar') %>
 
 <script>
-	// TODO: Script sidebar functions
-	// TODO: Try swapping the map script above the nav bar to solver overlapping map.
+var map;
+var spots = <%- JSON.stringify(spots) %>;
+
+function initMap() {
+	var abz = {lat:57.1497, lng:-2.0943};
+	map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 8,
+		center: abz
+	});
+}
+
+function placeMarker(location){
+	var marker = new google.maps.Marker({
+		position: location,
+		map: map
+	});
+}
+
+$(function() {
+	initMap();
+	
+	<% if (query !== undefined && query !== null && query !== "") { %>
+		spots.forEach(function(item) {
+			placeMarker({lat: item.lat, lng: item.lng});
+		});
+	<% } %>
+});
+
 </script>
 
 <div id="content">
@@ -16,25 +42,6 @@
 	<div id="map"></div>
 	<%- include('partials/login') %>
 </div>
-
-<script>
-function initMap() {
-	var abz = {lat:57.1497, lng:-2.0943};
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 8,
-		center: abz
-	});
-}
-
-// TODO: Write loop to place all spots on the map 
-function placeMarker(map, location){
-	var marker = new google.maps.marker({
-		position: location,
-		map: map
-	});
-}
-
-</script>
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">

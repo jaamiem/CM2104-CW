@@ -11,3 +11,4 @@ $(function() {
 		$('#resultsPane').css('display', 'none');
 	});
 });
+

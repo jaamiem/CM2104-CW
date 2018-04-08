@@ -1,10 +1,14 @@
 <div id="resultsPane">
 	<a id="closeSearch" class="btn accBtn" href="#">close</a>
 	<h3>Search</h3>
-	<p>for "<%- query %>"</p>
-	<ul>
-		<% spots.forEach(function() { %>
-			<li><a href="#">Home 1</a></li>
+	<p>for "<%= query %>"</p>
+	<div class="list-group">
+		<% spots.forEach(function(item) { %>
+			<a href="#" class="list-group-item">
+				<%= item.name %>
+				<br>
+				<%= item.type %>
+			</a>
 		<% }); %>
-	</ul>
+	</div>
 </div>
