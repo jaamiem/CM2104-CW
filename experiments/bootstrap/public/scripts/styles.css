@@ -112,6 +112,10 @@ body {
 	flex:1;
 }
 
+#resultsPane ul {
+	list-style:none;
+}
+
 #closeSearch {
 	float:right;
 }

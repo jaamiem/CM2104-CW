@@ -2,13 +2,15 @@
 	<a id="closeSearch" class="btn accBtn" href="#">close</a>
 	<h3>Search</h3>
 	<p>for "<%= query %>"</p>
-	<div class="list-group">
+	<ul class="list-group">
 		<% spots.forEach(function(item) { %>
-			<a href="#" class="list-group-item">
-				<%= item.name %>
-				<br>
-				<%= item.type %>
-			</a>
+			<li>
+				<a href="#" class="list-group-item">
+					<%= item.name %>
+					<br>
+					<%= item.type %>
+				</a>
+			</li>
 		<% }); %>
-	</div>
+	</ul>
 </div>
