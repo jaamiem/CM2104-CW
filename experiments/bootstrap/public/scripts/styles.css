@@ -10,14 +10,20 @@ body {
 }
 
 /* _____Nav Bar_____ */
-.searchbar {
-	box-shadow: 0 .2em 0.7em #0066ff;
+.navbar {
+	display:flex;
+	align-items:center;
 }
 
-.centerNav {
-	position: relative;
-	top: 50%;
-	transform: translateY(50%);
+.searchbar {
+	/* box-shadow: 0 .2em 0.7em #0066ff; */
+	flex:1;
+	display:flex;
+	align-items:center;
+}
+
+.searchbar > input {
+	flex:1;
 }
 
 .navbar-brand {
@@ -27,6 +33,11 @@ body {
 }
 
 /* _____Link Bar_____ */
+.linkbar {
+	display:flex;
+	align-items:center;
+}
+
 .linkbar > li, .linkbar div a, #closeSearch {
 	display: inline-block;
 	padding-right: 1em;

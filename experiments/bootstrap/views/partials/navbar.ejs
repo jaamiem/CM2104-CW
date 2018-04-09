@@ -1,31 +1,27 @@
 <nav class="navbar navbar-dark">
-	<div class="container-fluid">
-		<!-- LOGO & BURGER MENU -->
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/" style="">Findspot</a>
+	<!-- LOGO & BURGER MENU -->
+	
+	<a class="navbar-brand" href="/" style="">Findspot</a>
 
-			<%# TODO: push into hamburger to size for mobile %>
-			<%# TODO: adjust searchbar size on <~1200 screens%>
-			<div class="pull-right linkbar centerNav">
-				<ul class="linkbar pull-left">
-					<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
-					<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
-					<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
-				</ul>
+	<%# TODO: push into hamburger to size for mobile %>
+	<%# TODO: adjust searchbar size on <~1200 screens%>
+	<!-- SEARCH BAR -->
+	<form class="input-group col-sm-6 centerNav searchbar">
+		<noscript><label for="q">Search</label></noscript>
+		<input name="q" class="form-control" type="search" placeholder="Find a spot...">
+		<div>
+			<button class="btn btn-default" type="submit" style="transition: all 1s;">Go!</button>
+		</div>
+	</form>
+	<div class="pull-right linkbar centerNav">
+		<ul class="linkbar pull-left">
+			<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+			<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
+			<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
+		</ul>
 
-				<div id="buttonContainer" class="show pull-right">
-					<!-- Login button goes here -->
-				</div>
-			</div>
-
-			<!-- SEARCH BAR -->
-			<form class="input-group col-sm-6 centerNav searchbar">
-				<noscript><label for="q">Search</label></noscript>
-				<input name="q" class="form-control" type="search" placeholder="Find a spot...">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit" style="transition: all 1s;">Go!</button>
-				</span>
-			</form>
+		<div id="buttonContainer" class="show pull-right">
+			<!-- Login button goes here -->
 		</div>
 	</div>
 </nav>
