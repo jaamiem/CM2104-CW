@@ -8,18 +8,19 @@
 			<%# TODO: adjust searchbar size on <~1200 screens%>
 			<div class="pull-right linkbar centerNav">
 				<ul class="linkbar pull-left">
-					<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a><li>
+					<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
 					<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
 					<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
 				</ul>
 
-				<div class="show pull-right">
-					<a href='#' id="loginButton" class="btn accBtn active">Login</a>
+				<div id="buttonContainer" class="show pull-right">
+					<!-- Login button goes here -->
 				</div>
 			</div>
 
 			<!-- SEARCH BAR -->
 			<form class="input-group col-sm-6 centerNav searchbar">
+				<noscript><label for="q">Search</label></noscript>
 				<input name="q" class="form-control" type="search" placeholder="Find a spot...">
 				<span class="input-group-btn">
 					<button class="btn btn-default" type="submit" style="transition: all 1s;">Go!</button>
