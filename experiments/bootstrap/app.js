@@ -68,3 +68,19 @@ app.post('/help', (req,res) => {
 });
 
 app.listen(8080);
+
+// database stuff
+
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/user_inputed_location";
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'))
+var db;
+
+MongoClient.connect(url, function(err, database){
+ if(err) throw err;
+ 	db = database;
+	app.listen(8080);
+});
