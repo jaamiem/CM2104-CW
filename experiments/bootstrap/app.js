@@ -88,3 +88,11 @@ MongoClient.connect(url, function(err, database){
  	db = database;
 	app.listen(8080);
 });
+
+app.post('/locations', function (req, res) {
+ db.collection('locations').save(req.body, function(err, result) {
+ if (err) throw err;
+ console.log('location added to database')
+ res.redirect('/')
+ })
+})
