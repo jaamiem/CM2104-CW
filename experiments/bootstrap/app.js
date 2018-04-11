@@ -2,6 +2,8 @@
 var express = require('express');
 var ejs = require('ejs');
 
+//added line for database since 'post' is used 
+const bodyParser = require('body-parser')
 var app = express();
 
 const spots = [
@@ -39,6 +41,8 @@ const spots = [
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
+// line for database
+app.use(bodyParser.urlencoded({extended:true}))
 
 //  Initial page
 app.get('/', (req, res) => {
