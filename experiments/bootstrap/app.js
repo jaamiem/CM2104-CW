@@ -73,9 +73,6 @@ app.post('/help', (req,res) => {
 	res.render('help', { title: 'Help' });
 });
 
-app.listen(8080);
-
-
 app.use(express.static('public'))
 var db;
 
