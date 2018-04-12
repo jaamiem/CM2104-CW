@@ -4,6 +4,10 @@
 <body>
 <%- include('partials/navbar') %>
 
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
+</script>
+
 <script>
 var map;
 var spots = <%- JSON.stringify(spots) %>;
@@ -44,10 +48,6 @@ $(function() {
 	</div>
 	<%- include('partials/login') %>
 </div>
-
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
-</script>
 
 </body>
 </html>
