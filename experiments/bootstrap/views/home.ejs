@@ -43,9 +43,9 @@ $(function() {
 	<% if (query !== undefined && query !== null && query !== "") { %>
 		<%- include('partials/sidebar'); %>
 	<% } %>
-	<div id="map">
-		<div class="wrap">Unfortunately, we haven't been able to load Google Maps.</div>
-	</div>
+		<div class="wrap">
+			<div id="map">Unfortunately, we haven't been able to load Google Maps.</div>
+		</div>
 	<%- include('partials/login') %>
 </div>
 
