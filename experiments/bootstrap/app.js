@@ -1,4 +1,6 @@
 //  Include Express and set it to app
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/user_inputed_location";
 var express = require('express');
 var ejs = require('ejs');
 
@@ -73,12 +75,6 @@ app.post('/help', (req,res) => {
 
 app.listen(8080);
 
-// database stuff
-
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/user_inputed_location";
-const express = require('express');
-const app = express();
 
 app.use(express.static('public'))
 var db;
