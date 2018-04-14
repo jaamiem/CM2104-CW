@@ -3,8 +3,10 @@ $(function() {
 		$('#resultsPane').css('display', 'none');
 	});
 	
+	// Add elements to the menu (these are not displayed with JS disabled)
 	$('#login').css('display', 'none');
-	$('#buttonContainer').append("<a href='#' id='loginButton' class='btn accBtn active'>Login</a>");
+	$('#loginButtonContainer').append("<a href='#' id='loginButton' class='btn accBtn active'>Login</a>");
+	$('#burgerContainer').append("<a href='#' class='btn accBtn active'>&equiv;</a>");
 	
 	$('#loginButton').click(function() {
 		if ($('#login').css('display') == 'none') {
