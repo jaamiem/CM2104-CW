@@ -107,3 +107,11 @@ body {
 #closeSearch {
 	float:right;
 }
+
+/* Slide content */
+.slidetext {
+	width:45%;
+	font-style:200%;
+	position:absolute;
+	color:#000000;
+}
