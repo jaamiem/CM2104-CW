@@ -1,30 +1,32 @@
 <nav class="navbar navbar-dark">
-	<!-- LOGO & BURGER MENU -->
-	
-	<a class="navbar-brand" href="/" style="">Findspot</a>
-
-	<%# TODO: push into hamburger to size for mobile %>
-	<%# TODO: adjust searchbar size on <~1200 screens%>
-	<!-- SEARCH BAR -->
-	<form class="input-group col-sm-6 centerNav searchbar">
-		<noscript><label for="q">Search</label></noscript>
-		<input name="q" class="form-control" type="search" placeholder="Find a spot...">
-		<div>
-			<button class="btn btn-default" type="submit" style="transition: all 1s;">Go!</button>
+	<div class="container-fluid">
+		<!-- LOGO & BURGER MENU -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/" style="">Findspot</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 		</div>
-	</form>
-	<div class="pull-right linkbar centerNav">
-		<ul class="linkbar pull-left">
-			<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
-			<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
-			<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
-		</ul>
 
-		<div id="loginButtonContainer" class="show pull-right">
-			<!-- Login button goes here -->
+		<%# TODO: push into hamburger to size for mobile %>
+		<%# TODO: adjust searchbar size on <~1200 screens%>
+		<!-- SEARCH BAR -->
+		<form class="input-group col-sm-6 col-xs-2 centerNav searchbar">
+			<noscript><label for="loc">Search</label></noscript>
+			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" style="transition: all 1s;">Go!</button>
+			</span>
+		</form>
+
+		<div id="myNav" class="pull-right linkbar centerNav collapse navbar-collapse">
+			<ul class="linkbar pull-left">
+				<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+				<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
+				<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
+			</ul>
 		</div>
-	</div>
-	<div id="burgerContainer" class="show pull-right">
-		<!-- Burger menu goes here -->
 	</div>
 </nav>
