@@ -33,17 +33,9 @@ body {
 }
 
 /* _____Link Bar_____ */
-/* mobiles */
 .linkbar {
-	display:none;
-}
-
-/* computers */
-@media (min-width: 768px) {
-	.linkbar {
-		display:flex;
-		align-items:center;
-	}
+	display:flex;
+	align-items:center;
 }
 
 .linkbar > li, .linkbar div a, #closeSearch {
