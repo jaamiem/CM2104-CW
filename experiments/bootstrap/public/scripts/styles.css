@@ -84,17 +84,8 @@ body {
 	background-color: #f7f7f7;
 }
 
-/* _____Hamburger menu_____ */
-#burgerContainer a {
-	font-size:300%;
-	/*display:inline-block;*/
-	color:#333333;
-}
-
-@media (min-width: 768px) {
-	#burgerContainer a {
-		display:none;
-	}
+#burgerButton {
+	float:right;
 }
 
 /* _____Content_____ */
