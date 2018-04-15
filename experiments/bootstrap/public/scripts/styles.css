@@ -4,27 +4,11 @@ html {
 
 body {
 	background-color: #4d94ff;
-	min-height:100%;
-	display:flex;
-	flex-flow:column;
 }
 
-/* _____Nav Bar_____ */
-.navbar {
-	display:flex;
-	align-items:center;
-}
-
-.searchbar {
-	/* box-shadow: 0 .2em 0.7em #0066ff; */
-	flex:1;
-	display:flex;
-	align-items:center;
-}
-
-.searchbar > input {
-	flex:1;
-}
+/*.searchbar {
+	box-shadow: 0 .2em 0.7em #0066ff;
+}*/
 
 .navbar-brand {
 	font-size:1.7em;
@@ -33,16 +17,6 @@ body {
 }
 
 /* _____Link Bar_____ */
-.linkbar {
-	display:flex;
-	align-items:center;
-}
-
-.linkbar > li, .linkbar div a, #closeSearch {
-	display: inline-block;
-	padding-right: 1em;
-}
-
 .linkbar li > a, .linkbar div a, #closeSearch {
 	text-decoration: none;
 	text-align: center;
@@ -106,7 +80,7 @@ body {
 	padding: 1em 2em 1em 2em;
 }
 
-.navbar, .navbar-header {
+.navbar-header {
 	width:100%;
 }
 
@@ -114,17 +88,11 @@ body {
 	background-color: #4d94ff !important;
 	width: 100%;
 	height: 640px;
-	flex:4;
-}
-
-#login {
-	flex:1;
 }
 
 /* _____Results_____ */
 #resultsPane {
 	padding:2em;
-	flex:1;
 }
 
 #resultsPane ul {
