@@ -7,7 +7,7 @@ body {
 	height:100%;
 }
 
-/searchbar {
+.searchbar {
 	/*box-shadow: 0 .2em 0.7em #0066ff;*/
 }
 
@@ -65,7 +65,7 @@ body {
 }
 
 #burgerButton {
-	float:right;
+	/*float:right;*/
 }
 
 /* _____Content_____ */
@@ -78,10 +78,6 @@ body {
 	margin: 0 auto;
 	margin-top: 4em;
 	padding: 1em 2em 1em 2em;
-}
-
-.navbar-header {
-	width:100%;
 }
 
 #content {

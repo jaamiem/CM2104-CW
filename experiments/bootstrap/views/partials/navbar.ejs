@@ -8,19 +8,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 		</div>
 
 		<%# TODO: push into hamburger to size for mobile %>
 		<%# TODO: adjust searchbar size on <~1200 screens%>
 		<!-- SEARCH BAR -->
-		<form class="input-group col-sm-6 col-xs-2 centerNav searchbar">
-			<noscript><label for="loc">Search</label></noscript>
-			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
-			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">Go!</button>
-			</span>
-		</form>
+		<div id="search-container" class="">
+			<form class="input-group centerNav searchbar">
+				<noscript><label for="loc">Search</label></noscript>
+				<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Go!</button>
+				</span>
+			</form>
+		</div>
 
 		<!-- The main links in the navbar -->
 		<div id="myNav" class="pull-right linkbar centerNav collapse navbar-collapse">
