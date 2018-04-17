@@ -23,7 +23,6 @@ body {
 /* _____Link Bar_____ */
 nav {
 	flex:0;
-	flex-shrink:1;
 }
 
 .linkbar li > a, .linkbar div a, #closeSearch {
