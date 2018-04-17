@@ -66,6 +66,11 @@ app.all('/help', (req, res) => {
 	res.render( 'help', { title: 'Help' });
 });
 
+//  Login Page
+app.all('/login', (req, res) => {
+	res.render( 'login', { title: 'Log in' });
+});
+
 app.listen(8080);
 
 // var db;
