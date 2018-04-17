@@ -1,9 +1,8 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html lang="en">
 <%- include('partials/header') %>
 <body>
 <%- include('partials/navbar') %>
-<div>
 
 <div id="carouselFS" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
@@ -12,6 +11,10 @@
 		<li data-target="#carouselFS" data-slide-to="2"></li>
 	</ol>
 	
+	<!-- Each carousel item contains a 'slidetext' div which contains text to be displayed
+	     and an image to be shown in the background.  -->
+	     
+	<!-- First slide (who are we)-->
 	<div class="carousel-inner">
 		<div class="carousel-item active">
 			<div class="carousel-content" style="color: rgb(255, 255, 255); ">
@@ -23,6 +26,7 @@
 		</div>
     </div>
     
+    <!-- Second slide (philosophy) -->
     <div class="carousel-item">
 		<div class="slidetext">
 			<h3>Philosophy</h3>
@@ -30,6 +34,8 @@
 		</div>
 		<img class="d-block w-100" src="Images\philosophy.jpg" alt="A cartoon showing a brain sitting on a stool, pondering.">
     </div>
+    
+    <!-- Third slide (goals) -->
     <div class="carousel-item">
 		<div class="slidetext">
 			<h3>Goals</h3>
@@ -38,17 +44,20 @@
 		<img class="d-block w-100" src="Images\goals.jpg" alt="A cartoon of a man riding a moped on a jagged red arrow moving upwards. A briefcase has fallen off of the back of the moped.">
     </div>
   </div>
+  
   <a class="carousel-control-prev" href="#carouselFS" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
+  
   <a class="carousel-control-next" href="#carouselFS" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+  
 </div>
 
+<!-- Body text below the carousel -->
 <div id="content">
 	<div class="wrap">
 		<section>
