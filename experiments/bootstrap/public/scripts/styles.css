@@ -21,6 +21,10 @@ body {
 }
 
 /* _____Link Bar_____ */
+nav {
+	flex:0;
+}
+
 .linkbar li > a, .linkbar div a, #closeSearch {
 	text-decoration: none;
 	text-align: center;
@@ -72,7 +76,7 @@ body {
 
 /* _____Content_____ */
 #content {
-	height:100%;
+	flex:1;
 }
 
 .wrap {
