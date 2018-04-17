@@ -84,6 +84,10 @@ body {
 	width:100%;
 }
 
+#content {
+	height:100%;
+}
+
 #map {
 	background-color: #4d94ff !important;
 	width: 100%;
