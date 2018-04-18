@@ -1,0 +1,73 @@
+html, body { background-color: #232f3e; min-height: 100%; width: 100%; font-size: 90%; font-family: 'Catamaran', sans-serif;}
+
+/* _____Nav Bar_____ */
+.navbar { align-items:center; min-height: 0px !important; height: 75px; }
+/* .searchbar { box-shadow: 0 .2em 0.7em #6c89ac; } */
+.navbar-brand { font-size:1.9em; color:white !important; margin-top: 0.4em; }
+/* _____Link Bar_____ */
+.linkbar { list-style-type: none; margin: 0; }
+.linkbar > li, .linkbar div a { display: inline-block; padding-right: 1em; }
+.linkbar li > a, .linkbar div a {
+	text-decoration: none;
+	text-align: center;
+	font-size: large;
+	color: #b3b3b3;
+	width: 4em;
+	display: inline-block;
+}
+.linkbar .active > a {
+	color: #F7F7F7;
+	border-radius: 7px;
+	font-weight: bolder;
+}
+.linkbar a:hover { color: #f7f7f7; transition: all 0.14s ease-in-out; }
+.active > a:hover {
+	color: white;
+	transition: all 0.14s linear;
+}
+/* _____Text Tags_____ */
+h1,h2,h3,h4 {
+	font-weight: bold;
+}
+label {	color: white; }
+
+/* _____Content_____ */
+#content {
+	width: 100%;
+	heigh: 100vh;
+}
+#wrap {
+	width:80%;
+	height: 80%;
+	border-radius: 7px;
+	background-color: #253241;
+	box-shadow: .1px 10px 12px #1c2331;
+	color: #404040;
+	margin: 0 auto;
+	margin-top: 4em;
+	padding: 1em 2em 1em 2em;
+}
+#map {
+	background-color: #4d94ff !important;
+	height: -webkit-calc(100vh - 75px);
+	height: -moz-calc(100vh - 75px);
+	height: calc(100vh - 75px);
+	width: 100%;
+}
+
+/* _____Slide content_____ */
+.slidetext {
+	width:45%;
+	font-style:200%;
+	position:absolute;
+}
+
+/* Make the first slide of text white to contrast with the dark background */
+.carousel-item:first-child .slidetext {
+	color:#ffffff;
+}
+
+/* Now the text box is legible */
+.checkbox label {
+	color:#000000;
+}
