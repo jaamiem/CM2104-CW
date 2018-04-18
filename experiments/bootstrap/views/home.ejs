@@ -4,52 +4,36 @@
 <body>
 <%- include('partials/navbar') %>
 
-<script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
-</script>
+<div id="content">
+	<div id="map">
+		<!-- The map is loaded if JavaScript is enabled, otherwise this message is shown -->
+		<noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript>
+	</div>
+</div>
 
 <script>
-var map;
-var spots = <%- JSON.stringify(spots) %>;
-
+// Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
-	map = new google.maps.Map(document.getElementById('map'), {
+	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
 	});
+
 }
 
-function placeMarker(location){
-	var marker = new google.maps.Marker({
+// This function places a marker on the passed map at the given location.
+function placeMarker(map, location){
+	var marker = new google.maps.marker({
 		position: location,
 		map: map
 	});
 }
-
-$(function() {
-	initMap();
-	
-	<% if (query !== undefined && query !== null && query !== "") { %>
-		spots.forEach(function(item) {
-			placeMarker({lat: item.lat, lng: item.lng});
-		});
-	<% } %>
-});
-
 </script>
 
-<div id="content">
-	<% if (query !== undefined && query !== null && query !== "") { %>
-		<%- include('partials/sidebar'); %>
-	<% } %>
-		<div id="map">
-			<div class="wrap">
-				Unfortunately, we haven't been able to load Google Maps.
-			</div>
-		</div>
-	<%- include('partials/login') %>
-</div>
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
+</script>
 
 </body>
 </html>

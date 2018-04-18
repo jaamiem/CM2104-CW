@@ -10,7 +10,15 @@
   "dependencies": {
     "ejs": "^2.5.8",
     "express": "^4.16.3",
+<<<<<<< HEAD
     "mongodb": "^3.0.6"
+=======
+<<<<<<< HEAD
+    "mongodb": "^3.0.6"
+=======
+    "mongodb": "^2.2.35"
+>>>>>>> 1c5f7fc8683563e5137e3254148d17bbc8215575
+>>>>>>> c671e18c9ce8c8091b4fe42f843188c535a67c99
   },
   "main": "app.js",
   "devDependencies": {}

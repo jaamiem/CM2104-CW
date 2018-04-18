@@ -4,51 +4,23 @@ html {
 
 body {
 	background-color: #4d94ff;
-	min-height:100%;
-	display:flex;
-	flex-flow:column;
-}
-
-/* _____Nav Bar_____ */
-.navbar {
-	display:flex;
-	align-items:center;
+	height:100%;
 }
 
 .searchbar {
-	/* box-shadow: 0 .2em 0.7em #0066ff; */
-	flex:1;
-	display:flex;
-	align-items:center;
-}
-
-.searchbar > input {
-	flex:1;
+	/*box-shadow: 0 .2em 0.7em #0066ff;*/
 }
 
 .navbar-brand {
 	font-size:1.7em;
 	color:white !important;
 	margin-top: 0.4em;
+	display:inline-block;
 }
 
 /* _____Link Bar_____ */
-/* mobiles */
-.linkbar {
-	display:none;
-}
-
-/* computers */
-@media (min-width: 768px) {
-	.linkbar {
-		display:flex;
-		align-items:center;
-	}
-}
-
-.linkbar > li, .linkbar div a, #closeSearch {
-	display: inline-block;
-	padding-right: 1em;
+nav {
+	width:100%;
 }
 
 .linkbar li > a, .linkbar div a, #closeSearch {
@@ -56,7 +28,11 @@ body {
 	text-align: center;
 	font-size: large;
 	color: #b3d1ff;
-	width: 4em;
+	border: 1px solid #b3d1ff;
+	border-radius:7px;
+	width: 100%;
+	padding:5mm;
+	margin:1mm;
 	display: inline-block;
 }
 
@@ -92,26 +68,11 @@ body {
 	background-color: #f7f7f7;
 }
 
-/* _____Hamburger menu_____ */
-#burgerContainer a {
-	font-size:300%;
-	/*display:inline-block;*/
-	color:#333333;
-}
-
-@media (min-width: 768px) {
-	#burgerContainer a {
-		display:none;
-	}
+#burgerButton {
+	float:right;
 }
 
 /* _____Content_____ */
-#content {
-	flex:1;
-	display:flex;
-	flex-flow:row;
-}
-
 .wrap {
 	width:80%;
 	height: 80%;
@@ -123,25 +84,19 @@ body {
 	padding: 1em 2em 1em 2em;
 }
 
-.navbar, .navbar-header {
-	width:100%;
+#content {
+	height:100%;
 }
 
 #map {
 	background-color: #4d94ff !important;
 	width: 100%;
-	height: 640px;
-	flex:4;
-}
-
-#login {
-	flex:1;
+	height:100%;
 }
 
 /* _____Results_____ */
 #resultsPane {
 	padding:2em;
-	flex:1;
 }
 
 #resultsPane ul {
@@ -150,4 +105,11 @@ body {
 
 #closeSearch {
 	float:right;
+}
+
+/* Slide content */
+.slidetext {
+	width:45%;
+	font-style:200%;
+	position:absolute;
 }

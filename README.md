@@ -10,9 +10,22 @@ npm init (press enter repeatedly, if anyone has opinions about the licence, plea
 
 npm install express --save (ignore warnings)
 
-npm install path --save (ignore warnings again)
+npm install ejs --save (ignore warnings again)
 
 node app.js (this should run the server)
 
 the installation steps are only needed once, after that run node app.js and it should work and
 the application should now be running on your-codio-8080.codio.io
+
+## Shortcut NPM Installation Commands
+npm init > npm install
+- Installs all dependancies included in package.json
+
+npm i -s ejs express body-parser
+- Installs all listed packages to local directory
+
+npm i -g [Package]
+- Installs package globally, used for Nodemon if using.
+
+## Mongo Installation Link
+https://www.mongodb.com/download-center#production
