@@ -11,7 +11,7 @@ p{
 }
 
 label{
-	color: white;
+	color: black;
 	font-family: 'Catamaran', sans-serif;
 }
 body {
@@ -120,4 +120,9 @@ nav {
 /* Make the first slide of text white to contrast with the dark background */
 .carousel-item:first-child .slidetext {
 	color:#ffffff;
+}
+
+/* Now the text box is legible */
+.checkbox label {
+	color:#000000;
 }
