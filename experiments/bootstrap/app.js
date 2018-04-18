@@ -1,6 +1,6 @@
 
-// const MongoClient = require('mongodb').MongoClient;
-// const url = "mongodb://localhost:27017/user_inputed_location";
+ const MongoClient = require('mongodb').MongoClient;
+ const url = "mongodb://localhost:27017/user_inputed_location";
 
 //  Include Express and set it to app
 const express = require('express');
@@ -73,18 +73,18 @@ app.all('/login', (req, res) => {
 
 app.listen(8080);
 
-// var db;
-//
-// MongoClient.connect(url, function(err, database) {
-//     if (err) throw err;
-//     db = database;
-//     app.listen(8080);
-// });
-//
-// app.post('/locations', function(req, res) {
-//     db.collection('locations').save(req.body, function(err, result) {
-//         if (err) throw err;
-//         console.log('location added to database')
-//         res.redirect('/')
-//     })
-// })
+ var db;
+
+ MongoClient.connect(url, function(err, database) {
+     if (err) throw err;
+    db = database;
+     app.listen(8080);
+ });
+
+app.post('/locations', function(req, res) {
+    db.collection('locations').save(req.body, function(err, result) {
+        if (err) throw err;
+        console.log('location added to database')
+        res.redirect('/')
+     })
+ })
