@@ -10,23 +10,47 @@
 </div>
 
 <script>
+
+// var spots = <%= spots %>;
+// var contentString = '<div id="infoContent">'+
+// 	'<h5 id="locHeading"><%- spots.name %></h1></div>'+
+// 	'<p id="locInfo">Type: <%- spots.type %></p>'+
+// 	'<p id="locInfo">additional info: <%- spots.rating %></p>';
+var contentString = "nae string \'ere just yet pal";
+
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
+	var infowindow = new google.maps.InfoWindow;
+
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
 	});
 
-}
-// TODO: Write loop to place all spots on the map
-function placeMarker(map, location){
-	var marker = new google.maps.marker({
-		position: location,
+	var marker = new google.maps.Marker({
+		position: abz,
 		map: map
 	});
+
+	marker.addListener('click', function() {
+		map.setZoom(16);
+		map.setCenter(marker.getPosition());
+		infowindow.setContent(contentString);
+		infowindow.open(map,marker);
+	});
+	// var marker;
+	// for ( var i = 0; i < j; i++ ){
+	// 	marker = new google.maps.marker({
+	// 		position : new google.maps.LatLng(spots[i],
+	// 		map : map
+	// 	});
+	// }
 }
+
+
 </script>
 
+<!-- Import Google Map API -->
 <script defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
 </script>
