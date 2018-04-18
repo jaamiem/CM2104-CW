@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark">
+	<div class="container-fluid">
+		<!-- LOGO & BURGER MENU -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/" style="">Findspot</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+
+		<%# TODO: push into hamburger to size for mobile %>
+		<%# TODO: adjust searchbar size on <~1200 screens%>
+		<!-- SEARCH BAR -->
+		<form class="input-group col-sm-6 searchbar">
+			<noscript><label for="loc">Search</label></noscript>
+			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" style="transition: all 1s;">Go!</button>
+			</span>
+		</form>
+
+		<div id="myNav" class="pull-right ">
+			<ul class="linkbar">
+				<%# EJS If's to determine active page based on title variable passed in app.js %>
+				<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+				<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
+				<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
