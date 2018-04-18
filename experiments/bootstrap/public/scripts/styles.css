@@ -1,12 +1,23 @@
 html {
 	height:100%;
 }
-
-body {
-	background-color: #4d94ff;
-	height:100%;
+h1,h2,h3,h4{
+	text-align: center;
+	font-family: 'Catamaran', sans-serif;
+	font-weight: bold;
+}
+p{
+	font-family: 'Catamaran', sans-serif
 }
 
+label{
+	color: white;
+	font-family: 'Catamaran', sans-serif;
+}
+body {
+	background-color: #232f3e;
+	height:100%;
+}
 .searchbar {
 	/*box-shadow: 0 .2em 0.7em #0066ff;*/
 }
@@ -45,7 +56,7 @@ nav {
 
 .linkbar a:hover, #closeSearch:hover {
 	color: #f7f7f7;
-	transition: all 0.14s ease-in-out; 
+	transition: all 0.14s ease-in-out;
 }
 
 .active > a:hover, #closeSearch:hover {
