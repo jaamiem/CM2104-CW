@@ -71,7 +71,7 @@ app.all('/login', (req, res) => {
 	res.render( 'login', { title: 'Log in' });
 });
 
-app.listen(8080);
+
 
  var db;
 
@@ -88,3 +88,4 @@ app.post('/locations', function(req, res) {
         res.redirect('/')
      })
  })
+app.listen(8080);
