@@ -121,3 +121,8 @@ nav {
 .carousel-item:first-child .slidetext {
 	color:#ffffff;
 }
+
+/* Now the text box is legible */
+.checkbox label {
+	color:#000000;
+}
