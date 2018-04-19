@@ -101,13 +101,15 @@ label {
 
 .wrap {
 	width:80vw;
-	height: 60vh;
 	border-radius: 7px;
 	background-color: #253241;
 	box-shadow: .1px 10px 12px #1c2331;
 	color: #ffffff;
 	margin: 0 auto;
 	margin-top: 4em;
+}
+
+#login {
 	padding: 1em 2em 1em 2em;
 }
 
@@ -118,14 +120,19 @@ label {
 }
 
 /* _____Slide content_____ */
-#carouselFS {
+
+/* Separate class to be applied to the navbar when on any page other than the main page. */
+.shadowFx {
 	box-shadow:0.1px 10px 12px #1C2331;
 }
 
+/* The carousel text on the about page */
 .slidetext {
 	width:45%;
 	font-style:200%;
 	position:absolute;
+	margin:5mm;
+	color:#000000;
 }
 
 /* Make the first slide of text white to contrast with the dark background */
