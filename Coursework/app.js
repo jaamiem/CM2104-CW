@@ -84,7 +84,7 @@ app.all('/login', (req, res) => {
      if (err) throw err;
     db = database;
      app.listen(8080);
-	 consol.log('listening on 8080');
+	 console.log('listening on 8080');
  });
 
  // start of Get Routes
