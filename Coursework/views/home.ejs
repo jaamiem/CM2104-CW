@@ -7,26 +7,22 @@
 <% 
 	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
 	// It should show if the user has searched for something
-	console.log(query);
-	
 	var showSidebar;
+	
 	if (query !== "" && query !== null && query !== undefined) { 
 		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
 	} else {
 		showSidebar = ''; // No search, no no class to show.
 	}
-	
-	console.log("showing: " + showSidebar);
 %>
 
 <%# The showSidebar variable. It instructs the sidebar to show if the user has entered a query. %>
 <div class="collapse <%= showSidebar %>" id="sidebar">
-	<h3 class="pull-left">Search Results</h3>
-	<p>for '<%= query %>'</p>
-	
-	<button id="closeSidebarButton" type="button" class="btn pull-right" data-toggle="collapse" data-target="#sidebar">
-		X
+	<button id="closeSidebarButton" type="button" class="btn" data-toggle="collapse" data-target="#sidebar">
+		Close
 	</button>
+	<h3>Search Results</h3>
+	<p>for '<%= query %>'</p>
 	
 	<ol>
 		<li>Westhill</li>

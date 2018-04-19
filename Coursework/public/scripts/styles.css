@@ -108,6 +108,15 @@ img.displayed {
 	height:85vh;
 }
 
+#sidebar h3 {
+	text-align:left;
+}
+
+/* pull-right didn't work */
+#closeSidebarButton {
+	float:right;
+}
+
 /* _____Content_____ */
 #content {
 	width: 100%;
@@ -171,4 +180,8 @@ img.displayed {
 /* Distance mission text from carousel */
 #ourMission {
 	margin-top:3em;
+}
+
+#carouselFS {
+	padding:1cm;
 }
