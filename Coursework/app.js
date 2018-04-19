@@ -107,7 +107,7 @@ app.post('/dologin', function(req,res){
 	var username = req.body.username;
 	var password = req.body.password;
 	
-	db.collection('users').findOne({"login.username" : username}, function(err,result){
+	db.collection('people').findOne({"login.username" : username}, function(err,result){
 		//if there is an error return, throw error
 		if (err) throw err;
 		//if there is no result, direct user back to login page. username does not exist then
