@@ -16,6 +16,12 @@ body {
 .navbar {
 	align-items:center;
 	height: 15vh;
+	z-index:1000;
+}
+
+.navbar a {
+	background-color: #232f3e;
+	width:100% !important;
 }
 
 .navbar-brand {
@@ -32,7 +38,7 @@ body {
 
 .linkbar > li, .linkbar div a {
 	display: inline-block;
-	padding-right: 1em;
+	/* padding-right: 1em; */
 }
 
 .linkbar li > a, .linkbar div a {
@@ -46,7 +52,7 @@ body {
 
 .linkbar .active > a {
 	color: #F7F7F7;
-	border-radius: 7px;
+	background-color: #465e7c;
 	font-weight: bolder;
 }
 .linkbar a:hover {
