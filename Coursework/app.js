@@ -97,3 +97,25 @@ app.get('login', function(req, res){
 	res.render('pages/login');
 });
 
+//start of Post Routes 
+
+
+// the dologin route which takes data from our login page
+// post variables, username and password
+app.post('/dologin', function(req,res){
+	console.log(JSON.stringfy(req.body))
+	var username = req.body.username;
+	var password = req.body.password;
+	
+	db.collection('users').findOne({"login.username" : username}, function(err,result){
+		//if there is an error return, throw error
+		if (err) throw err;
+		//if there is no result, direct user back to login page. username does not exist then
+		if (!result){res.redirect('/login'); return}
+		//if ther is a result then check the passwor, if its correct set session loggedin to true
+		// and send them to the home page
+		if (result.login.password == password) {res.session.loggedin = true; res.redirect('/')}
+		// if not send user back to login page
+		else{res.redirect('/login')}
+	});
+});
