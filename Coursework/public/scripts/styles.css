@@ -15,8 +15,7 @@ body {
 /* _____Nav Bar_____ */
 .navbar {
 	align-items:center;
-	min-height: 0px !important;
-	height: 75px;
+	height: 15vh;
 }
 
 .navbar-brand {
@@ -75,8 +74,8 @@ label {
 }
 
 #wrap {
-	width:80%;
-	height: 80%;
+	width:80vw;
+	height: 60vh;
 	border-radius: 7px;
 	background-color: #253241;
 	box-shadow: .1px 10px 12px #1c2331;
@@ -88,9 +87,7 @@ label {
 
 #map {
 	background-color: #4d94ff !important;
-	height: -webkit-calc(100vh - 75px);
-	height: -moz-calc(100vh - 75px);
-	height: calc(100vh - 75px);
+	height: 85vh;
 	width: 100%;
 }
 
