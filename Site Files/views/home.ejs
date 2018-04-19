@@ -5,6 +5,28 @@
 <%- include('partials/navbar') %>
 
 <!-- Map Display Div -->
+<nav class="navbar-primary">
+	<div class="sidebtn">
+		<a href='#' class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
+	</div>
+	<div class="sidebar">
+		<ul class="navbar-primary-menu">
+			<li>
+				<a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>
+				<a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
+				<a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<script>
+	$('.btn-expand-collapse').click(function(e) {
+					$('.navbar-primary').toggleClass('collapsed');
+	});
+</script>
+
+
 <div id="map">
 	<noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript>
 </div>
@@ -24,7 +46,8 @@ function initMap() {
 
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
-		center: abz
+		center: abz,
+		mapTypeControl: false
 	});
 
 	var marker = new google.maps.Marker({

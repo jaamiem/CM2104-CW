@@ -2,28 +2,26 @@
 	<div class="container-fluid">
 		<!-- LOGO & BURGER MENU -->
 		<div class="navbar-header">
-			<a class="navbar-brand" href="/" style="">Findspot</a>
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+			<a class="navbar-brand" href="/">Findspot</a>
 		</div>
 
 		<%# TODO: push into hamburger to size for mobile %>
 		<%# TODO: adjust searchbar size on <~1200 screens%>
 		<!-- SEARCH BAR -->
-		<form class="input-group col-sm-6 searchbar">
-			<noscript><label for="loc">Search</label></noscript>
-			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+		<form class="input-group col-sm-6 col-xs-2">
+			<input name="loc" class="form-control searchbar" type="text" placeholder="Find a spot...">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button" style="transition: all 1s;">Go!</button>
+				<button class="btn btn-default" type="button">Go!</button>
 			</span>
 		</form>
 
-		<div id="myNav" class="pull-right ">
-			<ul class="linkbar">
-				<%# EJS If's to determine active page based on title variable passed in app.js %>
+		<!-- The main links in the navbar -->
+		<button id="burgerButton" type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#myNav">
+			&equiv;
+		</button>
+
+		<div id="myNav" class="pull-right linkbar centerNav collapse navbar-collapse">
+			<ul class="nav navbar-nav linkbar">
 				<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
 				<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
 				<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>

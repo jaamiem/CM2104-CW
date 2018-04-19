@@ -5,9 +5,8 @@
 //  Include Express and set it to app
 const express = require('express');
 const ejs = require('ejs');
-
-//added line for database since 'post' is used
-const bodyParser = require('body-parser')
+const path = require('path');
+const bodyParser = require('body-parser'); //added line for database since 'post' is used
 const app = express();
 
 var spots = [[57.142736,-2.099031], [57.144050,-2.101225], [57.142736,-3.099031], [57.144050,-3.101225]]
@@ -15,17 +14,19 @@ var spots = [[57.142736,-2.099031], [57.144050,-2.101225], [57.142736,-3.099031]
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/public'));
+//  Set an absolute path to scripts & images
+app.use(express.static(path.join(__dirname + '/public')));
+
 // line for database
 app.use(bodyParser.urlencoded({extended: true}))
 
 //  Initial page
 app.get('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: req.query.q, spots: spots });
+    res.render( 'home', { title: 'Home', query: req.query.q, spots });
 });
 
 app.post('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: null, spots: spots } );
+    res.render( 'home', { title: 'Home', query: null, spots } );
 });
 
 //  About Page
