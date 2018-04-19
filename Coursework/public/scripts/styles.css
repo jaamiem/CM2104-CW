@@ -19,12 +19,6 @@ body {
 	height: 75px;
 }
 
-/*
-.searchbar {
-	box-shadow: 0 .2em 0.7em #6c89ac;
-}
-*/
-
 .navbar-brand {
 	font-size:1.9em;
 	color:white !important;
@@ -78,7 +72,6 @@ label {
 /* _____Content_____ */
 #content {
 	width: 100%;
-	height: 100vh;
 }
 
 #wrap {
