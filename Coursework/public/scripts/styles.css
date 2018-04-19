@@ -28,6 +28,9 @@ body {
 .navbar a {
 	background-color: #232f3e;
 	width:100% !important;
+	padding-top:3mm;
+	padding-bottom:3mm;
+	left:0;
 }
 
 .navbar-brand {
@@ -83,7 +86,7 @@ label {
 /* _____Content_____ */
 #content {
 	width: 100%;
-	height:75vw;
+	height:75vh;
 }
 
 #wrap {
