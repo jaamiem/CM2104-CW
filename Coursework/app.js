@@ -85,6 +85,12 @@ app.all('/login', (req, res) => {
      app.listen(8080);
  });
 
+ MongoClient.connect(url2, function(err, database) {
+     if (err) throw err;
+    db = database;
+     app.listen(8080);
+ });
+
 
 // start of Get Routes
 
