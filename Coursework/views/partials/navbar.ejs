@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark">
+	<div class="container-fluid">
+		<!-- LOGO & BURGER MENU -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Findspot</a>
+		</div>
+
+		<%# TODO: push into hamburger to size for mobile %>
+		<%# TODO: adjust searchbar size on <~1200 screens%>
+		<!-- SEARCH BAR -->
+		<form class="input-group col-md-6 col-sm-6 col-xs-2 centerNav searchbar">
+			<noscript><label for="loc">Search</label></noscript>
+			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Go!</button>
+			</span>
+		</form>
+		
+		<!-- The main links in the navbar -->
+		<button id="burgerButton" type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#links">
+			&equiv;
+		</button>
+		
+		<div id="links" class="pull-right linkbar centerNav collapse navbar-collapse">
+			<ul class="nav navbar-nav linkbar pull-left">
+				<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+				<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
+				<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
+				<li <% if ( title === 'Log in' ) { %> class="active" <% } %>><a href="/login">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>

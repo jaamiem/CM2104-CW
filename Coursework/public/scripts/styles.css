@@ -1,0 +1,144 @@
+/* the html element doesn't support min-height */
+html {
+	height:100%;
+}
+
+body {
+	background-color: #232f3e;
+	min-height: 100%;
+	width: 100%;
+	font-size: 90%;
+	font-family: 'Catamaran', sans-serif;
+	color:white;
+}
+
+/* _____Nav Bar_____ */
+.navbar {
+	align-items:center;
+	height: 15vh;
+	z-index:1001;
+}
+
+.navbar > div {
+	position:absolute !important;
+	left:0 !important;
+	top:1mm !important;
+}
+
+#links a {
+	background-color: #232f3e;
+	width:25%;
+	float:right;
+	padding-top:3mm;
+	padding-bottom:3mm;
+	left:0;
+}
+
+.navbar-brand {
+	font-size:1.9em;
+	color:white !important;
+	margin-top: 0.4em;
+}
+
+/* _____Link Bar_____ */
+.linkbar {
+	list-style-type: none;
+	margin: 0;
+}
+
+.linkbar > li, .linkbar div a {
+	display: inline-block;
+	/* padding-right: 1em; */
+}
+
+.linkbar li > a, .linkbar div a {
+	text-decoration: none;
+	text-align: center;
+	font-size: large;
+	color: #b3b3b3;
+	width: 4em;
+	display: inline-block;
+}
+
+#links .active a {
+	color: #F7F7F7;
+	background-color: #465e7c;
+	font-weight: bolder;
+}
+.linkbar a:hover {
+	color: #f7f7f7;
+	transition: all 0.14s ease-in-out;
+}
+
+.active > a:hover {
+	color: white;
+	transition: all 0.14s linear;
+}
+
+/* _____Text Tags_____ */
+h1,h2,h3,h4 {
+	font-weight: bold;
+}
+
+label {
+	color: white;
+}
+
+/* _____Sidebar_____ */
+#sidebar {
+	position:absolute;
+	z-index:1000;
+	background-color: #232f3e;
+	width:25vw;
+	height:85vh;
+}
+
+/* _____Content_____ */
+#content {
+	width: 100%;
+	height:75vh;
+}
+
+.wrap {
+	width:80vw;
+	height: 60vh;
+	border-radius: 7px;
+	background-color: #253241;
+	box-shadow: .1px 10px 12px #1c2331;
+	color: #ffffff;
+	margin: 0 auto;
+	margin-top: 4em;
+	padding: 1em 2em 1em 2em;
+}
+
+#map {
+	background-color: #4d94ff !important;
+	height: 85vh;
+	width: 100%;
+}
+
+/* _____Slide content_____ */
+#carouselFS {
+	box-shadow:0.1px 10px 12px #1C2331;
+}
+
+.slidetext {
+	width:45%;
+	font-style:200%;
+	position:absolute;
+}
+
+/* Make the first slide of text white to contrast with the dark background */
+.carousel-item:first-child .slidetext {
+	color:#ffffff;
+}
+
+/* Now the text box is legible */
+.checkbox label {
+	color:#000000;
+}
+
+/* Distance mission text from carousel */
+#ourMission {
+	margin-top:3em;
+}
