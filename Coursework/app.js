@@ -119,7 +119,7 @@ app.post('/dologin', function(req,res){
 		if (!result){res.redirect('/login'); return}
 		//if ther is a result then check the passwor, if its correct set session loggedin to true
 		// and send them to the home page
-		if (result.login.password == password) {res.session.loggedin = true; res.redirect('/')}
+		if (result.login.password == password) {req.session.loggedin = true; res.redirect('/')}
 		// if not send user back to login page
 		else{res.redirect('/login')}
 	});
