@@ -9,6 +9,7 @@ body {
 	width: 100%;
 	font-size: 90%;
 	font-family: 'Catamaran', sans-serif;
+	color:white;
 }
 
 /* _____Nav Bar_____ */
@@ -101,6 +102,10 @@ label {
 }
 
 /* _____Slide content_____ */
+#carouselFS {
+	box-shadow:0.1px 10px 12px #1C2331;
+}
+
 .slidetext {
 	width:45%;
 	font-style:200%;
@@ -115,4 +120,9 @@ label {
 /* Now the text box is legible */
 .checkbox label {
 	color:#000000;
+}
+
+/* Distance mission text from carousel */
+#ourMission {
+	margin-top:3em;
 }
