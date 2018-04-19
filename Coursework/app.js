@@ -80,7 +80,7 @@ app.all('/login', (req, res) => {
 
  var db;
 
- MongoClient.connect(url, url2, function(err, database) {
+ MongoClient.connect(url, function(err, database) {
      if (err) throw err;
     db = database;
      app.listen(8080);
