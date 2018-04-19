@@ -90,7 +90,7 @@ app.all('/login', (req, res) => {
  // start of Get Routes
 
 // this is the login route which renders the login.ejs page of our website
-app.get('login', function(req, res){
+app.get('/login', function(req, res){
 	res.render('pages/login');
 });
 
