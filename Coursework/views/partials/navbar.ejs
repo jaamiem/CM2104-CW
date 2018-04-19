@@ -1,4 +1,14 @@
-<nav class="navbar navbar-dark">
+<%
+	var showShadow; // Where to store whether the shadow class is enabled
+	
+	if ( title === 'Home' ) {
+		showShadow = ''; // Blank since it is not used
+	} else {
+		showShadow = 'shadowFx'; // The class name which causes this effect
+	}
+%>
+
+<nav class="navbar navbar-dark <%= showShadow %>">
 	<div class="container-fluid">
 		<!-- LOGO & BURGER MENU -->
 		<div class="navbar-header">

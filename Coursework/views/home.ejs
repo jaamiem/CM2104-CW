@@ -9,10 +9,11 @@
 	// It should show if the user has searched for something
 	console.log(query);
 	
+	var showSidebar;
 	if (query !== "" && query !== null && query !== undefined) { 
-		showSidebar = 'show';
+		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
 	} else {
-		showSidebar = '';
+		showSidebar = ''; // No search, no no class to show.
 	}
 	
 	console.log("showing: " + showSidebar);
