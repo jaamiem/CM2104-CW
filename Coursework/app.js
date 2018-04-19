@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //  Initial page
 app.get('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: req.query.q, spots: spots });
+    res.render( 'home', { title: 'Home', query: req.query.loc, spots: spots });
 });
 
 app.post('/', (req, res) => {

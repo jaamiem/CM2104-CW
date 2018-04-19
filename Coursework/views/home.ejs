@@ -4,6 +4,37 @@
 <body>
 <%- include('partials/navbar') %>
 
+<% 
+	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
+	// It should show if the user has searched for something
+	console.log(query);
+	
+	if (query !== "" && query !== null && query !== undefined) { 
+		showSidebar = 'show';
+	} else {
+		showSidebar = '';
+	}
+	
+	console.log("showing: " + showSidebar);
+%>
+
+<%# The showSidebar variable. It instructs the sidebar to show if the user has entered a query. %>
+<div class="collapse <%= showSidebar %>" id="sidebar">
+	<h3 class="pull-left">Search Results</h3>
+	<p>for '<%= query %>'</p>
+	
+	<button id="closeSidebarButton" type="button" class="btn pull-right" data-toggle="collapse" data-target="#sidebar">
+		X
+	</button>
+	
+	<ol>
+		<li>Westhill</li>
+		<li>Inverness</li>
+		<li>John o'Groats</li>
+		<li>Aviemore</li>
+	</ol>
+</div>
+
 <div id="content">
 	<div id="map">
 		<!-- The map is loaded if JavaScript is enabled, otherwise this message is shown -->
