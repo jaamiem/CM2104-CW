@@ -1,6 +1,7 @@
 
  const MongoClient = require('mongodb').MongoClient;
  const url = "mongodb://localhost:27017/user_inputed_location";
+ const url2 = "mongodb://localhost:27017/user_accounts";
 
 //  Include Express and set it to app
 const express = require('express');
