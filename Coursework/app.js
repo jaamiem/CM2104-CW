@@ -7,8 +7,10 @@ const express = require('express');
 const ejs = require('ejs');
 
 //added line for database since 'post' is used
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const app = express();
+// for login database
+const session = require('express-session');
 
 const spots = [{
         id: 1,
@@ -88,3 +90,10 @@ app.post('/locations', function(req, res) {
         res.redirect('/')
      })
  })
+// start of Get Routes
+
+// this is the login route which renders the login.ejs page of our website
+app.get('login', function(req, res){
+	res.render('pages/login');
+});
+
