@@ -47,6 +47,7 @@ const spots = [{
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
+
 // line for database
 app.use(session({ secret: 'example'}));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -79,20 +80,14 @@ app.all('/login', (req, res) => {
 
  var db;
 
- MongoClient.connect(url, function(err, database) {
+ MongoClient.connect(url, url2, function(err, database) {
      if (err) throw err;
     db = database;
      app.listen(8080);
+	 console.log('listening on 8080');
  });
 
- /* MongoClient.connect(url2, function(err, database) {
-     if (err) throw err;
-    db = database;
-     app.listen(8080);
- }); */
-
-
-// start of Get Routes
+ // start of Get Routes
 
 // this is the login route which renders the login.ejs page of our website
 app.get('login', function(req, res){
