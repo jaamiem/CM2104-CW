@@ -107,7 +107,6 @@ app.post('/locations', function(req, res) {
 // the dologin route which takes data from our login page
 // post variables, username and password
 app.post('/dologin', function(req,res){
-	console.log(JSON.stringfy(req.body))
 	var username = req.body.username;
 	var password = req.body.password;
 	
