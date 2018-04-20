@@ -51,7 +51,7 @@ function initMap() {
 	});
 
 	var marker = new google.maps.Marker({
-		position: { <%- spots.lat %>, <%- spots.lng %> },
+		position: { lat:<%- spots.lat %>, lng:<%- spots.lng %> },
 		map: map
 	});
 
