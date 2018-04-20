@@ -9,7 +9,13 @@ const path = require('path');
 const bodyParser = require('body-parser'); //added line for database since 'post' is used
 const app = express();
 
-var spots = [[57.142736,-2.099031], [57.144050,-2.101225], [57.142736,-3.099031], [57.144050,-3.101225]]
+var spots = {
+		id: 1,
+		name: "College Street Car Park",
+		type: "lot",
+		lat: 57.142736,
+		lng: -2.099031
+	}
 
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');

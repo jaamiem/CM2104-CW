@@ -12,9 +12,9 @@
 	<div class="sidebar">
 		<ul class="navbar-primary-menu">
 			<li>
-				<a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>
-				<a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
-				<a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Settings</span></a>
+				<a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">LINK 1</span></a>
+				<a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">LINK 2</span></a>
+				<a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">LINK 3</span></a>
 			</li>
 		</ul>
 	</div>
@@ -34,11 +34,11 @@
 <script>
 
 // var spots = <%= spots %>;
-// var contentString = '<div id="infoContent">'+
-// 	'<h5 id="locHeading"><%- spots.name %></h1></div>'+
-// 	'<p id="locInfo">Type: <%- spots.type %></p>'+
-// 	'<p id="locInfo">additional info: <%- spots.rating %></p>';
-var contentString = "nae string \'ere just yet pal";
+var contentString = '<div id="infoContent">'+
+	'<h5 id="locHeading"><%- spots.name %></h1></div>'+
+	'<p id="locInfo">Type: <%- spots.type %></p>'+
+	'<p id="locInfo">additional info: <%- spots.rating %></p>';
+// var contentString = "nae string \'ere just yet pal";
 
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
@@ -51,7 +51,7 @@ function initMap() {
 	});
 
 	var marker = new google.maps.Marker({
-		position: abz,
+		position: { <%- spots.lat %>, <%- spots.lng %> },
 		map: map
 	});
 
