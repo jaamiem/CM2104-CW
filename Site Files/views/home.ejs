@@ -12,9 +12,9 @@
 	<div class="sidebar">
 		<ul class="navbar-primary-menu">
 			<li>
-				<a href="#"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">LINK 1</span></a>
-				<a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">LINK 2</span></a>
-				<a href="#"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">LINK 3</span></a>
+				<a href="#"><span class="nav-label">LINK 1</span></a>
+				<a href="#"><span class="nav-label">LINK 2</span></a>
+				<a href="#"><span class="nav-label">LINK 3</span></a>
 			</li>
 		</ul>
 	</div>
@@ -34,11 +34,11 @@
 <script>
 
 // var spots = <%= spots %>;
-var contentString = '<div id="infoContent">'+
-	'<h5 id="locHeading"><%- spots.name %></h1></div>'+
-	'<p id="locInfo">Type: <%- spots.type %></p>'+
-	'<p id="locInfo">additional info: <%- spots.rating %></p>';
-// var contentString = "nae string \'ere just yet pal";
+// var contentString = '<div id="infoContent">'+
+// 	'<h5 id="locHeading"><%- spots.name %></h1></div>'+
+// 	'<p id="locInfo">Type: <%- spots.type %></p>'+
+// 	'<p id="locInfo">additional info: <%- spots.rating %></p>';
+var contentString = "nae string \'ere just yet pal";
 
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
@@ -50,24 +50,20 @@ function initMap() {
 		mapTypeControl: false
 	});
 
-	var marker = new google.maps.Marker({
-		position: { lat:<%- spots.lat %>, lng:<%- spots.lng %> },
-		map: map
-	});
-
-	marker.addListener('click', function() {
-		map.setZoom(16);
-		map.setCenter(marker.getPosition());
-		infowindow.setContent(contentString);
-		infowindow.open(map,marker);
-	});
-	// var marker;
-	// for ( var i = 0; i < j; i++ ){
-	// 	marker = new google.maps.marker({
-	// 		position : new google.maps.LatLng(spots[i],
-	// 		map : map
+	// var marker, i;
+	// for ( i = 0; i < spots.length; i++ ) {
+	// 	var marker = new google.maps.Marker({
+	// 		position: { lat:spots[1].lat, lng:spots[1].lng },
+	// 		map: map
 	// 	});
 	// }
+	//
+	// marker.addListener('click', function() {
+	// 	map.setZoom(16);
+	// 	map.setCenter(marker.getPosition());
+	// 	infowindow.setContent(contentString);
+	// 	infowindow.open(map,marker);
+	// });
 }
 
 
