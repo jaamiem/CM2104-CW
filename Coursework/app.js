@@ -109,18 +109,18 @@ app.get('/login', function(req, res){
 //start of Post Routes 
 
 // db stuff for user_inputed_locations 
-/*app.post('/locations', function(req, res) {
+app.post('/locations', function(req, res) {
     db.collection('locations').save(req.body, function(err, result) {
         if (err) throw err;
         console.log('location added to database')
         res.redirect('/')
      })
- })*/
+ })
 
 // the dologin route which takes data from our login page
 // post variables, username and password
 app.post('/dologin', function(req,res){
-	//console.log(JSON.stringfy(req.body))
+	console.log(JSON.stringfy(req.body))
 	var username = req.body.username;
 	var password = req.body.password;
 	
