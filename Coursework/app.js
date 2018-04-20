@@ -99,6 +99,7 @@ app.get('/', function(req, res) {
     //the result of the query is sent to the users page as the "users" array
     res.redirect('/')
   });
+});
 
 // this is the login route which renders the login.ejs page of our website
 app.get('/login', function(req, res){
