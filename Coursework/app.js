@@ -88,6 +88,18 @@ app.all('/login', (req, res) => {
 
  // start of Get Routes
 
+//this is our root route
+app.get('/', function(req, res) {
+  //if the user is not logged in redirect them to the login page
+  if(!req.session.loggedin){res.redirect('/login');return;}
+
+  //otherwise perfrom a search to return all the documents in the people collection
+  db.collection('people').find().toArray(function(err, result) {
+    if (err) throw err;
+    //the result of the query is sent to the users page as the "users" array
+    res.redirect('/')
+  });
+
 // this is the login route which renders the login.ejs page of our website
 app.get('/login', function(req, res){
 	res.render('pages/login');
