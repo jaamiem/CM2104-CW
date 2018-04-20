@@ -94,7 +94,7 @@ app.get('/', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
 
   //otherwise perfrom a search to return all the documents in the people collection
-  db.collection('people').find().toArray(function(err, result) {
+  db.collection('users').find().toArray(function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     res.redirect('/')
