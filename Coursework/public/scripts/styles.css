@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+
 /* the html element doesn't support min-height */
 html {
 	height:100%;
@@ -79,20 +81,10 @@ body {
 h1,h2,h3,h4 {
 	text-align: center;
 	font-weight: bold;
-	font-family: 'Catamaran', sans-serif;
-}
-p.{
-	font-family: 'Catamaran', sans-serif
-}
-p.aboutp{
-	text-align:center
-	color:white
-	font-family: 'Catamaran', sans-serif
 }
 
 label {
 	color: black;
-	font-family: 'Catamaran', sans-serif;
 }
 /* _____Image_____ */
 img.displayed {
@@ -210,8 +202,10 @@ img.displayed {
 /* Distance mission text from carousel */
 #ourMission {
 	margin-top:3em;
+	color:white;
+	text-align:center;
 }
 
 #carouselFS {
-	padding:1cm;
+	box-shadow:0.1px 10px 12px #1C2331;
 }
