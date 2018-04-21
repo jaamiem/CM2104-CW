@@ -55,7 +55,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res) => {
     console.log(db.collection('locations').find({name: req.query.loc}).toArray());
     
-    db.collection('locations').find({name: req.query.loc}).toArray(function(err, result) {
+    db.collection('locations').find({ $text: {$search: req.query.loc} }).toArray(function(err, result) {
 		res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
 	});
 });
