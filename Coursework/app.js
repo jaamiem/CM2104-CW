@@ -51,7 +51,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //  Initial page
 app.get('/', (req, res) => {
-	// res.locals.docsJSON = JSON.stringify([spots]);
     res.render( 'home', { title: 'Home', query: req.query.q, spots: spots });
 });
 

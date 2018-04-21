@@ -3,7 +3,7 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 
 /* _____Nav Bar_____ */
 .navbar { align-items:center; min-height: 0px !important; height: 75px; box-shadow: .1px 1px 5px #1c2331; z-index: 999;}
-.searchbar { border-radius: 5px; box-shadow: .1px 1px 8px #1c2331;}
+.searchbar { border-radius: 5px; }
 .navbar-brand { font-size:1.9em; color:white !important; margin-top: 0.4em; }
 /* _____Side Bar_____ */
 .navbar-primary {
@@ -19,7 +19,6 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 	transition: all .2s ease-in-out;
 }
 .navbar-primary.collapsed { width: 2%; max-width: 15px; }
-.navbar-primary.collapsing { transition: all .2s ease-in-out; }
 .btn-expand-collapse {
     position: absolute;
     display: block;
@@ -29,7 +28,7 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 	height: 5%;
     padding: 8px 0;
     border-top:solid 1px #666;
-    color: grey;
+    color: #374a62;
     font-size: 20px;
     text-align: center;
 }
@@ -58,7 +57,7 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 	padding: 10px 5% 10px 5%;
 	margin-right: 5px;
 	margin-left: 5px;
-	box-shadow: inset -3px 3px 10px 1px #666666;
+	box-shadow: inset -3px 1px 5px 1px #666666;
 }
 
 /* _____Link Bar_____ */

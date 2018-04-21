@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/header') %>
-<body ng-app="" style="background-color: {{colour}};">
+<body ng-app="">
 <%- include('partials/navbar') %>
 
 <!-- Map Display Div -->
@@ -9,46 +9,28 @@
 	<div class='sidebtn'>
 		<a href='#' class='btn-expand-collapse'><span class='glyphicon glyphicon-menu-left'></span></a>
 	</div>
-	<div class='sidebar' ng-app='spotPusher' ng-controller='myCtrl'>
+	<div class='sidebar'>
 		<ul class='navbar-primary-menu panel-group' id='accordion'>
-			<li>
-				<div class="panel panel-default">
-					<div class="panel heading">
-						<a data-toggle='collapse' data-parent='#accordion' href='#collapse1'><span class="nav-label">
-							Link 1
-						</span></a>
-					</div>
-					<div id='collapse1' class='panel-collapse collapse out'>
-						<div class='panel-body'>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			<% for ( i = 0; i < Object.keys(spots.default).length; i++ )  { %>
+				<li>
+					<div class="panel panel-default">
+						<div class="panel heading">
+							<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'><span class="nav-label">
+								<h6><%= spots.default[i].name %></h6>
+							</span></a>
+						</div>
+						<div id='collapse<%= i %>' class='panel-collapse collapse in'>
+							<div class='panel-body'>
+							</div>
 						</div>
 					</div>
-				</div>
-			</li>
-
-
-
-			<li>
-				<div class="panel panel-default">
-					<div class="panel heading">
-						<a data-toggle='collapse' data-parent='#accordion' href='#collapse2'><span class="nav-label">
-							Link 2
-						</span></a>
-					</div>
-					<div id='collapse2' class='panel-collapse collapse in'>
-						<div class='panel-body'>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-	        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-					</div>
-				</div>
-			</li>
+				</li>
+			<% } %>
 		</ul>
 	</div>
 </nav>
 
-<div id="map" ng-app="FindSpotApp">
+<div id="map">
 	<!-- <%- JSON.stringify(spots) %> -->
 	<!-- <noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript> -->
 </div>
