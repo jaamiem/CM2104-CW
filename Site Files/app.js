@@ -9,14 +9,32 @@ const path = require('path');
 const bodyParser = require('body-parser'); //added line for database since 'post' is used
 const app = express();
 
-// var spots = {
-// 	id: 1,
-// 	name: "College Street Car Park",
-// 	type: "lot",
-// 	lat: 57.142736,
-// 	lng: -2.099031
-// };
-var spots = [{lat:57.142736,lng:-2.099031}, {lat:57.144050,lng:-2.101225}]
+var spots = {
+	default : [
+		{
+			id: 1,
+			name: "College Street Car Park",
+			type: "lot",
+			lat: 57.142736,
+			lng: -2.099031
+		},
+		{
+			id: 2,
+			name: "Car Park",
+			type: "Ocean",
+			lat: 57.002736,
+			lng: -2.055031
+		},
+		{
+			id: 3,
+			name: "Car Park 2",
+			type: "A bit wet",
+			lat: 57.192736,
+			lng: -2.029031
+		}
+	]
+};
+// var spots = [{lat:57.142736,lng:-2.099031}, {lat:57.144050,lng:-2.101225}, {lat:56.144050,lng:-2.181225}];
 
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');
@@ -29,12 +47,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //  Initial page
 app.get('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: req.query.q, spots });
+	// res.locals.docsJSON = JSON.stringify([spots]);
+    res.render( 'home', { title: 'Home', query: req.query.q, spots: spots });
 });
 
-app.post('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: null, spots } );
-});
+// app.post('/', (req, res) => {
+//     res.render( 'home', { title: 'Home', query: null, spots: spots } );
+// });
 
 //  About Page
 app.all('/about', (req, res) => {
