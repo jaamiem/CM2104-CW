@@ -53,7 +53,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //  Initial page
 app.get('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: req.query.loc, spots: spots });
+    console.log(db.collection('locations').find({name: req.query.loc}).toArray());
+    
+    db.collection('locations').find({name: req.query.loc}).toArray(function(err, result) {
+		res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
+	});
 });
 
 app.post('/', (req, res) => {

@@ -17,46 +17,48 @@
 %>
 
 <%# The showSidebar variable instructs the sidebar to show if the user has entered a query. %>
-<div class="collapse <%= showSidebar %>" id="sidebar">
-	<h3>Filters</h3>
-	<form class="input-group">
-		<legend>Maximum price</legend>
-		<input name="price" type="radio" id="price0">
-		<label for="price0">Free</label>
+
+<% if (query !== "" && query !== null && query !== undefined) { %>
+	<div class="collapse <%= showSidebar %>" id="sidebar">
+		<h3>Filters</h3>
+		<form class="input-group">
+			<legend>Maximum price</legend>
+			<input name="price" type="radio" id="price0">
+			<label for="price0">Free</label>
+			
+			<input name="price" type="radio" id="price5">
+			<label for="price5">£5</label>
+			
+			<input name="price" type="radio" id="price10">
+			<label for="price10">£10</label>
+			
+			<input name="price" type="radio" id="priceall" checked>
+			<label for="priceall">All prices</label>
 		
-		<input name="price" type="radio" id="price5">
-		<label for="price5">£5</label>
+			<legend>Maximum distance</legend>
+			<input name="distance" type="radio" id="dist1">
+			<label for="dist1">1km</label>
+			
+			<input name="distance" type="radio" id="dist5">
+			<label for="price5">5km</label>
+			
+			<input name="distance" type="radio" id="dist10">
+			<label for="dist10">10km</label>
+			
+			<input name="distance" type="radio" id="distall" checked>
+			<label for="distall">All distances</label>
+		</form>
 		
-		<input name="price" type="radio" id="price10">
-		<label for="price10">£10</label>
+		<h3>Search Results</h3>
+		<p>for '<%= query %>'</p>
 		
-		<input name="price" type="radio" id="priceall" checked>
-		<label for="priceall">All prices</label>
-	
-		<legend>Maximum distance</legend>
-		<input name="distance" type="radio" id="dist1">
-		<label for="dist1">1km</label>
-		
-		<input name="distance" type="radio" id="dist5">
-		<label for="price5">5km</label>
-		
-		<input name="distance" type="radio" id="dist10">
-		<label for="dist10">10km</label>
-		
-		<input name="distance" type="radio" id="distall" checked>
-		<label for="distall">All distances</label>
-	</form>
-	
-	<h3>Search Results</h3>
-	<p>for '<%= query %>'</p>
-	
-	<ol>
-		<li>Westhill</li>
-		<li>Inverness</li>
-		<li>John o'Groats</li>
-		<li>Aviemore</li>
-	</ol>
-</div>
+		<ol>
+			<% spots.forEach(function(element) { %>
+				<li><%= element %></li>
+			<% }); %>
+		</ol>
+	</div>
+<% } %>
 
 <div id="content">
 	<div id="map">
