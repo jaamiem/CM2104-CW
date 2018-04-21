@@ -124,6 +124,10 @@ img.displayed {
 	text-align:left;
 }
 
+#sidebar label {
+	color:white;
+}
+
 /* pull-right didn't work */
 #closeSidebarButton {
 	float:right;
