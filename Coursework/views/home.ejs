@@ -56,7 +56,7 @@
 		<ol>
 			<%# Looping through each result and adding their names to the list %>
 			<% spots.forEach(function(element) { %>
-				<li><%= element.name %><br><%= element.type %></li>
+				<li><%= element.name %><br><%= element.type %><br>£<%= element.price %></li>
 			<% }); %>
 		</ol>
 	</div>
