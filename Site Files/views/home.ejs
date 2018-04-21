@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/header') %>
-<body>
+<body ng-app="" style="background-color: {{colour}};">
 <%- include('partials/navbar') %>
 
 <!-- Map Display Div -->
-<nav class="navbar-primary">
-	<div class="sidebtn">
-		<a href='#' class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
+<nav class='navbar-primary'>
+	<div class='sidebtn'>
+		<a href='#' class='btn-expand-collapse'><span class='glyphicon glyphicon-menu-left'></span></a>
 	</div>
-	<div class="sidebar">
-		<ul class="navbar-primary-menu">
+	<div class='sidebar' ng-app='spotPusher' ng-controller='myCtrl'>
+		<ul class='navbar-primary-menu panel-group' id='accordion'>
 			<li>
-				<a href="#"><span class="nav-label">LINK 1</span></a>
-				<a href="#"><span class="nav-label">LINK 2</span></a>
-				<a href="#"><span class="nav-label">LINK 3</span></a>
+				<div class="panel panel-default">
+					<div class="panel heading">
+						<a data-toggle='collapse' data-parent='#accordion' href='#collapse1'><span class="nav-label">
+							Link 1
+						</span></a>
+					</div>
+					<div id='collapse1' class='panel-collapse collapse out'>
+						<div class='panel-body'>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</div>
+					</div>
+				</div>
+			</li>
+
+
+
+			<li>
+				<div class="panel panel-default">
+					<div class="panel heading">
+						<a data-toggle='collapse' data-parent='#accordion' href='#collapse2'><span class="nav-label">
+							Link 2
+						</span></a>
+					</div>
+					<div id='collapse2' class='panel-collapse collapse in'>
+						<div class='panel-body'>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>
 </nav>
-
-<script>
-	$('.btn-expand-collapse').click(function(e) {
-		$('.navbar-primary').toggleClass('collapsed');
-	});
-</script>
 
 <div id="map" ng-app="FindSpotApp">
 	<!-- <%- JSON.stringify(spots) %> -->
 	<!-- <noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript> -->
 </div>
 
+<!-- Map scripts -->
 <script>
 var spots = <%- JSON.stringify(spots) %>;
 JSON.parse(spots);
-// document.getElementById('ma1p').innerHTML = spots;
-// var spots = <%= spots %>;
-
-
 
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
@@ -52,12 +71,8 @@ function initMap() {
 	});
 	map.setTilt(45);
 
-	// var marker = new google.maps.Marker({
-	// 	position: new google.maps.LatLng(spots.default[0].lat, spots.default[0].lng),
-	// 	map: map
-	// });
 	var marker,i;
-	var markedSpots,contentStrings = [];
+	var contentStrings = [];
 
 	for ( i = 0; i < Object.keys(spots.default).length; i++ ) {
 		marker = new google.maps.Marker({
@@ -75,24 +90,25 @@ function initMap() {
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
 				map.setZoom(16);
-				map.setCenter(marker.getPosition());
+				map.panTo(marker.getPosition());
 				infowindow.setContent(contentStrings[i]);
 				infowindow.open(map,marker);
 			}
 		})(marker,i));
-
-		// markedSpots.push(marker);
-
-		// marker.addListener('click', function() {
-		// 	map.setZoom(16);
-		// 	map.setCenter(marker.getPosition());
-		// 	infowindow.setContent(contentString);
-		// 	infowindow.open(map,marker);
-		// });
 	}
-
 }
+</script>
 
+<!-- Side Bar Scripts -->
+<script>
+	$('.btn-expand-collapse').click(function(e) {
+		$('.navbar-primary').toggleClass('collapsed');
+	});
+
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope) {
+		$scope.spots = spots;
+	})
 
 </script>
 
