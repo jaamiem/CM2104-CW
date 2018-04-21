@@ -68,6 +68,9 @@
 </div>
 
 <script>
+// Get the spots from EJS through node and mongo
+var spots = <%= JSON.stringify(spots) %>;
+
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
@@ -85,6 +88,16 @@ function placeMarker(map, location){
 		map: map
 	});
 }
+
+$(function() {
+	initMap();
+	
+	<% if (query !== undefined && query !== null && query !== "") { %>
+		spots.forEach(function(item) {
+			placeMarker({lat: item.lat, lng: item.lng});
+		});
+	<% } %>
+});
 </script>
 
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
