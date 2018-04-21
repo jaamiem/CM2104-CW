@@ -11,7 +11,13 @@
 <nav class="navbar navbar-dark <%= showShadow %>">
 	<div class="container-fluid">
 		<!-- LOGO & BURGER MENU -->
-		<div class="navbar-header">
+		<div class="navbar-header pull-left">
+			<% if (title === 'Home') { %>
+				<!-- Toggle sidebar button -->
+				<button id="toggleSidebar" type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#sidebar">
+					&equiv;
+				</button>
+			<% } %>
 			<a class="navbar-brand" href="/">Findspot</a>
 		</div>
 
@@ -28,7 +34,7 @@
 		
 		<!-- The main links in the navbar -->
 		<button id="burgerButton" type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#links">
-			&equiv;
+			&vellip;
 		</button>
 		
 		<div id="links" class="pull-right linkbar centerNav collapse navbar-collapse">
