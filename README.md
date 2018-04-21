@@ -1,5 +1,16 @@
 # CM2104-CW
 
+# LOAD Database files
+open the mongo shell in codio
+write in use findspot_db
+then exit the shell and enter the Coursework folder in codio over the terminal
+now type in the following line
+mongoimport --db findspot_db --collection users --drop --file users.json
+
+after that check in mongo if the collection is there, then repeat the last step and do it for the locations
+
+mongoimport --db findspot_db --collection locations --drop --file locations.json
+
 # DeadLines Document
 https://docs.google.com/document/d/17crN29vP91UqJ3RcyfgRz0Bf8P8KH_-w51CIAIipcjg/edit?usp=sharing
 
