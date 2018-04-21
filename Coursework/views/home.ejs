@@ -71,10 +71,13 @@
 // Get the spots from EJS through node and mongo
 var spots = <%- JSON.stringify(spots) %>;
 
+// Store the map itself
+var map;
+
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
-	var map = new google.maps.Map(document.getElementById('map'), {
+	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
 	});
