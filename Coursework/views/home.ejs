@@ -49,12 +49,14 @@
 			<label for="distall">All distances</label>
 		</form>
 		
+		<!-- This is where the results are displayed -->
 		<h3>Search Results</h3>
 		<p>for '<%= query %>'</p>
 		
 		<ol>
+			<%# Looping through each result and adding their names to the list %>
 			<% spots.forEach(function(element) { %>
-				<li><%= element.name %></li>
+				<li><%= element.name %><br><% element.type %></li>
 			<% }); %>
 		</ol>
 	</div>
