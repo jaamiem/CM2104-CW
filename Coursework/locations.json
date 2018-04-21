@@ -1,0 +1,5 @@
+{ "id" : 1, "name" : "College Street Car Park", "type" : "lot", "long" : 57.142736, "lat" : -2.099031, "price" : 0 }
+{ "id" : 2, "name" : "Crwon Terrace", "type" : "street", "long" : 57.140506, "lat" : -2.101225, "price" : 2 }
+{ "id" : 3, "name" : "rowrow", "type" : "lot", "long" : 57.145636, "lat" : -2.099031, "price" : 1.5 }
+{ "id" : 4, "name": "RGU", "type": "car park", "long": 57.119455, "lat": -2.135970, "price": 0}
+{ "id" : 5, "name": "Dunmail Avenue Car Park", "type": "car park", "long": 57.116851, "lat" -2.178875, "price": 0}
