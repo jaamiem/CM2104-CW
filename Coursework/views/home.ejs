@@ -69,7 +69,7 @@
 
 <script>
 // Get the spots from EJS through node and mongo
-var spots = <%= JSON.stringify(spots) %>;
+var spots = <%- JSON.stringify(spots) %>;
 
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
 function initMap() {
@@ -94,7 +94,7 @@ $(function() {
 	
 	<% if (query !== undefined && query !== null && query !== "") { %>
 		spots.forEach(function(item) {
-			placeMarker({lat: item.lat, lng: item.lng});
+			placeMarker({lat: item.lat, lng: item.long});
 		});
 	<% } %>
 });
