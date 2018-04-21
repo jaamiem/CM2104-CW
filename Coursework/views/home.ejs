@@ -97,7 +97,7 @@ $(function() {
 	
 	<% if (query !== undefined && query !== null && query !== "") { %>
 		spots.forEach(function(item) {
-			placeMarker({lat: item.lat, lng: item.long});
+			placeMarker(map, {lat: item.lat, lng: item.long});
 		});
 	<% } %>
 });
