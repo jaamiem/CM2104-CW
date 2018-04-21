@@ -1,24 +1,25 @@
-html, body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%; font-family: 'Catamaran', sans-serif;}
+html { height: 100%; }
+body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%; font-family: 'Catamaran', sans-serif;}
 
 /* _____Nav Bar_____ */
-.navbar { align-items:center; min-height: 0px !important; height: 75px; }
-.searchbar { border-radius: 5px; box-shadow: .1px 3px 15px #1c2331;}
+.navbar { align-items:center; min-height: 0px !important; height: 75px; box-shadow: .1px 1px 5px #1c2331; z-index: 999;}
+.searchbar { border-radius: 5px; box-shadow: .1px 1px 8px #1c2331;}
 .navbar-brand { font-size:1.9em; color:white !important; margin-top: 0.4em; }
+/* _____Side Bar_____ */
 .navbar-primary {
 	background-color: #383838;
 	top: 75px;
 	bottom: 0px;
 	left: 0px;
 	position: absolute;
-	width: 200px;
-	z-index: 5;
+	width: 15%;
+	z-index: 3;
 	overflow: hidden;
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
+	box-shadow: 3px 0px 2px 0px #1c2331;
+	transition: all .2s ease-in-out;
 }
 .navbar-primary.collapsed { width: 2%; max-width: 15px; }
-.navbar-primary.collapsed .glyphicon { font-size: 22px; transition: all 0.1s ease-in-out; }
+.navbar-primary.collapsing { transition: all .2s ease-in-out; }
 .btn-expand-collapse {
     position: absolute;
     display: block;
@@ -32,7 +33,6 @@ html, body { background-color: #374a62; min-height: 100%; width: 100%; font-size
     font-size: 20px;
     text-align: center;
 }
-
 .btn-expand-collapse:hover,
 .btn-expand-collapse:focus {
     background-color: #222;
@@ -52,9 +52,14 @@ html, body { background-color: #374a62; min-height: 100%; width: 100%; font-size
   text-decoration: none;
   color: white;
 }
-.navbar-primary-menu li a .glyphicon { margin-right: 6px; }
-.navbar-primary-menu li a:hover .glyphicon { color: orchid; }
-
+/* _____Side Bar Links_____ */
+.panel-body {
+	background-color: #f7f7f7;
+	padding: 10px 5% 10px 5%;
+	margin-right: 5px;
+	margin-left: 5px;
+	box-shadow: inset -3px 3px 10px 1px #666666;
+}
 
 /* _____Link Bar_____ */
 .linkbar { list-style-type: none; margin: 0; }
@@ -79,14 +84,37 @@ html, body { background-color: #374a62; min-height: 100%; width: 100%; font-size
 }
 /* _____Text Tags_____ */
 h1,h2,h3,h4 {
+	text-align: center;
 	font-weight: bold;
 }
-label {	color: white; }
+
+label { color: black; }
+/* _____Image_____ */
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+.zoom{
+	position: relative;
+	overflow: hidden;
+}
+.zoom:hover img{
+	cursor: pointer;
+	transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+}
+.zoom img{ transition: : all 0.3s; }
 
 /* _____Content_____ */
 #content {
 	width: 100%;
-	heigh: 100vh;
+	height: 75vh;
 }
 #wrap {
 	width:80%;
@@ -94,6 +122,18 @@ label {	color: white; }
 	border-radius: 7px;
 	background-color: #253241;
 	box-shadow: .1px 10px 12px #1c2331;
+	color: #404040;
+	margin: 0 auto;
+	margin-top: 4em;
+	padding: 1em 2em 1em 2em;
+}
+.wrapWhite { background-color:#f2f2f2; color: #404040; }
+.wrapBlack { background-color: #253241;	color: #f7f7f7; }
+.wraprafa {
+	width:80%;
+	height: 80%;
+	border-radius: 7px;
+	background-color: #253241;
 	color: #404040;
 	margin: 0 auto;
 	margin-top: 4em;
@@ -108,18 +148,24 @@ label {	color: white; }
 }
 
 /* _____Slide content_____ */
+/* Separate class to be applied to the navbar when on any page other than the main page. */
+.shadowFx { box-shadow:0.1px 10px 12px #1C2331; }
+/* The carousel text on the about page */
 .slidetext {
 	width:45%;
 	font-style:200%;
 	position:absolute;
-}
-
-/* Make the first slide of text white to contrast with the dark background */
-.carousel-item:first-child .slidetext {
-	color:#ffffff;
-}
-
-/* Now the text box is legible */
-.checkbox label {
+	margin:5mm;
 	color:#000000;
+}
+/* Make the first slide of text white to contrast with the dark background */
+.carousel-item:first-child .slidetext {	color:#ffffff; }
+#carouselFS { box-shadow:0.1px 10px 12px #1C2331; }
+/* Now the text box is legible */
+.checkbox label { color:#000000; }
+/* Distance mission text from carousel */
+#ourMission {
+	margin-top:3em;
+	color:white;
+	text-align:center;
 }
