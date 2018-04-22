@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 		// Use 'text' indexer to search database of locations
 		locations.createIndex({name: 'text'}, function(err, result) {
 			if (err) throw err;
-			console.log(result);
+			//console.log(result);
 		});
 		
 		// Search the locations collection using the user's string
@@ -91,7 +91,7 @@ app.get('/add', function(req, res){
 app.post('/locations', function(req, res) {
     db.collection('locations').save(req.body, function(err, result) {
         if (err) throw err;
-        console.log('location added to database')
+        //console.log('location added to database')
         res.redirect('/')
      })
  })
