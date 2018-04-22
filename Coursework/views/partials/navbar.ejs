@@ -50,9 +50,15 @@
 		
 		<div id="links" class="pull-right linkbar centerNav collapse navbar-collapse">
 			<ul class="nav navbar-nav linkbar pull-left">
-				<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+				
+				<%# Only display the map option if the user is logged in %>
+				<% if (typeof user !== 'undefined' && user !== null) { %>
+					<li <% if ( title === 'Home' ) { %> class="active" <% } %>><a href="/">Map</a></li>
+				<% } %>
+				
 				<li <% if ( title === 'About' ) { %> class="active" <% } %>><a href="/about">About</a></li>
 				<li <% if ( title === 'Help' ) { %> class="active" <% } %>><a href="/help">Help</a></li>
+				
 				<% if (typeof user !== 'undefined' && user !== null) { %>
 					<li><a href="/dologout">Log out</a></li>
 				<% } else { %>
