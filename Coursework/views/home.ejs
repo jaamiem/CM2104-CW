@@ -21,32 +21,16 @@
 <% if (query !== "" && query !== null && query !== undefined) { %>
 	<div class="collapse <%= showSidebar %>" id="sidebar">
 		<h3>Filters</h3>
-		<form class="input-group">
-			<legend>Maximum price</legend>
-			<input name="price" type="radio" id="price0">
-			<label for="price0">Free</label>
+		<form>
+			<div class="input-group mb-4">
+				<label for="price">Price</label>
+				<input class="form-control" name="price" type="range" id="price">
+			</div>
 			
-			<input name="price" type="radio" id="price5">
-			<label for="price5">£5</label>
-			
-			<input name="price" type="radio" id="price10">
-			<label for="price10">£10</label>
-			
-			<input name="price" type="radio" id="priceall" checked>
-			<label for="priceall">All prices</label>
-		
-			<legend>Maximum distance</legend>
-			<input name="distance" type="radio" id="dist1">
-			<label for="dist1">1km</label>
-			
-			<input name="distance" type="radio" id="dist5">
-			<label for="dist5">5km</label>
-			
-			<input name="distance" type="radio" id="dist10">
-			<label for="dist10">10km</label>
-			
-			<input name="distance" type="radio" id="distall" checked>
-			<label for="distall">All distances</label>
+			<div class="input-group mb-4">
+				<label for="distance">Distance</label>
+				<input class="form-control" name="distance" type="range" id="distance">
+			</div>
 		</form>
 		
 		<!-- This is where the results are displayed -->
