@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header') %>
+<body>
+<%- include('partials/navbar') %>
+	<div class="wrap">
+		<h1>Add Location</h1>
+		<form action="/locations" method="POST">
+			<div class="input-group mb-4">
+				<label class="input-group-prepend input-group-text" for="name">Name</label>
+				<input class="form-control" type="text" name="name">
+			</div>
+			
+			<div class="input-group mb-4">
+				<label class="input-group-prepend input-group-text" for="type">Type</label>
+				<input class="form-control" type="text" name="type">
+			</div>
+			
+			<div class="input-group mb-4">
+				<label class="input-group-prepend input-group-text" for="lat">Latitude</label>
+				<input class="form-control" type="double" name="lat">
+			</div>
+			
+			<div class="input-group mb-4">
+				<label class="input-group-prepend input-group-text" for="long">Longitude</label>
+				<input class="form-control" type="double" name="long">
+			</div>
+			
+			<div class="input-group mb-4">
+				<label class="input-group-prepend input-group-text" for="price">Price (£)</label>
+				<input class="form-control" type="double" name="price">
+			</div>
+			
+			<div class="input-group mb-4">
+				<button class="btn pull-right btn-primary" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

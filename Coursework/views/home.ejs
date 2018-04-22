@@ -40,7 +40,7 @@
 			<label for="dist1">1km</label>
 			
 			<input name="distance" type="radio" id="dist5">
-			<label for="price5">5km</label>
+			<label for="dist5">5km</label>
 			
 			<input name="distance" type="radio" id="dist10">
 			<label for="dist10">10km</label>
@@ -57,8 +57,11 @@
 			<%# Looping through each result and adding their names to the list %>
 			<% console.log(spots) %>
 			<% spots.forEach(function(element) { %>
-				<li><%= element.name %><br><%= element.type %><br>£<%= element.price %></li>
+				<li><%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot</li>
 			<% }); %>
+			<a id="addLocationButton" class="btn btn-primary" href="/add">
+				Add location...
+			</a>
 		</ol>
 	</div>
 <% } %>

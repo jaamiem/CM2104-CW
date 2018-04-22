@@ -12,36 +12,6 @@ const app = express();
 // for login database
 const session = require('express-session');
 
-const spots = [{
-        id: 1,
-        name: "College Street Car Park",
-        type: "lot",
-        lat: 57.142736,
-        lng: -2.099031
-    },
-    {
-        id: 2,
-        name: "Crown Terrace",
-        type: "street",
-        lat: 57.144050,
-        lng: -2.101225
-    },
-    {
-        id: 3,
-        name: "College Street Car Park",
-        type: "lot",
-        lat: 57.145636,
-        lng: -2.099031
-    },
-    {
-        id: 4,
-        name: "Crown Terrace",
-        type: "driveway",
-        lat: 57.177050,
-        lng: -2.101225
-    }
-]
-
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');
 
@@ -65,11 +35,14 @@ app.get('/', (req, res) => {
 	// else, render the home page without search results.
 	if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
 		var locations = db.collection('locations');
+		
+		// Use 'text' indexer to search database of locations
 		locations.createIndex({name: 'text'}, function(err, result) {
 			if (err) throw err;
 			console.log(result);
 		});
 		
+		// Search the locations collection using the user's string
 		locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
 			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
 		});
@@ -109,6 +82,10 @@ app.all('/login', (req, res) => {
 // this is the login route which renders the login.ejs page of our website
 app.get('/login', function(req, res){
 	res.render('pages/login');
+});
+
+app.get('/add', function(req, res){
+	res.render('add', {title: "Add Location"});
 });
 
 //start of Post Routes 
