@@ -118,7 +118,7 @@ img.displayed {
 	background-color: #232f3e;
 	width:25vw;
 	height:85vh;
-	overflow:scroll;
+	overflow:auto;
 }
 
 #sidebar h3 {
