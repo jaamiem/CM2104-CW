@@ -182,6 +182,7 @@ img.displayed {
 /* Separate class to be applied to the navbar when on any page other than the main page. */
 .shadowFx {
 	box-shadow:0.1px 10px 12px #1C2331;
+	margin-bottom:12px;
 }
 
 /* The carousel text on the about page */
