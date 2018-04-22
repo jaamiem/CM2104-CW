@@ -53,17 +53,17 @@ app.get('/', (req, res) => {
 
 //  About Page
 app.all('/about', (req, res) => {
-	res.render( 'about', { title: 'About' } );
+	res.render( 'about', { title: 'About', user: req.session.currentUser } );
 });
 
 //  Help Page
 app.all('/help', (req, res) => {
-	res.render( 'help', { title: 'Help' });
+	res.render( 'help', { title: 'Help', user: req.session.currentUser });
 });
 
 //  Login Page
 app.all('/login', (req, res) => {
-	res.render( 'login', { title: 'Log in' });
+	res.render( 'login', { title: 'Log in', user: req.session.currentUser });
 });
 
 
@@ -80,12 +80,9 @@ app.all('/login', (req, res) => {
  // start of Get Routes
 
 // this is the login route which renders the login.ejs page of our website
-app.get('/login', function(req, res){
-	res.render('pages/login');
-});
 
 app.get('/add', function(req, res){
-	res.render('add', {title: "Add Location"});
+	res.render('add', {title: "Add Location", user: req.session.currentUser});
 });
 
 //start of Post Routes 
