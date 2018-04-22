@@ -53,8 +53,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //  Initial page
 app.get('/', (req, res) => {
-    console.log(db.collection('locations').find({name: req.query.loc}).toArray());
-    
+	//if the user is not logged in redirect them to the login page
+	if(!req.session.loggedin) {
+		res.redirect('/login');
+		return;
+	}
+	
+	//otherwise perfrom a search to return all the documents in the people collection
+	/*db.collection('users').find().toArray(function(err, result) {
+		if (err) throw err;
+		//the result of the query is sent to the users page as the "users" array
+		res.redirect('/')
+	});*/
+	
+	//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
+	
     db.collection('locations').find({name: req.query.loc}).toArray(function(err, result) {
 		res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
 	});
@@ -93,17 +106,7 @@ app.all('/login', (req, res) => {
  // start of Get Routes
 
 //this is our root route
-app.get('/', function(req, res) {
-  //if the user is not logged in redirect them to the login page
-  if(!req.session.loggedin){res.redirect('/login');return;}
 
-  //otherwise perfrom a search to return all the documents in the people collection
-  db.collection('users').find().toArray(function(err, result) {
-    if (err) throw err;
-    //the result of the query is sent to the users page as the "users" array
-    res.redirect('/')
-  });
-});
 
 // this is the login route which renders the login.ejs page of our website
 app.get('/login', function(req, res){
