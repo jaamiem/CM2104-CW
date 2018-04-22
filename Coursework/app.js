@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Initial page, this is our root route
 app.get('/', (req, res) => {
 	//if the user is not logged in redirect them to the login page
-	if(!req.session.loggedin) {
+	if(req.session.currentUser === null || typeof req.session.currentUser === 'undefined') {
 		res.redirect('/login');
 		return;
 	}
@@ -44,10 +44,10 @@ app.get('/', (req, res) => {
 		
 		// Search the locations collection using the user's string
 		locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
-			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
+			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
 		});
 	} else {
-		res.render( 'home', { title: 'Home', query: null, spots: [] });
+		res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
 	}
 });
 
@@ -105,15 +105,27 @@ app.post('/dologin', function(req,res){
 	var username = req.body.username;
 	var password = req.body.password;
 	
-	db.collection('users').findOne({"login.username" : username}, function(err,result){
+	db.collection('users').findOne({"login.username" : username}, function(err,result) {
 		//if there is an error return, throw error
 		if (err) throw err;
 		//if there is no result, direct user back to login page. username does not exist then
-		if (!result){res.redirect('/login'); return}
-		//if ther is a result then check the passwor, if its correct set session loggedin to true
-		// and send them to the home page
-		if (result.login.password == password) {req.session.loggedin = true; res.redirect('/')}
-		// if not send user back to login page
-		else{res.redirect('/login')}
+		if (!result) {
+			res.redirect('/login');
+			return;
+		}
+		
+		// if there is a result then check the password, if its correct set session loggedin to true
+		// and send them to the home page, else send user back to login page
+		if (result.login.password == password) {
+			req.session.currentUser = username;
+			res.redirect('/');
+		} else {
+			res.redirect('/login');
+		}
 	});
+});
+
+app.all('/dologout', function(req,res) {
+	req.session.currentUser = null;
+	res.redirect('/login');
 });
