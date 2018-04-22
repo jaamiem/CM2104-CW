@@ -4,35 +4,33 @@
 <body>
 <%- include('partials/navbar') %>
 
-<% 
-	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
-	// It should show if the user has searched for something
-	var showSidebar;
-	
-	if (query !== "" && query !== null && query !== undefined) { 
-		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
-	} else {
-		showSidebar = ''; // No search, no no class to show.
-	}
-%>
-
-<%# The showSidebar variable instructs the sidebar to show if the user has entered a query. %>
-
-<% if (query !== "" && query !== null && query !== undefined) { %>
-	<div class="collapse <%= showSidebar %>" id="sidebar">
-		<h5>Filters</h5>
-		<form>
-			<div class="input-group mb-4">
-				<label for="price">Price</label>
-				<input class="form-control" name="price" type="range" id="price">
-			</div>
-			
-			<div class="input-group mb-4">
-				<label for="distance">Distance</label>
-				<input class="form-control" name="distance" type="range" id="distance">
-			</div>
-		</form>
+<!-- Start sidebar -->
+<div class="collapse" id="sidebar">
+	<h5>Advanced Search</h5>
+	<form>
+		<div class="input-group mb-4">
+			<input class="form-control" name="loc" type="text" id="loc" aria-label="Advanced search textbox">
+		</div>
 		
+		<div class="input-group mb-4">
+			<label for="price">Price</label>
+			<input class="form-control" name="price" type="range" id="price">
+		</div>
+		
+		<div class="input-group mb-4">
+			<label for="distance">Distance</label>
+			<input class="form-control" name="distance" type="range" id="distance">
+		</div>
+		
+		<div class="input-group mb-4">
+			<button class="btn btn-primary">
+				Advanced search
+			</button>
+		</div>
+	</form>
+	
+	
+	<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>		
 		<!-- This is where the results are displayed -->
 		<h5>Search Results</h5>
 		<p>for '<%= query %>'</p>
@@ -45,12 +43,17 @@
 					<%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot
 				</a>
 			<% }); %>
-			<a id="addLocationButton" class="btn btn-primary" href="/add">
-				Add location...
-			</a>
+			
 		</div>
+	<% } %>
+	
+	<a id="addLocationButton" class="btn btn-primary mb-4" href="/add">
+		Add location...
+	</a>
+	
 	</div>
-<% } %>
+	
+</div>
 
 <div id="content">
 	<div id="map">
