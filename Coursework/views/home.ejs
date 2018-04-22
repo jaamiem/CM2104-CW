@@ -15,16 +15,18 @@
 				<li>
 					<div class="panel panel-default">
 						<div class="panel heading">
-							<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'><span class="nav-label">
+							<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'>
+								<span class="glyphicon glyphicon-map-marker"></span><span class="nav-label">
 								<h6><%= spots.default[i].name %></h6>
 							</span></a>
 						</div>
 						<div id='collapse<%= i %>' class='panel-collapse collapse'>
 							<div class='panel-body'>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat
+								<p> Type of location: <%= spots.default[i].type %> </p>
+								<p> Street Name:	<%= spots.default[i].name %> </p>
+								<p> Cost: <%= spots.default[i].price %> </p>
+								<p> Description: <%= spots.default[i].name %> </p>
+								<p> Rating: <%= spots.default[i].name %> </p>
 							</div>
 						</div>
 					</div>

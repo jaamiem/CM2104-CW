@@ -15,49 +15,57 @@ var spots = {
 			id: 1,
 			name: "College Street Car Park",
 			type: "lot",
+			price: 3.5,
 			lat: 57.142736,
 			lng: -2.099031
 		},{
 			id: 2,
 			name: "Crown Terrace",
 			type: "street",
+			price: 5.0,
 			lat: 57.144050,
 			lng: -2.101225
 		},{
 			id: 3,
-			name: "College Street Car Park",
+			name: "Side of the Road with Hazards on",
 			type: "lot",
+			price: 0.5,
 			lat: 57.145636,
 			lng: -2.099031
 		},{
 			id: 4,
-			name: "Crown Terrace",
+			name: "Tuesday",
 			type: "driveway",
+			price: 0.0,
 			lat: 57.177050,
 			lng: -2.101225
 		},
 		{
 			id: 5,
-			name: "College Street Car Park",
+			name: "A Place Down Under",
 			type: "lot",
+			price: 10.0,
 			lat: 57.242736,
 			lng: -2.099031
 		},{
 			id: 6,
-			name: "Crown Terrace",
+			name: "Some Dudes House",
 			type: "street",
+			price: 5.0,
 			lat: 57.144950,
 			lng: -2.101200
 		},{
 			id: 7,
-			name: "College Street Car Park",
+			name: "Toto by Africa",
 			type: "lot",
+			price: 7.89,
 			lat: 57.195636,
 			lng: -2.009031
 		},{
 			id: 8,
-			name: "Crown Terrace",
+			name: "Jupiter",
 			type: "driveway",
+			price: 5.75,
 			lat: 57.137050,
 			lng: -2.101225
 		}
