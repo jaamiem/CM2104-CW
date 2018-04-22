@@ -35,6 +35,31 @@ var spots = {
 			type: "driveway",
 			lat: 57.177050,
 			lng: -2.101225
+		},
+		{
+			id: 5,
+			name: "College Street Car Park",
+			type: "lot",
+			lat: 57.242736,
+			lng: -2.099031
+		},{
+			id: 6,
+			name: "Crown Terrace",
+			type: "street",
+			lat: 57.144950,
+			lng: -2.101200
+		},{
+			id: 7,
+			name: "College Street Car Park",
+			type: "lot",
+			lat: 57.195636,
+			lng: -2.009031
+		},{
+			id: 8,
+			name: "Crown Terrace",
+			type: "driveway",
+			lat: 57.137050,
+			lng: -2.101225
 		}
 	]
 };
