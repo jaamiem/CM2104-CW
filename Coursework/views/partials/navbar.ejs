@@ -14,29 +14,36 @@
 		<div class="navbar-header pull-left">
 		
 			<!-- Toggle sidebar button -->
-			<button id="toggleSidebar" type="button" class="navbar-toggle btn btn-primary" data-toggle="collapse" data-target="#sidebar">
-				&equiv;
-			</button>
+			<% if (title === 'Home') { %>
+				<button id="toggleSidebar" type="button" class="navbar-toggle btn btn-primary" data-toggle="collapse" data-target="#sidebar">
+					&equiv;
+				</button>
+			<% } %>
 			
 			<a class="navbar-brand" href="/">Findspot</a>
 		</div>
 
 		<%# TODO: push into hamburger to size for mobile %>
 		<%# TODO: adjust searchbar size on <~1200 screens%>
-		<!-- SEARCH BAR -->
-		<form action="/" class="input-group col-md-6 col-sm-6 col-xs-2 centerNav searchbar">
-			<noscript><label for="loc">Search</label></noscript>
-			<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
-			<span class="input-group-btn">
-				<button class="btn btn-primary" type="submit">Go!</button>
-			</span>
-		</form>
+		
+		<%# Display the search bar only if a user is logged in. %>
+		<% if (typeof user !== 'undefined' && user !== null) { %>
+			<!-- SEARCH BAR -->
+			<form action="/" class="input-group col-md-6 col-sm-6 col-xs-2 centerNav searchbar">
+				<noscript><label for="loc">Search</label></noscript>
+				<input name="loc" class="form-control" type="search" placeholder="Find a spot...">
+				<span class="input-group-btn">
+					<button class="btn btn-primary" type="submit">Go!</button>
+				</span>
+			</form>
+		<% } %>
 		
 		<!-- The main links in the navbar -->
 		<button id="burgerButton" type="button" class="navbar-toggle btn btn-primary" data-toggle="collapse" data-target="#links">
 			&vellip;
 		</button>
 		
+		<%# If the user is logged in, display their name %>
 		<% if (typeof user !== 'undefined' && user !== null) { %>
 			<span><%= user %></span>
 		<% } %>
