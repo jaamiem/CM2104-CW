@@ -13,7 +13,7 @@ const app = express();
 const session = require('express-session');
 
 function isLoggedIn(req) {
-	return req.session.currentUser !== null && typeof req.session.currentUser !== 'undefined');
+	return req.session.currentUser !== null && typeof req.session.currentUser !== 'undefined';
 } 
 
 //if the user is not logged in redirect them to the login page
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Initial page, this is our root route
 app.get('/', (req, res) => {
 	// Redirect to login page if not logged in, else load the page as normal.
-	if (!isLoggedIn()) {
+	if (!isLoggedIn(req)) {
 		res.redirect('/login');
 	} else {
 		//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
@@ -87,7 +87,7 @@ app.all('/login', (req, res) => {
 // this is the login route which renders the login.ejs page of our website
 
 app.get('/add', function(req, res){
-	if (isLoggedIn()) {
+	if (isLoggedIn(req)) {
 		res.render('add', {title: "Add Location", user: req.session.currentUser});
 	} else {
 		res.redirect('/login');
@@ -98,7 +98,7 @@ app.get('/add', function(req, res){
 
 // db stuff for user_inputed_locations 
 app.post('/locations', function(req, res) {
-    if (isLoggedIn()) {
+    if (isLoggedIn(req)) {
 		var newLocation = {
 			name: req.body.name,
 			type: req.body.type,
