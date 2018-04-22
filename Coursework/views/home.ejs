@@ -20,7 +20,7 @@
 
 <% if (query !== "" && query !== null && query !== undefined) { %>
 	<div class="collapse <%= showSidebar %>" id="sidebar">
-		<h3>Filters</h3>
+		<h5>Filters</h5>
 		<form>
 			<div class="input-group mb-4">
 				<label for="price">Price</label>
@@ -34,19 +34,21 @@
 		</form>
 		
 		<!-- This is where the results are displayed -->
-		<h3>Search Results</h3>
+		<h5>Search Results</h5>
 		<p>for '<%= query %>'</p>
 		
-		<ol>
+		<div class="list-group">
 			<%# Looping through each result and adding their names to the list %>
 			<%# console.log(spots) %>
 			<% spots.forEach(function(element) { %>
-				<li><%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot</li>
+				<a class="list-group-item" href="#">
+					<%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot
+				</a>
 			<% }); %>
 			<a id="addLocationButton" class="btn btn-primary" href="/add">
 				Add location...
 			</a>
-		</ol>
+		</div>
 	</div>
 <% } %>
 
