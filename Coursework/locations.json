@@ -1,5 +1,13 @@
-{ "id" : 1, "name" : "College Street Car Park", "type" : "lot", "lat" : 57.142736, "long" : -2.099031, "price" : 0 }
-{ "id" : 2, "name" : "Crwon Terrace", "type" : "street", "lat" : 57.140506, "long" : -2.101225, "price" : 2 }
-{ "id" : 3, "name" : "rowrow", "type" : "lot", "lat" : 57.145636, "long" : -2.099031, "price" : 1.5 }
-{ "id" : 4, "name": "RGU", "type": "car park", "lat": 57.119455, "long": -2.135970, "price": 0}
-{ "id" : 5, "name": "Dunmail Avenue Car Park", "type": "car park", "lat": 57.116851, "long": -2.178875, "price": 0}
+{ "id" : 1, "name" : "College Street Car Park", "type" : "lot", "lat" : 57.142736, "long" : -2.099031, "price" : 0, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{ "id" : 2, "name" : "Crwon Terrace", "type" : "street", "lat" : 57.140506, "long" : -2.101225, "price" : 2 , "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{ "id" : 3, "name" : "rowrow", "type" : "lot", "lat" : 57.145636, "long" : -2.099031, "price" : 1.5 , "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{ "id" : 4, "name": "RGU", "type": "car park", "lat": 57.119455, "long": -2.135970, "price": 0, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{ "id" : 5, "name": "Dunmail Avenue Car Park", "type": "car park", "lat": 57.116851, "long": -2.178875, "price": 0, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 6, "name": "Broomhill Road Car Park", "type": "car park", "lat": 57.136235, "long":-2.115159, "price":1.50, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 7, "name": "Aberdeen Car Parks", "type": "car park", "lat":57.142587, "long": -2.109011, "price":1.50, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 8, "name": "College Street Car Park", "type": "lot", "lat":57.142587, "long": -2.109011, "price":1.50, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 9, "name": "Harriet Street Car Park", "type": "lot", "lat":57.148145, "long": -2.100754, "price":1.00, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 10, "name": "Union Square Car Park", "type": "car park", "lat":57.142885,"long": -2.094525, "price":0, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 11, "name": "Denburn Car Park", "type": "lot", "lat":57.148708, "long": -2.106670, "price":1.00, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 12, "name": "Gallowgate Car Park", "type": "car park", "lat":57.150877,"lat": -2.097780, "price":1.20, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
+{"id" : 13, "name": "Fonthill Road Car Park", "type": "car park", "lat":57.137344,"long": -2.113441, "price":1.00, "1star": 0,"2star": 0,"3star": 0,"4star": 0,"5star": 0}
