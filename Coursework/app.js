@@ -1,6 +1,6 @@
-
- const MongoClient = require('mongodb').MongoClient;
- const url = "mongodb://localhost:27017/findspot_db";
+// Include MongoDB and connect it to FindSpot's database
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/findspot_db";
 
 //  Include Express and set it to app
 const express = require('express');
@@ -51,7 +51,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({ secret: 'example'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
-//  Initial page
+// Initial page, this is our root route
 app.get('/', (req, res) => {
 	//if the user is not logged in redirect them to the login page
 	if(!req.session.loggedin) {
@@ -59,22 +59,23 @@ app.get('/', (req, res) => {
 		return;
 	}
 	
-	//otherwise perfrom a search to return all the documents in the people collection
-	/*db.collection('users').find().toArray(function(err, result) {
-		if (err) throw err;
-		//the result of the query is sent to the users page as the "users" array
-		res.redirect('/')
-	});*/
-	
 	//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
 	
-    db.collection('locations').find({name: req.query.loc}).toArray(function(err, result) {
-		res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
-	});
-});
-
-app.post('/', (req, res) => {
-    res.render( 'home', { title: 'Home', query: null, spots: spot } );
+	// If a location has been queried by the user, perform it and return the result to EJS,
+	// else, render the home page without search results.
+	if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
+		var locations = db.collection('locations');
+		locations.createIndex({name: 'text'}, function(err, result) {
+			if (err) throw err;
+			console.log(result);
+		});
+		
+		locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
+			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result });
+		});
+	} else {
+		res.render( 'home', { title: 'Home', query: null, spots: [] });
+	}
 });
 
 //  About Page
@@ -104,9 +105,6 @@ app.all('/login', (req, res) => {
  });
 
  // start of Get Routes
-
-//this is our root route
-
 
 // this is the login route which renders the login.ejs page of our website
 app.get('/login', function(req, res){

@@ -55,6 +55,7 @@
 		
 		<ol>
 			<%# Looping through each result and adding their names to the list %>
+			<% console.log(spots) %>
 			<% spots.forEach(function(element) { %>
 				<li><%= element.name %><br><%= element.type %><br>£<%= element.price %></li>
 			<% }); %>
