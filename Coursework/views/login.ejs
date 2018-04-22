@@ -8,7 +8,33 @@
 		FindSpot uses cookies for website functionality, such as logging in and making use of the Google Maps technology. By using this website, you consent to our use of cookies in your browser.
 	</div>
 	<div class="wrap">
-		<%- include('partials/login') %>
+		<!-- LOGIN FORM -->
+		<div id="login">
+			<h3>Login</h3>
+			<form action='/dologin' method="POST" class="form-group">
+				<!-- LOGIN BOX -->
+				<div class="input-group mb-4">
+					<label class="input-group-prepend input-group-text" for="username">Username</label>
+					<input class="form-control input-sm" type="text" name="username" />
+				</div>
+				
+				<!-- PASSWORD BOX-->
+				<div class="input-group mb-4">
+					<label class="input-group-prepend input-group-text" for="password">Password</label>
+					<input class="form-control input-sm" type="password" name="password" id="password"/>
+				</div>
+
+				<!-- 'REMEMBER ME' & 'SUBMIT' BUTTONS -->
+				<div class="input-group-prepend input-group-text mb-4">
+					<input class="input-sm" type="checkbox" name="rem-box" id="rem-box">
+					<label class="input-group-text" for="rem-box">Remember Me</label>
+				</div>
+				
+				<div><button type="submit" class="btn btn-primary">Submit</button></div>
+			</form>
+		</div>
+
+
 	</div>
 </div>
 
