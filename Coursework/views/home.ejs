@@ -17,16 +17,16 @@
 						<div class="panel heading">
 							<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'>
 								<span class="glyphicon glyphicon-map-marker"></span><span class="nav-label">
-								<h6><%= spots.default[i].name %></h6>
+								<h6><%= spots.default[i].name %></h6><h6 class='markerDist<%= i %> pull-right'></h6>
 							</span></a>
 						</div>
 						<div id='collapse<%= i %>' class='panel-collapse collapse'>
 							<div class='panel-body'>
-								<p> Type of location: <%= spots.default[i].type %> </p>
-								<p> Street Name:	<%= spots.default[i].name %> </p>
-								<p> Cost: <%= spots.default[i].price %> </p>
-								<p> Description: <%= spots.default[i].name %> </p>
-								<p> Rating: <%= spots.default[i].name %> </p>
+								<p> Type of location: 	<%= spots.default[i].type %> 	</p>
+								<p> Street Name: 	<%= spots.default[i].name %> 	</p>
+								<p> Cost: 		<%= spots.default[i].price %>	 </p>
+								<p> Description: 	<%= spots.default[i].name %> 	</p>
+								<p> Rating: 	<%= spots.default[i].name %> 	</p>
 							</div>
 						</div>
 					</div>
@@ -46,12 +46,19 @@
 var spots = <%- JSON.stringify(spots) %>;
 
 function initMap() {
-	var abz = {lat:57.1497, lng:-2.0943};
+	var userLoc = {lat:57.1497, lng:-2.0943};
 	var infowindow = new google.maps.InfoWindow;
 
+	// Function to calculate distance between any marker and the users given location
+	function calcDist(marker, userLoc){
+		var LatLng = marker.getPosition();
+		var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, LatLng);
+		return distance;
+	}
+
 	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 12,
-		center: abz,
+		zoom: 14,
+		center: userLoc,
 		mapTypeControl: false
 	});
 	map.setTilt(45);
@@ -67,8 +74,8 @@ function initMap() {
 		});
 		var contentMap = '<div id="infoContent">'+
 			'<h5 id="locHeading">' + spots.default[i].name + '</h1></div>'+
-			'<p id="locInfo">Type:' + spots.default[i].type  + '</p>'+
-			'<p id="locInfo">additional info: ' + spots.default[i].rating + '</p>';
+			'<p id="locInfo"> Type:' + spots.default[i].type  + '</p>'+
+			'<p id="locInfo"> Additional Info: ' + spots.default[i].rating + '</p>';
 
 		contentStrings[i] = contentMap;
 
@@ -92,9 +99,9 @@ function initMap() {
 </script>
 
 <!-- Import Google Map API -->
-<script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
-</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+
 
 </body>
 </html>
