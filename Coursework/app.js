@@ -12,6 +12,12 @@ const app = express();
 // for login database
 const session = require('express-session');
 
+function isLoggedIn(req) {
+	return req.session.currentUser !== null && typeof req.session.currentUser !== 'undefined');
+} 
+
+//if the user is not logged in redirect them to the login page
+
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');
 
@@ -23,31 +29,30 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Initial page, this is our root route
 app.get('/', (req, res) => {
-	//if the user is not logged in redirect them to the login page
-	if(req.session.currentUser === null || typeof req.session.currentUser === 'undefined') {
+	// Redirect to login page if not logged in, else load the page as normal.
+	if (!isLoggedIn()) {
 		res.redirect('/login');
-		return;
-	}
-	
-	//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
-	
-	// If a location has been queried by the user, perform it and return the result to EJS,
-	// else, render the home page without search results.
-	if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
-		var locations = db.collection('locations');
-		
-		// Use 'text' indexer to search database of locations
-		locations.createIndex({name: 'text'}, function(err, result) {
-			if (err) throw err;
-			//console.log(result);
-		});
-		
-		// Search the locations collection using the user's string
-		locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
-			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
-		});
 	} else {
-		res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
+		//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
+	
+		// If a location has been queried by the user, perform it and return the result to EJS,
+		// else, render the home page without search results.
+		if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
+			var locations = db.collection('locations');
+		
+			// Use 'text' indexer to search database of locations
+			locations.createIndex({name: 'text'}, function(err, result) {
+				if (err) throw err;
+				//console.log(result);
+			});
+		
+			// Search the locations collection using the user's string
+			locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
+				res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
+			});
+		} else {
+			res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
+		}
 	}
 });
 
@@ -82,27 +87,35 @@ app.all('/login', (req, res) => {
 // this is the login route which renders the login.ejs page of our website
 
 app.get('/add', function(req, res){
-	res.render('add', {title: "Add Location", user: req.session.currentUser});
+	if (isLoggedIn()) {
+		res.render('add', {title: "Add Location", user: req.session.currentUser});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 //start of Post Routes 
 
 // db stuff for user_inputed_locations 
 app.post('/locations', function(req, res) {
-    var newLocation = {
-		name: req.body.name,
-		type: req.body.type,
-		lat: parseFloat(req.body.lat),
-		long: parseFloat(req.body.long),
-		price: req.body.price
-	};
-    
-    db.collection('locations').save(newLocation, function(err, result) {
-        if (err) throw err;
-        //console.log('location added to database')
-        res.redirect('/')
-     })
- })
+    if (isLoggedIn()) {
+		var newLocation = {
+			name: req.body.name,
+			type: req.body.type,
+			lat: parseFloat(req.body.lat),
+			long: parseFloat(req.body.long),
+			price: req.body.price
+		};
+		
+		db.collection('locations').save(newLocation, function(err, result) {
+			if (err) throw err;
+			//console.log('location added to database')
+			res.redirect('/')
+		 });
+	 } else {
+		 res.redirect('/login');
+	 }
+ });
 
 // the dologin route which takes data from our login page
 // post variables, username and password
