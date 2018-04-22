@@ -14,15 +14,16 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 	position: absolute;
 	width: 20%;
 	z-index: 3;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	box-shadow: 3px 0px 2px 0px #2f3a51;
 	-webkit-transition: all 0.1s ease-in-out;
 	-moz-transition: all 0.1s ease-in-out;
 	transition: all 0.1s ease-in-out;
 }
-.navbar-primary.collapsed { max-width: 60px; overflow-y: hidden; }
-.navbar-primary.collapsed .glyphicon {  font-size: 22px; }
+.navbar-primary.collapsed { max-width: 60px; }
+.navbar-primary.collapsed .sidebar { overflow-y: hidden; }
+.navbar-primary.collapsed .glyphicon {  font-size: 1.3em; }
 .navbar-primary.collapsed .nav-label {  display: none; }
 .btn-expand-collapse {
 	background-color: #374a62;
@@ -37,7 +38,6 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
 	color: #374a62;
 	font-size: 20px;
 	text-align: center;
-	transition: all 1.2s ease-in-out;
 }
 .btn-expand-collapse:hover,
 .btn-expand-collapse:focus {
@@ -58,14 +58,10 @@ body { background-color: #374a62; min-height: 100%; width: 100%; font-size: 90%;
   text-decoration: none;
   color: white;
 }
-.navbar-primary-menu li a .glyphicon {
-  margin-right: 6px;
-}
-
-.navbar-primary-menu li a:hover .glyphicon {
-  color: orchid;
-}
+.navbar-primary-menu li a .glyphicon { margin-right: 6px; }
+.navbar-primary-menu li a:hover .glyphicon { color: orchid; }
 /* _____Side Bar Links_____ */
+.sidebar { height: 100%; overflow-y: scroll; overflow-x: hidden; }
 .panel-body {
 	background-color: #f2f2f2;
 	padding: 10px 5% 10px 5%;
