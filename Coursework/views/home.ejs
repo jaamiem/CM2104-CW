@@ -4,8 +4,20 @@
 <body>
 <%- include('partials/navbar') %>
 
+<% 
+	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
+	// It should show if the user has searched for something
+	var showSidebar;
+	
+	if (query !== "" && query !== null && query !== undefined) { 
+		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
+	} else {
+		showSidebar = ''; // No search, no no class to show.
+	}
+%>
+
 <!-- Start sidebar -->
-<div class="collapse" id="sidebar">
+<div class="collapse<%= showSidebar %>" id="sidebar">
 	<h5>Advanced Search</h5>
 	<form>
 		<div class="input-group mb-4">
