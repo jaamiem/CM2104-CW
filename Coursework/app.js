@@ -89,7 +89,15 @@ app.get('/add', function(req, res){
 
 // db stuff for user_inputed_locations 
 app.post('/locations', function(req, res) {
-    db.collection('locations').save(req.body, function(err, result) {
+    var newLocation = {
+		name: req.body.name,
+		type: req.body.type,
+		lat: parseFloat(req.body.lat),
+		long: parseFloat(req.body.long),
+		price: req.body.price
+	};
+    
+    db.collection('locations').save(newLocation, function(err, result) {
         if (err) throw err;
         //console.log('location added to database')
         res.redirect('/')
