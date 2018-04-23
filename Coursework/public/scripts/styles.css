@@ -4,7 +4,6 @@
 html {
 	height:100%;
 }
-
 body {
 	background-color: #232f3e;
 	min-height: 100%;
@@ -13,20 +12,17 @@ body {
 	font-family: 'Catamaran', sans-serif;
 	color:white;
 }
-
 /* _____Nav Bar_____ */
 .navbar {
 	align-items:center;
 	height: 15vh;
 	z-index:1001;
 }
-
 .navbar > div {
 	position:absolute !important;
 	left:0 !important;
 	top:1mm !important;
 }
-
 #links a {
 	background-color: #232f3e;
 	width:25%;
@@ -34,29 +30,110 @@ body {
 	padding-top:3mm;
 	padding-bottom:3mm;
 	left:0;
-	border-style:solid;
-	border-width:2px;
-	border-color: #698dba;
 }
-
 .navbar-brand {
 	font-size:1.9em;
 	color:white !important;
 	margin-top: 0.4em;
 }
+/* _____Side Bar_____ */
+.navbar-primary {
+	background-color: #383838;
+	top: 75px;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+	width: 20%;
+	z-index: 3;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	box-shadow: 3px 0px 2px 0px #2f3a51;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+.navbar-primary.collapsed {
+	max-width: 60px;
+}
+.navbar-primary.collapsed .sidebar {
+	overflow-y: hidden;
+}
+.navbar-primary.collapsed .glyphicon {
+	font-size: 1.3em;
+}
+.navbar-primary.collapsed .nav-label {
+	display: none;
+}
+.btn-expand-collapse {
+	background-color: #374a62;
+	position: absolute;
+	display: block;
+	left: 0px;
+	bottom: 0;
+	width: 100%;
+	height: 5%;
+	padding: 8px 0;
+	border-top:solid 1px #666;
+	color: #374a62;
+	font-size: 20px;
+	text-align: center;
+}
+.btn-expand-collapse:hover {
+    background-color: #405772;
+    color: white;
+}
+.btn-expand-collapse:active {
+	background-color: #111;
+}
+.navbar-primary-menu,.navbar-primary-menu li {
+	margin:0; padding:0; list-style: none;
+}
+.navbar-primary-menu li a {
+  display: block;
+  padding: 10px 18px;
+  text-align: left;
+  border-bottom:solid 1px #444;
+  color: #ccc;
+  transition: all 0.04s ease-in-out;
+}
+.navbar-primary-menu li a:hover {
+  background-color: #000;
+  text-decoration: none;
+  color: white;
+}
+.navbar-primary-menu li a .glyphicon {
+	margin-right: 6px;
+}
+.navbar-primary-menu li a:hover .glyphicon {
+	color: white; }
 
+/* _____Side Bar Links_____ */
+.sidebar {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.panel-body {
+	background-color: #f2f2f2;
+	padding: 10px 5% 10px 5%;
+	margin-right: 2px;
+	margin-left: 3px;
+	/* box-shadow: inset -3px 1px 5px 1px #666666; */
+}
+/* _____Sidebar Scrollbar_____ */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #666666; }
+::-webkit-scrollbar-thumb { background: #b3b3b3 }
+::-webkit-scrollbar-thumb:hover { background: #555 }
 /* _____Link Bar_____ */
 .linkbar {
 	list-style-type: none;
 	margin: 0;
 }
-
-
 .linkbar > li, .linkbar div a {
 	display: inline-block;
 	/* padding-right: 1em; */
 }
-
 .linkbar li > a, .linkbar div a {
 	text-decoration: none;
 	text-align: center;
@@ -65,7 +142,6 @@ body {
 	width: 4em;
 	display: inline-block;
 }
-
 #links .active a {
 	color: #F7F7F7;
 	background-color: #465e7c;
@@ -75,23 +151,20 @@ body {
 	color: #f7f7f7;
 	transition: all 0.14s ease-in-out;
 }
-
 .active > a:hover {
 	color: white;
 	transition: all 0.14s linear;
 }
-
 /* _____Text Tags_____ */
 h1,h2,h3,h4 {
 	text-align: center;
 	font-weight: bold;
 	margin-top: 50px;
 }
-
 /* _____Carousel P_____ */
 #carouselp{
-    font-size:30px; 
-    text-align:center; 
+    font-size:30px;
+    text-align:center;
     margin:70px;
 }
 
@@ -100,13 +173,14 @@ label {
 }
 /* _____Image_____ */
 img.displayed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto }
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .responsive {
-    max-width: 100%;
-    height: auto;
+	max-width: 100%;
+	height: auto;
 }
 .zoom{
 	position: relative;
@@ -121,37 +195,13 @@ img.displayed {
 .zoom img{
 	transition: : all 0.3s;
 }
-
-
-/* _____Sidebar_____ */
-#sidebar {
-	position:absolute;
-	z-index:1000;
-	background-color: #232f3e;
-	width:25vw;
-	height:85vh;
-	overflow:auto;
-}
-
-#sidebar h3 {
-	text-align:left;
-}
-
-#sidebar label {
-	color:white;
-}
-
-/* pull-right didn't work */
-#closeSidebarButton {
-	float:right;
-}
-
 /* _____Content_____ */
 #content {
 	width: 100%;
-	height:75vh;
+	height: -webkit-calc(100vh - 75px);
+	height: -moz-calc(100vh - 75px);
+	height: calc(100vh - 75px);
 }
-
 .wrap {
 	width:80vw;
 	border-radius: 7px;
@@ -159,45 +209,27 @@ img.displayed {
 	margin: 0 auto;
 	margin-top: 4em;
 }
-
 .wrapWhite {
 	background-color:#f2f2f2;
 	color: #404040;
 }
-
 .wrapBlack {
 	background-color: #253241;
 	color: #f7f7f7;
 }
-.wraprafa {
-	width:80%;
-	height: 80%;
-	border-radius: 7px;
-	background-color: #253241;
-	color: #404040;
-	margin: 0 auto;
-	margin-top: 4em;
-	padding: 1em 2em 1em 2em;
-}
-
-#login {
-	padding: 1em 2em 1em 2em;
-}
-
 #map {
 	background-color: #4d94ff !important;
-	height: 85vh;
+	height: -webkit-calc(100vh - 75px);
+	height: -moz-calc(100vh - 75px);
+	height: calc(100vh - 75px);
 	width: 100%;
 }
-
 /* _____Slide content_____ */
-
 /* Separate class to be applied to the navbar when on any page other than the main page. */
 .shadowFx {
 	box-shadow:0.1px 10px 12px #1C2331;
 	margin-bottom:12px;
 }
-
 /* The carousel text on the about page */
 .slidetext {
 	width:45%;
@@ -206,24 +238,20 @@ img.displayed {
 	margin:5mm;
 	color:#000000;
 }
-
 /* Make the first slide of text white to contrast with the dark background */
 .carousel-item:first-child .slidetext {
-	color:#ffffff;
+	color: #ffffff;
 }
-
 /* Now the text box is legible */
 .checkbox label {
 	color:#000000;
 }
-
 /* Distance mission text from carousel */
 #ourMission {
 	margin-top:3em;
 	color:white;
 	text-align:center;
 }
-
 #carouselFS {
 	box-shadow:0.1px 10px 12px #1C2331;
 }
