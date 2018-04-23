@@ -40,12 +40,6 @@ app.get('/', (req, res) => {
 		if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
 			var locations = db.collection('locations');
 		
-			// Use 'text' indexer to search database of locations
-			locations.createIndex({name: 'text'}, function(err, result) {
-				if (err) throw err;
-				console.log("result: " + result);
-			});
-		
 			// Search the locations collection using the user's string
 			locations.find({"name":{"$regex":req.query.loc, "$options": "i"} }).toArray(function(err, result) {
 				//console.log(result);
@@ -109,6 +103,7 @@ app.post('/locations', function(req, res) {
 		};
 		
 		console.log(req.body.lat);
+		console.log(req.body.long);
 		
 		db.collection('locations').save(newLocation, function(err, result) {
 			if (err) throw err;
