@@ -150,14 +150,22 @@ app.all('/dologout', function(req,res) {
 });
 
 app.post('/doregister', function(req, res) {
-	// Add a user to the database, TODO add security measures
-	db.collection('users').insert({
-		"login":{
-			"username":req.body.username,
-			"password":req.body.password
-		}
-	});
+	// A string containing only characters between 0 and 9, A and Z (case insensitive) and at least one character.
+	const alphaNumericRegex = /^[0-9a-z]+$/i;
 	
-	req.session.currentUser = req.body.username;
+	// Add a user to the database, TODO add security measures
+	
+	// If a user is logged in, skip the registration step (security measure to prevent flooding with accounts)
+	if (!isLoggedIn() && alphaNumericRegex.test(req.body.username)) {
+		db.collection('users').insert({
+			"login":{
+				"username":req.body.username,
+				"password":req.body.password
+			}
+		});
+		
+		req.session.currentUser = req.body.username;
+	}
+	
 	res.redirect('/');
 });
