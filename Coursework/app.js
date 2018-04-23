@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
 		
 			// Search the locations collection using the user's string
 			locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
+				console.log(result);
 				res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
 			});
 		} else {
@@ -106,6 +107,8 @@ app.post('/locations', function(req, res) {
 			long: parseFloat(req.body.long),
 			price: req.body.price
 		};
+		
+		console.log(req.body.lat);
 		
 		db.collection('locations').save(newLocation, function(err, result) {
 			if (err) throw err;
