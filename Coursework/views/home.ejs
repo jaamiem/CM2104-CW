@@ -4,49 +4,102 @@
 <body>
 <%- include('partials/navbar') %>
 
-<% 
+<%
 	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
 	// It should show if the user has searched for something
 	var showSidebar;
-	
-	if (query !== "" && query !== null && query !== undefined) { 
+
+	if (query !== "" && query !== null && query !== undefined) {
 		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
 	} else {
 		showSidebar = ''; // No search, no no class to show.
 	}
 %>
 
+<!-- Sidebar -->
+<nav class='navbar-primary'>
+	<div class='sidebtn'> <!-- Button to expand sidebar, absolute pos at bot of div -->
+		<a href='#' class='btn-expand-collapse'><span class='glyphicon glyphicon-menu-left'></span></a>
+		<a id="addLocationButton" class="btn btn-primary" href="/add">
+			Add location...
+		</a>
+	</div>
+	<div class='sidebar'>
+		<ul class='navbar-primary-menu panel-group' id='accordion'>
+			<li>
+				<div class="panel panel-info">
+					<div class="panel heading">
+						<a data-toggle='collapse' data-parent='#accordion' href='#collapseFilter'>
+							<h6> Advanced Search Options</h6>
+						</span></a>
+					</div>
+					<div id='collapseFilter' class='panel-collapse collapse'>
+						<div class='panel-body'>
+							<form class="filterOps">
+								<div class="input-group mb-4">
+									<input class="form-control" name="loc" type="text" id="loc" aria-label="Advanced search textbox">
+								</div>
+								<div class="input-group mb-4">
+									<label>Price<input class="form-control" name="price" type="range" id="priceSlider"></label>
+									<span id="priceDisplay"></span>
+								</div>
+								<div class="input-group mb-4">
+									<label>Distance<input class="form-control" name="distance" type="range" id="distanceSlider"></label>
+									<span id="distanceDisplay"></span>
+								</div>
+								<div class="input-group mb-4">
+									<button class="btn btn-primary">
+										Advanced search
+									</button>
+								</div>
+							</form>
+						</div>
+				</div>
+			</li>
+			<li>
+				<h6> Search Results </h6>
+			</li>
+			<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>
+				<%# for ( i = 0; i < Object.keys(spots.default).length; i++ )  { %>
+				<% spots.forEach(function(spot) {
+					<li>
+						<div class="panel panel-default">
+							<div class="panel heading">
+								<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'>
+									<span class="glyphicon glyphicon-map-marker"></span><span class="nav-label">
+									<h6><%= spots.default[i].name %></h6><h6 class='markerDist<%= i %> pull-right'></h6>
+								</span></a>
+							</div>
+							<div id='collapse<%= i %>' class='panel-collapse collapse'>
+								<div class='panel-body'>
+									<p> Type of location: 	<%= spots.type %> 	</p>
+									<p> Street Name: 	<%= spot.name %> 	</p>
+									<p> Cost: 		<%= spot.price %>	 </p>
+									<p> Description: 	<%= spot.name %> 	</p>
+									<p> Rating: 	<%= spot.name %> 	</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				<% }); %>
+				<%# } %>
+			<% } %>
+		</ul>
+	</div>
+</nav>
+
+<!-- Map Display Div -->
+<div id="map">
+	<!-- <noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript> -->
+</div>
+
 <!-- Start sidebar -->
 <div class="collapse<%= showSidebar %>" id="sidebar">
-	<h5>Advanced Search</h5>
-	<form>
-		<div class="input-group mb-4">
-			<input class="form-control" name="loc" type="text" id="loc" aria-label="Advanced search textbox">
-		</div>
-		
-		<div class="input-group mb-4">
-			<label>Price<input class="form-control" name="price" type="range" id="priceSlider"></label>
-			<span id="priceDisplay"></span>
-		</div>
-		
-		<div class="input-group mb-4">
-			<label>Distance<input class="form-control" name="distance" type="range" id="distanceSlider"></label>
-			<span id="distanceDisplay"></span>
-		</div>
-		
-		<div class="input-group mb-4">
-			<button class="btn btn-primary">
-				Advanced search
-			</button>
-		</div>
-	</form>
-	
-	
-	<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>		
+	<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>
 		<!-- This is where the results are displayed -->
 		<h5>Search Results</h5>
 		<p>for '<%= query %>'</p>
-		
+
 		<div class="list-group">
 			<%# Looping through each result and adding their names to the list %>
 			<%# console.log(spots) %>
@@ -55,16 +108,12 @@
 					<%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot
 				</a>
 			<% }); %>
-			
+
 		</div>
 	<% } %>
-	
-	<a id="addLocationButton" class="btn btn-primary" href="/add">
-		Add location...
-	</a>
-	
+
 	</div>
-	
+
 </div>
 
 <div id="content">
@@ -96,33 +145,35 @@ function updatePriceLabel() {
 
 $(function() {
 	var map = initMap();
-	
+
 	<% if (query !== undefined && query !== null && query !== "") { %>
+		var count = 0;
 		spots.forEach(function(item) {
-			placeMarker(map, item.name, {lat: item.lat, lng: item.long});
+			placeMarker(count, map, item.name, {lat: item.lat, lng: item.long});
+			count++;
 		});
 	<% } %>
-	
+
 	$(function() {
 		// Listeners for changes in the value of the distance and price sliders.
 		// In the event of a change, they update text displayed near the slider with a clear value.
 		$('#distanceSlider').change(function(event) {
 			updateDistanceLabel();
 		});
-		
+
 		$('#priceSlider').change(function(event) {
 			updatePriceLabel();
 		});
-		
+
 		updatePriceLabel();
 		updateDistanceLabel();
-		
-		map.addListener('click', function(event) {
-			console.log('Latitude: ' + event.latLng.lat());
-			console.log('Longitude: ' + event.latLng.lng());
-		});
 	});
 });
+</script>
+<script>
+	$('.btn-expand-collapse').click(function(e) {
+		$('.navbar-primary').toggleClass('collapsed');
+	});
 </script>
 
 </body>
