@@ -61,7 +61,15 @@ app.all('/login', (req, res) => {
 	res.render( 'login', { title: 'Log in', user: req.session.currentUser });
 });
 
-
+//  Sign up Page
+app.get('/register', function(req, res) {
+	// If a user is not logged in, show them the register page.
+	if (typeof req.session.currentUser === 'undefined' || req.session.currentUser === null) {
+		res.render( 'register', {title: 'Sign up'});
+	} else {
+		res.redirect('/'); // Logged in users do not need an account.
+	}
+});
 
  var db;
 
@@ -139,4 +147,17 @@ app.post('/dologin', function(req,res){
 app.all('/dologout', function(req,res) {
 	req.session.currentUser = null;
 	res.redirect('/login');
+});
+
+app.post('/doregister', function(req, res) {
+	// Add a user to the database, TODO add security measures
+	db.collection('users').insert({
+		"login":{
+			"username":req.body.username,
+			"password":req.body.password
+		}
+	});
+	
+	req.session.currentUser = req.body.username;
+	res.redirect('/');
 });
