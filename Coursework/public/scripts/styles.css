@@ -48,6 +48,7 @@ body {
 	margin: 0;
 }
 
+
 .linkbar > li, .linkbar div a {
 	display: inline-block;
 	/* padding-right: 1em; */
@@ -81,6 +82,14 @@ body {
 h1,h2,h3,h4 {
 	text-align: center;
 	font-weight: bold;
+	margin-top: 50px;
+}
+
+/* _____Carousel P_____ */
+#carouselp{
+    font-size:30px; 
+    text-align:center; 
+    margin:70px;
 }
 
 label {
