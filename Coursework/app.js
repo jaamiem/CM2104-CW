@@ -43,12 +43,12 @@ app.get('/', (req, res) => {
 			// Use 'text' indexer to search database of locations
 			locations.createIndex({name: 'text'}, function(err, result) {
 				if (err) throw err;
-				//console.log(result);
+				console.log(result);
 			});
 		
 			// Search the locations collection using the user's string
 			locations.find({$text: {$search: req.query.loc} }).toArray(function(err, result) {
-				console.log(result);
+				//console.log(result);
 				res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
 			});
 		} else {
