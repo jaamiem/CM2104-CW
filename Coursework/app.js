@@ -29,26 +29,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Initial page, this is our root route
 app.get('/', (req, res) => {
-	// Redirect to login page if not logged in, else load the page as normal.
-	if (!isLoggedIn(req)) {
-		res.redirect('/login');
-	} else {
-		//console.log(db.collection('locations').find({name: req.query.loc}).toArray());
+
+	// If a location has been queried by the user, perform it and return the result to EJS,
+	// else, render the home page without search results.
+	if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
+		var locations = db.collection('locations');
 	
-		// If a location has been queried by the user, perform it and return the result to EJS,
-		// else, render the home page without search results.
-		if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
-			var locations = db.collection('locations');
+		// Search the locations collection using the user's string
+		locations.find({"name":{"$regex":req.query.loc, "$options": "i"} }).toArray(function(err, result) {
+			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
+		});
 		
-			// Search the locations collection using the user's string
-			locations.find({"name":{"$regex":req.query.loc, "$options": "i"} }).toArray(function(err, result) {
-				//console.log(result);
-				res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
-			});
-		} else {
-			res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
-		}
+	} else {
+		res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
 	}
+
 });
 
 //  About Page
