@@ -157,15 +157,27 @@ app.post('/doregister', function(req, res) {
 	
 	// If a user is logged in, skip the registration step (security measure to prevent flooding with accounts)
 	if (!isLoggedIn(req) && alphaNumericRegex.test(req.body.username)) {
-		db.collection('users').insert({
-			"login":{
-				"username":req.body.username,
-				"password":req.body.password
+		db.collection('users').find({"login.username" : req.body.username}).toArray(function(err,result) {
+			console.log(result.length);
+			console.log(result);
+			
+			// If a user does not have this name, sign them up
+			if (result.length === 0) {
+				console.log("inserting user " + req.body.username);
+			
+				db.collection('users').insert({
+					"login":{
+						"username":req.body.username,
+						"password":req.body.password
+					}
+				});
+			
+				// And sign them in
+				req.session.currentUser = req.body.username;
 			}
 		});
-		
-		req.session.currentUser = req.body.username;
 	}
 	
+	// Redirect to the home page
 	res.redirect('/');
 });
