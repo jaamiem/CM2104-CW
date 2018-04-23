@@ -1,7 +1,7 @@
 <%
 	var showShadow; // Where to store whether the shadow class is enabled
 	
-	if ( title === 'Home' ) {
+	if ( title === 'Home' || title === 'Add Location' ) {
 		showShadow = ''; // Blank since it is not used
 	} else {
 		showShadow = 'shadowFx'; // The class name which causes this effect
@@ -49,7 +49,7 @@
 		<% } %>
 		
 		<div id="links" class="pull-right linkbar centerNav collapse navbar-collapse">
-			<ul class="nav navbar-nav linkbar pull-left">
+			<ul class="nav navbar-nav linkbar pull-left" role="menu">
 				
 				<%# Only display the map option if the user is logged in %>
 				<% if (typeof user !== 'undefined' && user !== null) { %>

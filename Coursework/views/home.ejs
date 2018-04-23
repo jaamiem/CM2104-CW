@@ -74,31 +74,16 @@
 	</div>
 </div>
 
+<script src="scripts/fscommon.js" type="application/javascript"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
+</script>
+
 <script>
 // Get the spots from EJS through node and mongo
 var spots = <%- JSON.stringify(spots) %>;
 
 // Store the map itself
 var map;
-
-// Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
-function initMap() {
-	var abz = {lat:57.1497, lng:-2.0943};
-	map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 8,
-		center: abz
-	});
-
-}
-
-// This function places a marker on the passed map at the given location.
-function placeMarker(map, parkingName, location){
-	var marker = new google.maps.Marker({
-		position: location,
-		title: parkingName,
-		map: map
-	});
-}
 
 // These functions synchronise the value of labels with the value of their respective sliders
 function updateDistanceLabel() {
@@ -110,7 +95,7 @@ function updatePriceLabel() {
 }
 
 $(function() {
-	initMap();
+	var map = initMap();
 	
 	<% if (query !== undefined && query !== null && query !== "") { %>
 		spots.forEach(function(item) {
@@ -131,11 +116,13 @@ $(function() {
 		
 		updatePriceLabel();
 		updateDistanceLabel();
+		
+		map.addListener('click', function(event) {
+			console.log('Latitude: ' + event.latLng.lat());
+			console.log('Longitude: ' + event.latLng.lng());
+		});
 	});
 });
-</script>
-
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
 </script>
 
 </body>
