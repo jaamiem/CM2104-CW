@@ -156,7 +156,7 @@ app.post('/doregister', function(req, res) {
 	// Add a user to the database, TODO add security measures
 	
 	// If a user is logged in, skip the registration step (security measure to prevent flooding with accounts)
-	if (!isLoggedIn() && alphaNumericRegex.test(req.body.username)) {
+	if (!isLoggedIn(req) && alphaNumericRegex.test(req.body.username)) {
 		db.collection('users').insert({
 			"login":{
 				"username":req.body.username,
