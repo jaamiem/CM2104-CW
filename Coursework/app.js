@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 			});
 		
 			// Search the locations collection using the user's string
-			locations.find({"name":{"$regex":"/*" + req.query.loc + "*/i"} }).toArray(function(err, result) {
+			locations.find({"name":{"$regex":"/*" + req.query.loc + "*", "$options": "i"} }).toArray(function(err, result) {
 				//console.log(result);
 				res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
 			});
