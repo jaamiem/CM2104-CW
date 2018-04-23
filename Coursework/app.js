@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 			// Use 'text' indexer to search database of locations
 			locations.createIndex({name: 'text'}, function(err, result) {
 				if (err) throw err;
-				console.log(result);
+				console.log("result: " + result);
 			});
 		
 			// Search the locations collection using the user's string
