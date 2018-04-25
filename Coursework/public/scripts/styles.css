@@ -15,7 +15,7 @@ body {
 /* _____Nav Bar_____ */
 .navbar {
 	align-items:center;
-	height: 15vh;
+	height: 75px;
 	z-index:1001;
 }
 .navbar > div {
