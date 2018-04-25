@@ -1,5 +1,7 @@
 # CM2104-CW
+# google maps api/places api
 
+https://developers.google.com/maps/documentation/javascript/examples/directions-complex
 # LOAD Database files
 open the mongo shell in codio
 write in use findspot_db
