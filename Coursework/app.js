@@ -16,6 +16,11 @@ function isLoggedIn(req) {
 	return req.session.currentUser !== null && typeof req.session.currentUser !== 'undefined';
 } 
 
+// Checks that a string is defined, not null and isn't a blank string.
+function hasContents(string) {
+	return typeof string !== 'undefined' && string !== null && string !== "";
+}
+
 //if the user is not logged in redirect them to the login page
 
 //  Set the view engine to read EJS files for templating
@@ -29,14 +34,42 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Initial page, this is our root route
 app.get('/', (req, res) => {
-
-	// If a location has been queried by the user, perform it and return the result to EJS,
+	// Blank object, query is built using data below
+	var query = {};
+	
+	// If location is defined, add it to query
+	if (hasContents(req.query.loc)) {
+		// Add the $and field if this query is used
+		if (Object.keys(query).length === 0) {
+			query.$and = [];
+		}
+		
+		// Regex which checks that the user string is a subset of other strings in the database
+		// The 'i' means that the query is case insensitive, so 'M' and 'm' are treated the same.
+		query.$and.push({name: {"$regex":req.query.loc, "$options": "i"}});
+	}
+	
+	// If price is defined, add it to query
+	if (hasContents(req.query.price)) {
+		// Add the $and field if this query is used
+		if (Object.keys(query).length === 0) {
+			query.$and = [];
+		}
+		
+		// parseFloat is used so the price is not a string.
+		// $lte means less than or equal to. In other words, this is the maximum price which will be displayed in results
+		query.$and.push({"price": {"$lte": parseFloat(req.query.price)}});
+	}
+	
+	//console.log(query);
+	
+	// If a query has been made by the user, perform it and return the result to EJS,
 	// else, render the home page without search results.
-	if (req.query.loc !== "" && req.query.loc !== null && req.query.loc !== undefined) {
+	if (Object.keys(query).length > 0) {
 		var locations = db.collection('locations');
 	
 		// Search the locations collection using the user's string
-		locations.find({"name":{"$regex":req.query.loc, "$options": "i"} }).toArray(function(err, result) {
+		locations.find(query).toArray(function(err, result) {
 			res.render( 'home', {
 				title: 'Home',
 				queryDefined: true, spots: result, user: req.session.currentUser
