@@ -7,17 +7,17 @@
 <%
 	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
 	// It should show if the user has searched for something
-	var showSidebar;
+	var collapseSidebar;
 
 	if (query !== "" && query !== null && query !== undefined) {
-		showSidebar = 'show'; // This bootstrap class is applied to the sidebar if the user has searched for something
+		collapseSidebar = ''; // This bootstrap class is applied to the sidebar if the user has searched for something
 	} else {
-		showSidebar = ''; // No search, no no class to show.
+		collapseSidebar = 'collapsed'; // No search, no no class to show.
 	}
 %>
 
 <!-- Sidebar -->
-<nav class='navbar-primary'>
+<nav class='navbar-primary <%= collapseSidebar %>'>
 	<div class='sidebtn'> <!-- Button to expand sidebar, absolute pos at bot of div -->
 		<a href='#' class='btn-expand-collapse'><span class='glyphicon glyphicon-menu-left'></span></a>
 		
@@ -80,7 +80,7 @@
 								<div class='panel-body'>
 									<p> Type of location: 	<%= spot.type %> 	</p>
 									<p> Street Name: 	<%= spot.name %> 	</p>
-									<p> Cost: 		<%= spot.price %>	 </p>
+									<p> Cost: 		£<%= spot.price %>	 </p>
 									<p> Description: 	<%= spot.name %> 	</p>
 									<p> Rating: 	<%= spot.name %> 	</p>
 								</div>
@@ -97,37 +97,8 @@
 
 <!-- Map Display Div -->
 <div id="map">
-	<!-- <noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript> -->
-</div>
-
-<!-- Start sidebar -->
-<div class="collapse<%= showSidebar %>" id="sidebar">
-	<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>
-		<!-- This is where the results are displayed -->
-		<h5>Search Results</h5>
-		<p>for '<%= query %>'</p>
-
-		<div class="list-group">
-			<%# Looping through each result and adding their names to the list %>
-			<%# console.log(spots) %>
-			<% spots.forEach(function(element) { %>
-				<a class="list-group-item" href="#">
-					<%= element.name %><br><%= element.type %><br>£<%= element.price %><br>FindSpot
-				</a>
-			<% }); %>
-
-		</div>
-	<% } %>
-
-	</div>
-
-</div>
-
-<div id="content">
-	<div id="map">
-		<!-- The map is loaded if JavaScript is enabled, otherwise this message is shown -->
-		<noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript>
-	</div>
+	<!-- The map is loaded if JavaScript is enabled, otherwise this message is shown -->
+	<noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript>
 </div>
 
 <script src="scripts/fscommon.js" type="application/javascript"></script>
