@@ -37,11 +37,14 @@ app.get('/', (req, res) => {
 	
 		// Search the locations collection using the user's string
 		locations.find({"name":{"$regex":req.query.loc, "$options": "i"} }).toArray(function(err, result) {
-			res.render( 'home', { title: 'Home', query: req.query.loc, spots: result, user: req.session.currentUser });
+			res.render( 'home', {
+				title: 'Home',
+				queryDefined: true, spots: result, user: req.session.currentUser
+			});
 		});
 		
 	} else {
-		res.render( 'home', { title: 'Home', query: null, spots: [], user: req.session.currentUser });
+		res.render( 'home', { title: 'Home', queryDefined: false, spots: [], user: req.session.currentUser });
 	}
 
 });

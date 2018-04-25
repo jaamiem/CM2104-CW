@@ -5,11 +5,11 @@
 <%- include('partials/navbar') %>
 
 <%
-	// This variable is 'show' if the sidebar is to be shown on page load or '' otherwise.
-	// It should show if the user has searched for something
+	// This variable is 'collapse' if the sidebar is to be initially hidden on page load or '' otherwise.
+	// It should show only if the user has searched for something
 	var collapseSidebar;
 
-	if (query !== "" && query !== null && query !== undefined) {
+	if (queryDefined) {
 		collapseSidebar = ''; // This bootstrap class is applied to the sidebar if the user has searched for something
 	} else {
 		collapseSidebar = 'collapsed'; // No search, no no class to show.
@@ -63,7 +63,7 @@
 			<li>
 				<h6> Search Results </h6>
 			</li>
-			<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>
+			<% if (queryDefined) { %>
 				<%# for ( i = 0; i < Object.keys(spots.default).length; i++ )  { %>
 				
 				<% var spotNo = 1; %>
@@ -124,7 +124,7 @@ function updatePriceLabel() {
 $(function() {
 	var map = initMap();
 
-	<% if (query !== undefined && query !== null && query !== "") { %>
+	<% if (queryDefined) { %>
 		var count = 0;
 		spots.forEach(function(item) {
 			placeMarker(count, map, item.name, {lat: item.lat, lng: item.long});
