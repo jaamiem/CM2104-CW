@@ -65,18 +65,20 @@
 			</li>
 			<% if (typeof query !== 'undefined' && query !== "" && query !== null) { %>
 				<%# for ( i = 0; i < Object.keys(spots.default).length; i++ )  { %>
+				
+				<% var spotNo = 1; %>
 				<% spots.forEach(function(spot) { %>
 					<li>
 						<div class="panel panel-default">
 							<div class="panel heading">
-								<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= i %>'>
+								<a data-toggle='collapse' data-parent='#accordion' href='#collapse<%= spotNo %>'>
 									<span class="glyphicon glyphicon-map-marker"></span><span class="nav-label">
-									<h6><%= spots.default[i].name %></h6><h6 class='markerDist<%= i %> pull-right'></h6>
+									<h6><%= spot.name %></h6><h6 class='markerDist<%= spotNo %> pull-right'></h6>
 								</span></a>
 							</div>
-							<div id='collapse<%= i %>' class='panel-collapse collapse'>
+							<div id='collapse<%= spotNo %>' class='panel-collapse collapse'>
 								<div class='panel-body'>
-									<p> Type of location: 	<%= spots.type %> 	</p>
+									<p> Type of location: 	<%= spot.type %> 	</p>
 									<p> Street Name: 	<%= spot.name %> 	</p>
 									<p> Cost: 		<%= spot.price %>	 </p>
 									<p> Description: 	<%= spot.name %> 	</p>
@@ -85,6 +87,7 @@
 							</div>
 						</div>
 					</li>
+				<% spotNo++ %>
 				<% }); %>
 				<%# } %>
 			<% } %>
