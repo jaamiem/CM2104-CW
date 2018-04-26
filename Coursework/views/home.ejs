@@ -20,18 +20,17 @@
 <div class='navbar-primary <%= collapseSidebar %>'>
 	<div class='sidebtn'> <!-- Button to expand sidebar, absolute pos at bot of div -->
 		<a href='#' class='btn-expand-collapse'><span class='glyphicon glyphicon-menu-left'></span></a>
-		
-		<%# Hide the add location button if a user is not logged in %>
-		<% if (typeof user !== 'undefined' && user !== null) { %>
-			<a id="addLocationButton" class="btn btn-primary" href="/add">
-				Add location...
-			</a>
-		<% } %>
 	</div>
 	<div class='sidebar'>
 		<ul class='navbar-primary-menu panel-group' id='accordion'>
 			<li>
 				<div class="panel panel-info">
+					<%# Hide the add location button if a user is not logged in %>
+					<% if (typeof user !== 'undefined' && user !== null) { %>
+						<h6>
+							<a id='addLocationButton' class='panel heading' href="/add">Add location...</a>
+						</h6>
+					<% } %>
 					<div class="panel heading">
 						<a data-toggle='collapse' data-parent='#accordion' href='#collapseFilter'>
 							<h6> Advanced Search Options</h6>
