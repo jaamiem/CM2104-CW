@@ -8,7 +8,7 @@ function initMap() {
 	
 	 var request = {
     location: pos,
-    radius: '5',
+    radius: '50',
     type: ['locations']
   };
 
