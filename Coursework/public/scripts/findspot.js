@@ -41,10 +41,10 @@ $(function() {
 	});
 
 	var count = 0;
-	spots.forEach(function(item) {
+	/*spots.forEach(function(item) {
 		placeMarker(count, map, item.name, {lat: item.lat, lng: item.long});
 		count++;
-	});
+	});*/
 
 	// Listeners for changes in the value of the distance and price sliders.
 	// In the event of a change, they update text displayed near the slider with a clear value.
