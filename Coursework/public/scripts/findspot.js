@@ -5,7 +5,8 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
-	
+	// place Libary nearby search code places location marker of user on map
+	// further options need to be included.
 	 var request = {
     location: pos,
     radius: '50',
