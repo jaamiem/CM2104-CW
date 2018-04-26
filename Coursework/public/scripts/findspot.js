@@ -5,6 +5,16 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
+	
+	 var request = {
+    location: pos,
+    radius: '5',
+    type: ['locations']
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+
 
 }
 
