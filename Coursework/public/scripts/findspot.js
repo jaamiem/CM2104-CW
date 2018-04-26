@@ -5,22 +5,26 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
-	// place Libary nearby search code places location marker of user on map
-	// further options need to be included.
-	 var request = {
-    location: pos,
-    radius: '50',
-    type: ['locations']
-  };
-
-  service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
-
-
 }
+
+/*
+// place Libary nearby search code places location marker of user on map
+// further options need to be included.
+var request = {
+	location: pos,
+	radius: '50',
+	type: ['locations']
+};
+
+service = new google.maps.places.PlacesService(map);
+service.nearbySearch(request, callback);
+
+ */
 
 // This function places a marker on the passed map at the given location.
 function placeMarker(map, parkingName, location){
+	console.log(location);
+	
 	var marker = new google.maps.Marker({
 		position: location,
 		title: parkingName,
@@ -39,7 +43,9 @@ function updatePriceLabel() {
 
 
 // Get the spots from EJS through node and mongo
-var spots = $.getJSON('query.json');
+var urlParams = location.href.substring(location.href.indexOf("?"));
+
+console.log('/json/query.json?' + urlParams);
 
 // Store the map itself
 var map;
@@ -51,11 +57,19 @@ $(function() {
 		$('.navbar-primary').toggleClass('collapsed');
 	});
 
-	var count = 0;
-	/*spots.forEach(function(item) {
-		placeMarker(count, map, item.name, {lat: item.lat, lng: item.long});
-		count++;
-	});*/
+	if (urlParams.charAt(0) === "?") {
+		$.getJSON('/json/query.json' + urlParams, function(result) {
+			console.log(result);
+			
+			var count = 0;
+			result.forEach(function(item) {
+				placeMarker(map, item.name, {lat: item.lat, lng: item.long});
+				count++;
+			});
+		});
+	}
+
+	
 
 	// Listeners for changes in the value of the distance and price sliders.
 	// In the event of a change, they update text displayed near the slider with a clear value.
