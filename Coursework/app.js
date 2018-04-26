@@ -32,8 +32,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({ secret: 'example'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Initial page, this is our root route
-app.get('/', (req, res) => {
+function getMongoQuery(req) {
 	// Blank object, query is built using data below
 	var query = {};
 	
@@ -61,7 +60,12 @@ app.get('/', (req, res) => {
 		query.$and.push({"price": {"$lte": parseFloat(req.query.price)}});
 	}
 	
-	//console.log(query);
+	return query;
+}
+
+// Initial page, this is our root route
+app.get('/', (req, res) => {
+	var query = getMongoQuery(req);
 	
 	// If a query has been made by the user, perform it and return the result to EJS,
 	// else, render the home page without search results.
@@ -80,6 +84,24 @@ app.get('/', (req, res) => {
 		res.render( 'home', { title: 'Home', queryDefined: false, spots: [], user: req.session.currentUser });
 	}
 
+});
+
+app.all('/json/query.json', function(req, res) {
+	var query = getMongoQuery(req);
+	
+	// If a query has been made by the user, perform it and return the result to EJS,
+	// else, render the home page without search results.
+	if (Object.keys(query).length > 0) {
+		var locations = db.collection('locations');
+	
+		// Search the locations collection using the user's string
+		locations.find(query).toArray(function(err, result) {
+			res.render( 'json/query', {result: result});
+		});
+		
+	} else {
+		res.render( 'json/query', {result: {}});
+	}
 });
 
 //  About Page
@@ -217,3 +239,5 @@ app.post('/doregister', function(req, res) {
 	// Redirect to the home page
 	res.redirect('/');
 });
+
+
