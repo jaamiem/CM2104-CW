@@ -18,7 +18,7 @@ function placeMarker(map, parkingName, location){
 }
 
 // Get the spots from EJS through node and mongo
-var spots = $.getJSON('query.json');
+//var spots = $.getJSON('query.json');
 
 // Store the map itself
 var map;
