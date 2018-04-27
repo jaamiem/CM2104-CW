@@ -27,10 +27,13 @@ function placeMarker(map, parkingName, location){
 		infoWindow.setContent(parkingName);
 		infoWindow.open(map, this);
 	});
+	
 }
 
 function markerCallback(result, status) {
+	$("#resultsList").html(""); // Clear the results list
 	if (status == google.maps.places.PlacesServiceStatus.OK) {
+		
 		for (var i = 0; i < result.length; i++) {
 			var place = result[i];
 			addLabel(result[i]);
