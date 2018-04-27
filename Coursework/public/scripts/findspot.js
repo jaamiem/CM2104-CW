@@ -88,7 +88,7 @@ $(function() {
 	var request = {
 		location: pos,
 		radius: '5000',
-		type: ['locations']
+		type: ['parking']
 		};
 
 	service = new google.maps.places.PlacesService(map);
