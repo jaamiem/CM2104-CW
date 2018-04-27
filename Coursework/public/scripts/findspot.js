@@ -105,13 +105,13 @@ $(function() {
 	service.nearbySearch(request, callback);
 	*/		
 	function callback(result, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < result.length; i++) {
-      var place = result[i];
-      createMarker(result[i]);
-    }
-  }
-}
+		if (status == google.maps.places.PlacesServiceStatus.OK) {
+			for (var i = 0; i < result.length; i++) {
+				var place = result[i];
+				createMarker(result[i]);
+			}
+		}
+	}
 	
 
 	
