@@ -1,11 +1,11 @@
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
-
+var pos;
 function initMap() {
 	
 	var abz = {lat:57.1497, lng:-2.0943};
 	return new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
-		center: abz
+		center: pos
 	});
 }
  
@@ -82,12 +82,12 @@ $(function() {
 
 	// Geolocating
 	var infoWindow = new google.maps.InfoWindow();
-	var pos;
-	var abz = {lat:57.1497, lng:-2.0943};
+	
+	
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
 	var request = {
-		location: abz,
+		location: pos,
 		radius: '5000',
 		type: ['parking']
 		};
