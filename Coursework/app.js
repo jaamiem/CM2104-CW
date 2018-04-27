@@ -141,7 +141,7 @@ app.get('/add', function(req, res){
 	if (isLoggedIn(req)) {
 		res.render('add', {title: "Add Location", user: req.session.currentUser});
 	} else {
-		res.redirect('/login');
+		res.redirect('/');
 	}
 });
 
@@ -167,7 +167,7 @@ app.post('/locations', function(req, res) {
 			res.redirect('/')
 		 });
 	 } else {
-		 res.redirect('/login');
+		 res.redirect('/');
 	 }
  });
 
@@ -182,7 +182,7 @@ app.post('/dologin', function(req,res){
 		if (err) throw err;
 		//if there is no result, direct user back to login page. username does not exist then
 		if (!result) {
-			res.redirect('/login');
+			res.redirect('/');
 			return;
 		}
 
@@ -192,14 +192,14 @@ app.post('/dologin', function(req,res){
 			req.session.currentUser = username;
 			res.redirect('/');
 		} else {
-			res.redirect('/login');
+			res.redirect('/');
 		}
 	});
 });
 
 app.all('/dologout', function(req,res) {
 	req.session.currentUser = null;
-	res.redirect('/login');
+	res.redirect('/');
 });
 
 app.post('/doregister', function(req, res) {
