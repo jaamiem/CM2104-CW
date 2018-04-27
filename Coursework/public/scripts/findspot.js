@@ -19,6 +19,11 @@ function placeMarker(map, parkingName, location){
 		title: parkingName,
 		map: map
 	});
+	
+	google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(location.name);
+		infoWindow.open(map, this);
+	});
 }
 
 // These functions synchronise the value of labels with the value of their respective sliders
@@ -117,19 +122,7 @@ $(function() {
 	function addLabel(location) {
 		var position = location.geometry.location;
 		
-		console.log(location);
-		
-		var marker = new google.maps.Marker({
-			map: map,
-			title:location.name,
-			position: position
-			
-		});
-		
-		google.maps.event.addListener(marker, 'click', function() {
-			infoWindow.setContent(location.name);
-			infoWindow.open(map, this);
-		});
+		placeMarker(map, location.name, position);
 	}
 	
 	if (navigator.geolocation) {
