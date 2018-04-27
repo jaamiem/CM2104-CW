@@ -11,7 +11,7 @@ function initMap() {
 
 // This function places a marker on the passed map at the given location.
 function placeMarker(map, parkingName, location){
-	console.log(location);
+	//console.log(location);
 
 	var marker = new google.maps.Marker({
 		position: location,
@@ -32,8 +32,6 @@ function updatePriceLabel() {
 // Get the spots from EJS through node and mongo
 var urlParams = location.href.substring(location.href.indexOf("?"));
 
-console.log('/json/query.json?' + urlParams);
-
 // Store the map itself
 var map;
 
@@ -46,7 +44,7 @@ $(function() {
 
 	if (urlParams.charAt(0) === "?") {
 		$.getJSON('/json/query.json' + urlParams, function(result) {
-			console.log(result);
+			//console.log(result);
 
 			var count = 0;
 			result.forEach(function(item) {
