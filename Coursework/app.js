@@ -148,7 +148,7 @@ app.get('/add', function(req, res){
 	}
 });
 
-//start of Post Routes
+//start of Post Routes, mostly actions which affect the session or database and redirect to the homepage
 
 // db stuff for user_inputed_locations
 app.post('/locations', function(req, res) {
@@ -216,9 +216,6 @@ app.post('/doregister', function(req, res) {
 	// If a user is logged in, skip the registration step (security measure to prevent flooding with accounts)
 	if (!isLoggedIn(req) && alphaNumericRegex.test(req.body.username)) {
 		db.collection('users').find({"login.username" : req.body.username}).toArray(function(err,result) {
-			console.log(result.length);
-			console.log(result);
-
 			// If a user does not have this name, sign them up
 			if (result.length === 0) {
 				console.log("inserting user " + req.body.username);
@@ -237,5 +234,26 @@ app.post('/doregister', function(req, res) {
 	}
 
 	// Redirect to the home page
+	res.redirect('/');
+});
+
+// Rate location
+app.post('/ratelocation', (req, res) => {
+	var incQuery = {};
+	
+	if (typeof req.body.rate1 !== 'undefined') {
+		incQuery = {$inc: {"1star": 1}};
+	} else if (typeof req.body.rate2 !== 'undefined') {
+		incQuery = {$inc: {"2star": 1}};
+	} else if (typeof req.body.rate3 !== 'undefined') {
+		incQuery = {$inc: {"3star": 1}};
+	} else if (typeof req.body.rate4 !== 'undefined') {
+		incQuery = {$inc: {"4star": 1}};
+	} else if (typeof req.body.rate5 !== 'undefined') {
+		incQuery = {$inc: {"5star": 1}};
+	}
+	
+	db.collection('locations').update({"name":req.body.name}, incQuery);
+	
 	res.redirect('/');
 });

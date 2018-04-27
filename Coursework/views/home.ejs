@@ -83,27 +83,13 @@
 									<p> Cost: 		£<%= spot.price %>	 </p>
 									<p> Description: 	<%= spot.name %> 	</p>
 									<p> Rating: 	<%= spot.rating %> 	</p>
-									<div>
-									<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star">
-										<span class="sr-only">1 star</span>
-									</span></a>
 									
-									<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star">
-										<span class="sr-only">2 star</span>
-									</span></a>
-									
-									<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star">
-										<span class="sr-only">3 star</span>
-									</span></a>
-									
-									<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star">
-										<span class="sr-only">4 star</span>
-									</span></a>
-									
-									<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star">
-										<span class="sr-only">5 star</span>
-									</span></a>
-									</div>
+									<h5>Rate this location</h5>
+									<%# Generate 5 buttons to be used when rating a location %>
+									<% for (var i = 1; i <= 5; i++) { %>
+										<button onclick="$.post('/ratelocation', {rating:<%= i %>, name:'<%= spot.name %>'});" name="rate<%= i %>"
+												class="btn btn-primary"><%= i %></button>
+									<% } %>
 								</div>
 							</div>
 						</div>
