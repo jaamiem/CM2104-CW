@@ -87,12 +87,24 @@ $(function() {
 	// further options need to be included.
 	var request = {
 		location: pos,
-		radius: '50',
-		type: ['locations']
-	};
+		radius: '5000',
+		type: ['parking']
+		};
 
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request);
+			
+	
+	function placeMarker(map, parkingName, parking){
+	//console.log(location);
+
+	var marker = new google.maps.Marker({
+		position: parking,
+		title: parkingName,
+		map: map
+	});
+}
+
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
