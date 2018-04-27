@@ -89,7 +89,11 @@ $(function() {
 		location: pos,
 		radius: '5000',
 		type: ['locations']
-	};
+		};
+
+	service = new google.maps.places.PlacesService(map);
+	service.nearbySearch(request);
+			
 	
 	function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -100,8 +104,6 @@ $(function() {
   }
 }
 
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request);
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
