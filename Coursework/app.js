@@ -12,6 +12,7 @@ const app = express();
 // for login database
 const session = require('express-session');
 
+// Checks if the user is logged in based on the req information.
 function isLoggedIn(req) {
 	return req.session.currentUser !== null && typeof req.session.currentUser !== 'undefined';
 }
@@ -26,12 +27,14 @@ function hasContents(string) {
 //  Set the view engine to read EJS files for templating
 app.set('view engine', 'ejs');
 
+// All files in the public folder are displayed as-is with no inline JavaScript
 app.use(express.static(__dirname + '/public'));
 
 // line for database
 app.use(session({ secret: 'example'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Constructs a query to be passed to MongoDB
 function getMongoQuery(req) {
 	// Blank object, query is built using data below
 	var query = {};
@@ -86,6 +89,7 @@ app.get('/', (req, res) => {
 
 });
 
+// A JSON file generated from a MongoDB query for spaces
 app.all('/json/query.json', function(req, res) {
 	var query = getMongoQuery(req);
 
@@ -124,19 +128,18 @@ app.get('/register', function(req, res) {
 	}
 });
 
- var db;
+var db;
 
- MongoClient.connect(url, function(err, database) {
-     if (err) throw err;
-    db = database;
-     app.listen(8080);
-	 console.log('listening on 8080');
- });
+MongoClient.connect(url, function(err, database) {
+	if (err) throw err;
+	db = database;
+	app.listen(8080);
+	console.log('listening on 8080');
+});
 
- // start of Get Routes
+// start of Get Routes
 
-// this is the login route which renders the login.ejs page of our website
-
+// Page for adding locations to the map
 app.get('/add', function(req, res){
 	if (isLoggedIn(req)) {
 		res.render('add', {title: "Add Location", user: req.session.currentUser});
@@ -197,11 +200,13 @@ app.post('/dologin', function(req,res){
 	});
 });
 
+// Logs the user out
 app.all('/dologout', function(req,res) {
 	req.session.currentUser = null;
 	res.redirect('/');
 });
 
+// Adds a user to the FindSpot database
 app.post('/doregister', function(req, res) {
 	// A string containing only characters between 0 and 9, A and Z (case insensitive) and at least one character.
 	const alphaNumericRegex = /^[0-9a-z]+$/i;
