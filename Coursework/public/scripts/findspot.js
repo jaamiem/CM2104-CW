@@ -43,7 +43,7 @@ $(function() {
 	var request = {
 		location: abz,
 		radius: '10000',
-		type: ['restaurant']
+		type: ['parking']
 	};
 
 	service = new google.maps.places.PlacesService(map);
