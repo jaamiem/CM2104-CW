@@ -10,7 +10,7 @@ function initMap() {
 	var request = {
 		location: abz,
 		radius: '10000',
-		type: ['parking']
+		type: ['restaurant']
 		};
 
 	service = new google.maps.places.PlacesService(map);
