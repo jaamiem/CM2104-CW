@@ -14,7 +14,7 @@ function initMap() {
 		};
 
 	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
+	service.textSearch(request, callback);
 	
 }
  
@@ -103,7 +103,7 @@ $(function() {
 
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
-			
+	*/		
 	function callback(result, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < result.length; i++) {
@@ -111,7 +111,7 @@ $(function() {
       createMarker(result[i]);
     }
   }
-}*/
+}
 	
 
 	
