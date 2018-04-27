@@ -2,7 +2,7 @@
 var service;
 function initMap() {
 	
-	var abz = {lat:57.1497, lng:-2.0943};
+	var abz = new google.maps.LatLng(57.1497, -2.0943);
 	return new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
