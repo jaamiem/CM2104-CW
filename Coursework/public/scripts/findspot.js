@@ -1,5 +1,5 @@
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
-
+var service;
 function initMap() {
 	
 	var abz = {lat:57.1497, lng:-2.0943};
