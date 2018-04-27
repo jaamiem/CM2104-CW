@@ -74,10 +74,7 @@ $(function() {
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			pos = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-			};
+			pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 			infoWindow.setPosition(pos);
 			infoWindow.setContent('Location found.');
