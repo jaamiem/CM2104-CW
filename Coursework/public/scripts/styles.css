@@ -238,6 +238,7 @@ img.displayed {
 	height: -moz-calc(100vh - 75px);
 	height: calc(100vh - 75px);
 	width: 100%;
+	color:black;
 }
 /* _____Slide content_____ */
 /* Separate class to be applied to the navbar when on any page other than the main page. */
