@@ -86,8 +86,8 @@ $(function() {
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
 	var request = {
-		location: aberdeen,
-		radius: '500',
+		location: pos,
+		radius: '5000',
 		type: ['locations']
 	};
 	
