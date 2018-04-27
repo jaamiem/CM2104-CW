@@ -69,6 +69,29 @@ var map;
 $(function() {
 	var abz = new google.maps.LatLng(57.1497, -2.0943);
 	var pos;
+	
+	infoWindow = new google.maps.InfoWindow();
+	
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
+
+			infoWindow.setPosition(pos);
+			infoWindow.setContent('Location found.');
+			infoWindow.open(map);
+			map.setCenter(pos);
+		}, function() {
+			handleLocationError(true, infoWindow, map.getCenter());
+		});
+
+	} else {
+		// Browser doesn't support Geolocation
+		handleLocationError(false, infoWindow, map.getCenter());
+	}
+	
 	map = initMap();
 	
 	var request = {
@@ -120,43 +143,5 @@ $(function() {
 
 	updatePriceLabel();
 	updateRatingLabel();
-
-	// Geolocating
-	infoWindow = new google.maps.InfoWindow();
-	
-	//var abz = {lat:57.1497, lng:-2.0943};
-	// place Libary nearby search code places location marker of user on map
-	// further options need to be included.
-	/*var request = {
-		location: abz,
-		radius: '10000',
-		type: ['parking']
-		};
-
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
-	*/		
-	
-	
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			pos = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-			};
-
-			infoWindow.setPosition(pos);
-			infoWindow.setContent('Location found.');
-			infoWindow.open(map);
-			map.setCenter(pos);
-		}, function() {
-			handleLocationError(true, infoWindow, map.getCenter());
-		});
-
-	} else {
-		// Browser doesn't support Geolocation
-		handleLocationError(false, infoWindow, map.getCenter());
-	}
-
 
 });
