@@ -40,18 +40,9 @@
 		<div class="col" id="map"></div>
 	</div>
 	
-	<script src="scripts/fscommon.js" type="application/javascript"></script>
+	
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap"></script>
-	<script>
-		var map = initMap();
-		
-		$(function() {
-			map.addListener('click', function(event) {
-				$('#lat').val(event.latLng.lat());
-				$('#long').val(event.latLng.lng());
-			});
-		});
-	</script>
+	<script src="scripts/fsadd.js" type="application/javascript"></script>
 	
 </body>
 </html>

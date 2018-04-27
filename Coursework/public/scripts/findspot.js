@@ -2,17 +2,6 @@
 function initMap() {
 	var abz = {lat:57.1497, lng:-2.0943};
 	
-	// place Libary nearby search code places location marker of user on map
-	// further options need to be included.
-	var request = {
-		location: pos,
-		radius: '50',
-		type: ['locations']
-	};
-
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
-	
 	return new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
@@ -83,8 +72,20 @@ $(function() {
 	updateRatingLabel();
 
 	// Geolocating
-	var infoWindow = new google.maps.InfoWindow;
+	var infoWindow = new google.maps.InfoWindow();
 	var pos;
+	
+	// place Libary nearby search code places location marker of user on map
+	// further options need to be included.
+	var request = {
+		location: pos,
+		radius: '50',
+		type: ['locations']
+	};
+
+	service = new google.maps.places.PlacesService(map);
+	service.nearbySearch(request, callback);
+	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			pos = {
