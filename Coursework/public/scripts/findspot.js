@@ -80,7 +80,7 @@ $(function() {
           markers = [];
 
           // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
+          //var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -102,7 +102,7 @@ $(function() {
               position: place.geometry.location
             }));*/
 
-            if (place.geometry.viewport) {
+           /* if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
             } else {
@@ -110,7 +110,7 @@ $(function() {
             }
           });
           map.fitBounds(bounds);
-        });
+        });*/
       }
 
 
