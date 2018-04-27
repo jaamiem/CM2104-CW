@@ -48,7 +48,7 @@
 									<span id="ratingDisplay"></span>									
 								</div>
 								<div class="input-group mb-4">
-									<label>Price<input class="form-control" name="price" type="range" id="priceSlider"></label>
+									<label>Price<input class="form-control" name="price" type="range" min="0" max="10" id="priceSlider"></label>
 									<span id="priceDisplay"></span>
 								</div>
 								<div class="input-group mb-4">
@@ -101,13 +101,11 @@
 	<noscript><p>Unfortunately, we haven't been able to load Google Maps.</p></noscript>
 </div>
 
-
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&callback=initMap">
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&libraries=places&callback=initMap">
 </script>
 
 <script src="scripts/findspot.js" type="application/javascript"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRK2xpbDf14zS08cMkp252N8uPvt3O4_I&libraries=places&callback=initMap">
-</script>
+
 
 </body>
 </html>
