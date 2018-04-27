@@ -6,6 +6,17 @@
 <%- include('partials/navbar') %>
 <%- include('partials/accModals') %>
 
+<%
+	// This variable is 'collapse' if the sidebar is to be initially hidden on page load or '' otherwise.
+	// It should show only if the user has searched for something
+	var collapseSidebar;
+	if (queryDefined) {
+		collapseSidebar = ''; // This bootstrap class is applied to the sidebar if the user has searched for something
+	} else {
+		collapseSidebar = 'collapsed'; // No search, no no class to show.
+	}
+%>
+
 <!-- Sidebar -->
 <div class='navbar-primary <%= collapseSidebar %>'>
 	<div class='sidebtn'> <!-- Button to expand sidebar, absolute pos at bot of div -->
