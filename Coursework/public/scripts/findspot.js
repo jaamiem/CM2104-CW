@@ -88,20 +88,21 @@ $(function() {
 	var request = {
 		location: pos,
 		radius: '5000',
-		type: ['car park']
+		type: ['locations']
 		};
 
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request);
 			
 	
-	function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      createMarker(results[i]);
-    }
-  }
+	function placeMarker(map, parkingName, location){
+	//console.log(location);
+
+	var marker = new google.maps.Marker({
+		position: location,
+		title: parkingName,
+		map: map
+	});
 }
 
 	
