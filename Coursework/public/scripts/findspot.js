@@ -87,7 +87,7 @@ $(function() {
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
 	var request = {
-		location: pos,
+		location: abz,
 		radius: '10000',
 		type: ['parking']
 		};
