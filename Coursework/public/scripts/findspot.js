@@ -86,7 +86,7 @@ $(function() {
               console.log("Returned place contains no geometry");
               return;
             }
-            var icon = {
+           /* var icon = {
               url: place.icon,
               size: new google.maps.Size(71, 71),
               origin: new google.maps.Point(0, 0),
@@ -100,7 +100,7 @@ $(function() {
               icon: icon,
               title: place.name,
               position: place.geometry.location
-            }));
+            }));*/
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
