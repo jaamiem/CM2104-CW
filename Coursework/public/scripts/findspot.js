@@ -29,6 +29,21 @@ function placeMarker(map, parkingName, location){
 	});
 }
 
+function markerCallback(result, status) {
+	if (status == google.maps.places.PlacesServiceStatus.OK) {
+		for (var i = 0; i < result.length; i++) {
+			var place = result[i];
+			addLabel(result[i]);
+		}
+	}
+}
+
+function addLabel(location) {
+	var position = location.geometry.location;
+	
+	placeMarker(map, location.name, position);
+}
+
 // These functions synchronise the value of labels with the value of their respective sliders
 function updateRatingLabel() {
 	$('#ratingDisplay').html($('#ratingSlider').val());
@@ -37,6 +52,13 @@ function updatePriceLabel() {
 	$('#priceDisplay').html('£' + $('#priceSlider').val());
 }
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	infoWindow.setPosition(pos);
+	infoWindow.setContent(browserHasGeolocation ?
+						'Error: The Geolocation service failed.' :
+						'Error: Your browser doesn\'t support geolocation.');
+	infoWindow.open(map);
+}
 
 // Get the spots from EJS through node and mongo
 var urlParams = location.href.substring(location.href.indexOf("?"));
@@ -46,16 +68,17 @@ var map;
 
 $(function() {
 	var abz = new google.maps.LatLng(57.1497, -2.0943);
+	var pos;
 	map = initMap();
 	
 	var request = {
-		location: pos,
+		location: abz,
 		radius: '10000',
 		type: ['parking']
 	};
 
 	service = new google.maps.places.PlacesService(map);
-	service.textSearch(request, callback);
+	service.textSearch(request, markerCallback);
 
 	$('.btn-expand-collapse').click(function(e) {
 		$('.navbar-primary').toggleClass('collapsed');
@@ -100,7 +123,7 @@ $(function() {
 
 	// Geolocating
 	infoWindow = new google.maps.InfoWindow();
-	var pos;
+	
 	//var abz = {lat:57.1497, lng:-2.0943};
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
@@ -113,20 +136,7 @@ $(function() {
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
 	*/		
-	function callback(result, status) {
-		if (status == google.maps.places.PlacesServiceStatus.OK) {
-			for (var i = 0; i < result.length; i++) {
-				var place = result[i];
-				addLabel(result[i]);
-			}
-		}
-	}
 	
-	function addLabel(location) {
-		var position = location.geometry.location;
-		
-		placeMarker(map, location.name, position);
-	}
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -146,14 +156,6 @@ $(function() {
 	} else {
 		// Browser doesn't support Geolocation
 		handleLocationError(false, infoWindow, map.getCenter());
-	}
-
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-		infoWindow.setPosition(pos);
-		infoWindow.setContent(browserHasGeolocation ?
-							'Error: The Geolocation service failed.' :
-							'Error: Your browser doesn\'t support geolocation.');
-		infoWindow.open(map);
 	}
 
 
