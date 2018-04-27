@@ -120,9 +120,6 @@ body {
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
-.sidebar label {
-	color:#f2f2f2;
-}
 .panel-body {
 	background-color: #e6e6e6;
 	padding: 10px 5% 10px 5%;
@@ -177,8 +174,7 @@ h1,h2,h3,h4 {
     text-align:center;
     margin:70px;
 }
-
-label {
+label, #priceDisplay {
 	color: black;
 }
 /* _____Image_____ */
