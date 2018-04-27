@@ -33,8 +33,8 @@ function placeMarker(map, parkingName, location){
 }
 
 // These functions synchronise the value of labels with the value of their respective sliders
-function updateDistanceLabel() {
-	$('#distanceDisplay').html($('#distanceSlider').val() + 'km');
+function updateRatingLabel() {
+	$('#ratingDisplay').html($('#ratingSlider').val());
 }
 function updatePriceLabel() {
 	$('#priceDisplay').html('£' + $('#priceSlider').val());
@@ -70,10 +70,10 @@ $(function() {
 
 
 
-	// Listeners for changes in the value of the distance and price sliders.
+	// Listeners for changes in the value of the rating and price sliders.
 	// In the event of a change, they update text displayed near the slider with a clear value.
-	$('#distanceSlider').change(function(event) {
-		updateDistanceLabel();
+	$('#ratingSlider').change(function(event) {
+		updateRatingLabel();
 	});
 
 	$('#priceSlider').change(function(event) {
@@ -81,7 +81,7 @@ $(function() {
 	});
 
 	updatePriceLabel();
-	updateDistanceLabel();
+	updateRatingLabel();
 
 	// Geolocating
 	var infoWindow = new google.maps.InfoWindow;
