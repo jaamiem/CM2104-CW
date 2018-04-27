@@ -126,10 +126,18 @@ body {
 	/* box-shadow: inset -3px 1px 5px 1px #666666; */
 }
 /* _____Sidebar Scrollbar_____ */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #666666; }
-::-webkit-scrollbar-thumb { background: #b3b3b3 }
-::-webkit-scrollbar-thumb:hover { background: #555 }
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #666666;
+}
+::-webkit-scrollbar-thumb {
+	background: #b3b3b3;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
 /* _____Link Bar_____ */
 .linkbar {
 	list-style-type: none;
