@@ -40,9 +40,6 @@ body {
 	color:white !important;
 	margin-top: 0.4em;
 }
-.navShadow {
-	box-shadow: .1px 1px 5px #1c2331;
-}
 /* _____Side Bar_____ */
 .navbar-primary {
 	background-color: #383838;
