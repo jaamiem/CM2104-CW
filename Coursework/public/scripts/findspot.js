@@ -1,6 +1,6 @@
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
 var service;
-var pos;
+
 var infoWindow;
 
 function initMap() {
@@ -100,7 +100,7 @@ $(function() {
 
 	// Geolocating
 	infoWindow = new google.maps.InfoWindow();
-	
+	var pos;
 	//var abz = {lat:57.1497, lng:-2.0943};
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
