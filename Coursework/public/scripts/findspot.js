@@ -92,7 +92,7 @@ $(function() {
 	map = initMap();
 	
 	var request = {
-		location: pos,
+		location: abz,
 		radius: '10000',
 		type: ['parking']
 	};
