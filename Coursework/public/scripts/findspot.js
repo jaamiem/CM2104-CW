@@ -127,7 +127,7 @@ $(function() {
 		});
 		
 		google.maps.event.addListener(marker, 'click', function() {
-			infoWindow.setContent(place.name);
+			infoWindow.setContent(location.name);
 			infoWindow.open(map, this);
 		});
 	}
