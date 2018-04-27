@@ -7,15 +7,6 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
-	var request = {
-		location: abz,
-		radius: '10000',
-		type: ['parking']
-		};
-
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
-	
 }
  
 
@@ -46,7 +37,17 @@ var urlParams = location.href.substring(location.href.indexOf("?"));
 var map;
 
 $(function() {
+	var abz = new google.maps.LatLng(57.1497, -2.0943);
 	map = initMap();
+	
+	var request = {
+		location: abz,
+		radius: '10000',
+		type: ['restaurant']
+	};
+
+	service = new google.maps.places.PlacesService(map);
+	service.textSearch(request, callback);
 
 	$('.btn-expand-collapse').click(function(e) {
 		$('.navbar-primary').toggleClass('collapsed');
@@ -108,12 +109,28 @@ $(function() {
 		if (status == google.maps.places.PlacesServiceStatus.OK) {
 			for (var i = 0; i < result.length; i++) {
 				var place = result[i];
-				createMarker(result[i]);
+				addLabel(result[i]);
 			}
 		}
 	}
 	
-
+	function addLabel(location) {
+		var position = location.geometry.location;
+		
+		console.log(location);
+		
+		var marker = new google.maps.Marker({
+			map: map,
+			title:location.name,
+			position: position
+			
+		});
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infoWindow.setContent(place.name);
+			infoWindow.open(map, this);
+		});
+	}
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
