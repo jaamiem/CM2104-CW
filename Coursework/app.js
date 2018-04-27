@@ -236,24 +236,3 @@ app.post('/doregister', function(req, res) {
 	// Redirect to the home page
 	res.redirect('/');
 });
-
-// Rate location
-app.post('/ratelocation', (req, res) => {
-	var incQuery = {};
-	
-	if (typeof req.body.rate1 !== 'undefined') {
-		incQuery = {$inc: {"1star": 1}};
-	} else if (typeof req.body.rate2 !== 'undefined') {
-		incQuery = {$inc: {"2star": 1}};
-	} else if (typeof req.body.rate3 !== 'undefined') {
-		incQuery = {$inc: {"3star": 1}};
-	} else if (typeof req.body.rate4 !== 'undefined') {
-		incQuery = {$inc: {"4star": 1}};
-	} else if (typeof req.body.rate5 !== 'undefined') {
-		incQuery = {$inc: {"5star": 1}};
-	}
-	
-	db.collection('locations').updateOne({"name":req.body.name}, incQuery);
-	
-	res.redirect('/');
-});

@@ -82,14 +82,13 @@
 									<p> Street Name: 	<%= spot.name %> 	</p>
 									<p> Cost: 		£<%= spot.price %>	 </p>
 									<p> Description: 	<%= spot.name %> 	</p>
-									<p> Rating: 	<%= spot.rating %> 	</p>
 									
-									<h5>Rate this location</h5>
+									<!-- <h5>Rate this location</h5> -->
 									<%# Generate 5 buttons to be used when rating a location %>
-									<% for (var i = 1; i <= 5; i++) { %>
-										<button onclick="$.post('/ratelocation', {rating:<%= i %>, name:'<%= spot.name %>'});" name="rate<%= i %>"
-												class="btn btn-primary"><%= i %></button>
-									<% } %>
+									<%# for (var i = 1; i <= 5; i++) { %>
+										<!-- <button onclick="$.post('/ratelocation', {rating:<%#= i %>, name:'<%#= spot.name %>'});" name="rate<%#= i %>"
+												class="btn btn-primary"><%#= i %></button> -->
+									<%# } %>
 								</div>
 							</div>
 						</div>
