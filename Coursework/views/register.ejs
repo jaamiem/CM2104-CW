@@ -4,36 +4,55 @@
 <body>
 <%- include('partials/navbar') %>
 <div id="content">
-	<div class="alert alert-info" role="alert" id="cookie">
-		FindSpot uses cookies for website functionality, such as logging in and making use of the Google Maps technology. By using this website, you consent to our use of cookies in your browser.
-	</div>
-	<div class="wrap">
-		<!-- REGISTRATION FORM -->
-		<div id="register">
-			<h3>Register</h3>
-			<form action='/doregister' method="POST" class="form-group">
-				<!-- USERNAME BOX -->
-				<div class="input-group mb-4">
-					<label class="input-group-prepend input-group-text" for="username">Username</label>
-					<input class="form-control input-sm" type="text" name="username" />
-				</div>
-				
-				<!-- PASSWORD BOX-->
-				<div class="input-group mb-4">
-					<label class="input-group-prepend input-group-text" for="password">Password</label>
-					<input class="form-control input-sm" type="password" name="password" id="password"/>
-				</div>
-				
-				<!-- PASSWORD CONFIRMATION BOX-->
-				<div class="input-group mb-4">
-					<label class="input-group-prepend input-group-text" for="conpassword">Confirm password</label>
-					<input class="form-control input-sm" type="password" name="conpassword" id="conpassword"/>
-				</div>
-				
-				<div><button type="submit" class="btn btn-primary">Sign up</button></div>
-			</form>
+		<div class="alert alert-info" role="alert" id="cookie">
+			FindSpot uses cookies for website functionality, such as logging in and making use of the Google Maps technology. By using this website, you consent to our use of cookies in your browser.
 		</div>
+		<!-- REGISTRATION FORM -->
+		<h3>Register</h3>
+		<form id="#reg" action='/doregister' method="POST" class="form-group">
+			<!-- USERNAME BOX -->
+			<div class="input-group mb-4 p-3">
+				<label class="input-group-prepend input-group-text" for="username">Username</label>
+				<input class="form-control input-sm" type="text" name="username" />
+			</div>
+
+			<!-- PASSWORD BOX-->
+			<div class="input-group mb-4 p-3">
+				<label class="input-group-prepend input-group-text" for="password">Password</label>
+				<input class="form-control input-sm" type="password" name="password" id="password"/>
+			</div>
+
+			<!-- PASSWORD CONFIRMATION BOX-->
+			<div class="input-group mb-4 p-3">
+				<label class="input-group-prepend input-group-text" for="confpassword">Confirm password</label>
+				<input class="form-control input-sm" type="password" name="confpassword" id="confpassword"/>
+			</div>
+
+			<div>
+				<button type="submit" class="btn btn-primary">Sign up</button>
+			</div>
+		</form>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('#password', '#confpassword').keyup(checkPassMatch);
+	})
+
+	function checkPassMatch() {
+		var pass = $('#password').val();
+		var confpass = $('#confpassword').val();
+
+		if (pass != confpass){
+
+		}
+	}
+
+	$('reg').submit(function() {
+		var pass =
+	})
+</script>
+
 </body>
 </html>

@@ -1,20 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/header') %>
 <body>
 <%- include('partials/navbar') %>
-
-<%
-	// This variable is 'collapse' if the sidebar is to be initially hidden on page load or '' otherwise.
-	// It should show only if the user has searched for something
-	var collapseSidebar;
-
-	if (queryDefined) {
-		collapseSidebar = ''; // This bootstrap class is applied to the sidebar if the user has searched for something
-	} else {
-		collapseSidebar = 'collapsed'; // No search, no no class to show.
-	}
-%>
+<%- include('partials/accModals') %>
 
 <!-- Sidebar -->
 <div class='navbar-primary <%= collapseSidebar %>'>
@@ -56,11 +46,11 @@
 				</div>
 			</li>
 			<li>
-				<h6> Search Results </h6>
+				<h6 style='margin: auto;'> Search Results </h6>
 			</li>
 			<% if (queryDefined) { %>
 				<%# for ( i = 0; i < Object.keys(spots.default).length; i++ )  { %>
-				
+
 				<% var spotNo = 1; %>
 				<% spots.forEach(function(spot) { %>
 					<li>

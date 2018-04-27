@@ -5,12 +5,16 @@ html {
 	height:100%;
 }
 body {
-	background-color: #232f3e;
+	background-color: #2e3e52;
 	min-height: 100%;
 	width: 100%;
 	font-size: 90%;
 	font-family: 'Catamaran', sans-serif;
 	color:white;
+}
+.form-control:focus {
+  border-color: none;
+  box-shadow: none;
 }
 /* _____Nav Bar_____ */
 .navbar {
@@ -35,6 +39,9 @@ body {
 	font-size:1.9em;
 	color:white !important;
 	margin-top: 0.4em;
+}
+.navShadow {
+	box-shadow: .1px 1px 5px #1c2331;
 }
 /* _____Side Bar_____ */
 .navbar-primary {
@@ -117,7 +124,7 @@ body {
 	color:#f2f2f2;
 }
 .panel-body {
-	background-color: #374a62;
+	background-color: #e6e6e6;
 	padding: 10px 5% 10px 5%;
 	margin-right: 2px;
 	margin-left: 3px;
@@ -154,7 +161,7 @@ body {
 	color: #f7f7f7;
 	transition: all 0.14s ease-in-out;
 }
-.active > a:hover {
+.linkbar .active > a:hover {
 	color: white;
 	transition: all 0.14s linear;
 }
@@ -189,14 +196,14 @@ img.displayed {
 	position: relative;
 	overflow: hidden;
 }
-.zoom:hover img{
+.zoom:hover{
 	cursor: pointer;
 	transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 }
-.zoom img{
-	transition: : all 0.3s;
+.zoom {
+	transition: : all 0.7s ease-in-out;
 }
 /* _____Content_____ */
 #content {
@@ -230,7 +237,7 @@ img.displayed {
 /* _____Slide content_____ */
 /* Separate class to be applied to the navbar when on any page other than the main page. */
 .shadowFx {
-	box-shadow:0.1px 10px 12px #1C2331;
+	box-shadow:0.1px 3px 15px #1C2331;
 	margin-bottom:12px;
 }
 /* The carousel text on the about page */
@@ -257,4 +264,91 @@ img.displayed {
 }
 #carouselFS {
 	box-shadow:0.1px 10px 12px #1C2331;
+}
+
+/* _____Login / Register views_____ */
+#cookie {
+	width: 95%;
+	text-align: center;
+	top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.modal-header, .modal-footer {
+	background-color: #374a62;
+	border-radius: 0px;
+}
+.modalViews {
+	margin: auto;
+	margin-bottom: 2em;
+}
+.tabName {
+	padding-right: 10%;
+	text-decoration: none;
+	color: #333;
+	position: relative;
+	top: 0;
+	transition: top ease .5s;
+}
+.tabName:hover {
+	top: -5px;
+}
+.formField {
+	width: 60%;
+	margin: auto;
+	margin-bottom: 2em;
+	box-shadow: 0.2px .1px 5px #cccccc;
+	border-radius: 25px;
+}
+.formField > label {
+	width: 25%;
+	background-color: #5c7ca3;
+	color: #f2f2f2;
+}
+.formField > input {
+	font-size: 1.4em;
+}
+.formSubmit {
+	margin: auto;
+	width: 30%;
+	background-color: #5c7ca3;
+	color: white;
+	font-size: 1.2em;
+	transition: : all 2s ease-in-out;
+}
+/* #537093 */
+.formAccepted:hover {
+	background-color: #009900;
+	transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transition: : all 2s ease-in-out;
+}
+.formDenied {
+	pointer-events: none;
+	transition: 1s;
+	background-color: red;
+	transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	transition: : all 2s ease-in-out;
+}
+.inputError {
+	margin: inherit;
+	box-shadow: inset 0.2px .1px 6px red !important;
+	border: none;
+}
+.passMatched {
+	margin: inherit;
+	box-shadow: inset 0.2px .1px 6px green !important;
+	border: none;
+}
+.endForm {
+	margin-bottom: 50px;
+}
+.checkbox {
+	display: block;
+	width: 20%;
+	margin: auto;
+	font-size: 1.4em;
 }
