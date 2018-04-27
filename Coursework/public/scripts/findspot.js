@@ -95,7 +95,7 @@ $(function() {
 	var abz = {lat:57.1497, lng:-2.0943};
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
-	var request = {
+	/*var request = {
 		location: abz,
 		radius: '10000',
 		type: ['parking']
@@ -111,7 +111,7 @@ $(function() {
       createMarker(result[i]);
     }
   }
-}
+}*/
 	
 
 	
