@@ -7,6 +7,15 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
+	var request = {
+		location: abz,
+		radius: '10000',
+		type: ['parking']
+		};
+
+	service = new google.maps.places.PlacesService(map);
+	service.nearbySearch(request, callback);
+	
 }
  
 
