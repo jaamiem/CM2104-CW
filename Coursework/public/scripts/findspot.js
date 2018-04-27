@@ -5,9 +5,9 @@ function initMap() {
 		zoom: 8,
 		center: abz
 	});
-}
 
-/*
+
+
 // place Libary nearby search code places location marker of user on map
 // further options need to be included.
 var request = {
@@ -18,8 +18,8 @@ var request = {
 
 service = new google.maps.places.PlacesService(map);
 service.nearbySearch(request, callback);
-
- */
+}
+ 
 
 // This function places a marker on the passed map at the given location.
 function placeMarker(map, parkingName, location){
@@ -85,9 +85,10 @@ $(function() {
 
 	// Geolocating
 	var infoWindow = new google.maps.InfoWindow;
+	var pos;
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			var pos = {
+			pos = {
 				lat: position.coords.latitude,
 				lng: position.coords.longitude
 			};
