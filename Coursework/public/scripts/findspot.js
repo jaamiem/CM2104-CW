@@ -95,11 +95,11 @@ $(function() {
 	service.nearbySearch(request);
 			
 	
-	function placeMarker(map, parkingName, location){
+	function placeMarker(map, parkingName, parking){
 	//console.log(location);
 
 	var marker = new google.maps.Marker({
-		position: location,
+		position: parking,
 		title: parkingName,
 		map: map
 	});
