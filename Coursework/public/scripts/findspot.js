@@ -1,12 +1,21 @@
 // Creates a new map, centres it on Aberdeen and places it in the element with the ID 'map'
-
+var service;
 function initMap() {
 	
-	var abz = {lat:57.1497, lng:-2.0943};
+	var abz = new google.maps.LatLng(57.1497, -2.0943);
 	return new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: abz
 	});
+	var request = {
+		location: abz,
+		radius: '10000',
+		type: ['restaurant']
+		};
+
+	service = new google.maps.places.PlacesService(map);
+	service.textSearch(request, callback);
+	
 }
  
 
@@ -83,23 +92,23 @@ $(function() {
 	// Geolocating
 	var infoWindow = new google.maps.InfoWindow();
 	var pos;
-	
+	//var abz = {lat:57.1497, lng:-2.0943};
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
-	var request = {
-		location: pos,
-		radius: '5000',
+	/*var request = {
+		location: abz,
+		radius: '10000',
 		type: ['parking']
 		};
 
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
-			
-	function callback(item, status) {
+	*/		
+	function callback(result, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < item.length; i++) {
-      var place = item[i];
-      createMarker(item[i]);
+    for (var i = 0; i < result.length; i++) {
+      var place = result[i];
+      createMarker(result[i]);
     }
   }
 }
