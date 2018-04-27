@@ -95,11 +95,11 @@ $(function() {
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
 			
-	function callback(item, status) {
+	function callback(result, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < item.length; i++) {
-      var place = item[i];
-      createMarker(item[i]);
+    for (var i = 0; i < result.length; i++) {
+      var place = result[i];
+      createMarker(result[i]);
     }
   }
 }
