@@ -88,7 +88,7 @@ $(function() {
 	var request = {
 		location: pos,
 		radius: '50',
-		type: ['locations']
+		type: ['locations.json']
 	};
 	
 	function callback(results, status) {
