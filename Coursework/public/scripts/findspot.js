@@ -24,7 +24,7 @@ function placeMarker(map, parkingName, location){
 	});
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		infoWindow.setContent(location.name);
+		infoWindow.setContent(parkingName);
 		infoWindow.open(map, this);
 	});
 }
