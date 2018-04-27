@@ -88,7 +88,7 @@ $(function() {
 	// further options need to be included.
 	var request = {
 		location: pos,
-		radius: '5000',
+		radius: '10000',
 		type: ['parking']
 		};
 
