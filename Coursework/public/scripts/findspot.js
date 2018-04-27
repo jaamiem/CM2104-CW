@@ -84,7 +84,7 @@ $(function() {
 	};
 
 	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
+	service.nearbySearch(request);
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
