@@ -83,7 +83,7 @@ $(function() {
 	// Geolocating
 	var infoWindow = new google.maps.InfoWindow();
 	var pos;
-	
+	var abz = {lat:57.1497, lng:-2.0943};
 	// place Libary nearby search code places location marker of user on map
 	// further options need to be included.
 	var request = {
