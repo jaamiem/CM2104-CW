@@ -242,18 +242,18 @@ app.post('/ratelocation', (req, res) => {
 	var incQuery = {};
 	
 	if (typeof req.body.rate1 !== 'undefined') {
-		incQuery = {$set: {$inc: {"1star": 1}}};
+		incQuery = {$inc: {"1star": 1}};
 	} else if (typeof req.body.rate2 !== 'undefined') {
-		incQuery = {$set: {$inc: {"2star": 1}}};
+		incQuery = {$inc: {"2star": 1}};
 	} else if (typeof req.body.rate3 !== 'undefined') {
-		incQuery = {$set: {$inc: {"3star": 1}}};
+		incQuery = {$inc: {"3star": 1}};
 	} else if (typeof req.body.rate4 !== 'undefined') {
-		incQuery = {$set: {$inc: {"4star": 1}}};
+		incQuery = {$inc: {"4star": 1}};
 	} else if (typeof req.body.rate5 !== 'undefined') {
-		incQuery = {$set: {$inc: {"5star": 1}}};
+		incQuery = {$inc: {"5star": 1}};
 	}
 	
-	db.collection('locations').update({"name":req.body.name}, incQuery);
+	db.collection('locations').updateOne({"name":req.body.name}, incQuery);
 	
 	res.redirect('/');
 });
